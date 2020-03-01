@@ -50,6 +50,15 @@ sudo aptitude update && sudo aptitude install -y virtualbox-6.1
 wget -P ~/Downloads https://releases.hashicorp.com/vagrant/2.2.7/vagrant_2.2.7_x86_64.deb
 sudo dpkg -i ~/Downloads/vagrant_2.2.7_x86_64.deb; sudo apt aptitude -f -y
 
+wget -P ~/Downloads https://dl.google.com/go/go1.13.8.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf ~/Downloads/go1.13.8.linux-amd64.tar.gz
+mkdir -p ~/go
+echo -e '\n# golang config' >> ~/.bashrc
+echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc
+export PATH=$PATH:/usr/local/go/bin
+go env -w GOPATH=$HOME/go
+go env -w GO111MODULE=on
+
 sudo aptitude install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
@@ -66,6 +75,7 @@ sudo ln -s python3 /usr/bin/python
 
 sudo timedatectl set-local-rtc 1
 sudo systemctl disable ssh
+shutdown -r now
 
 # sudo aptitude install -y \
 # bluetooth bluez blueman \

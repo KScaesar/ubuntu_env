@@ -77,6 +77,9 @@ echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.profile
 echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.profile
 echo 'eval "$(pyenv init -)"' >> ~/.profile
 echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.profile
+echo -e '\n# pyenv config' >> ~/.bashrc
+echo 'eval "$(pyenv init -)"' >> ~/.bashrc
+echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
 sudo ln -sf python3 /usr/bin/python
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"

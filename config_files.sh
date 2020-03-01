@@ -31,9 +31,10 @@ EOF
 cat << EOF > ~/.gitconfig
 [user]
     name = caesar
-    email = 
+    email = x246libra@hotmail.com
 [core]
     editor = code --wait 
+    autocrlf = input
 [merge]
     tool = vscode
 [mergetool "vscode"]
@@ -42,4 +43,6 @@ cat << EOF > ~/.gitconfig
     tool = vscode
 [difftool "vscode"]
     cmd = code --wait --diff $LOCAL $REMOTE
+[credential]
+    helper = store
 EOF

@@ -64,6 +64,9 @@ echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.profile
 echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.profile
 sudo ln -s python3 /usr/bin/python
 
+sudo timedatectl set-local-rtc 1
+sudo systemctl disable ssh
+
 # sudo aptitude install -y \
 # bluetooth bluez blueman \
 # lm-sensors hddtemp psensor \

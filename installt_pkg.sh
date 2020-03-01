@@ -70,8 +70,11 @@
 # echo -e '\n# pyenv config' >> ~/.profile
 # echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.profile
 # echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.profile
-# echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.profile
-# sudo ln -s python3 /usr/bin/python
+# echo 'eval "$(pyenv init -)"' >> ~/.profile
+# sudo ln -sf python3 /usr/bin/python
+# export PATH="$HOME/.pyenv/bin:$PATH"
+# eval "$(pyenv init -)"
+# pyenv install 3.8.2 && pyenv global 3.8.2
 
 # echo -e '\n# nvm config' >> ~/.bashrc
 # wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash

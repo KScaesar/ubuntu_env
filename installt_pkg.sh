@@ -53,7 +53,7 @@ wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-
 sudo add-apt-repository "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib"
 sudo aptitude update && sudo aptitude install -y virtualbox-6.1
 wget -P ~/Downloads https://releases.hashicorp.com/vagrant/2.2.7/vagrant_2.2.7_x86_64.deb
-sudo dpkg -i ~/Downloads/vagrant_2.2.7_x86_64.deb; sudo apt aptitude -f -y
+sudo dpkg -i ~/Downloads/vagrant_2.2.7_x86_64.deb; sudo aptitude install -fy
 
 sudo aptitude install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -76,6 +76,7 @@ echo -e '\n# pyenv config' >> ~/.profile
 echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.profile
 echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.profile
 echo 'eval "$(pyenv init -)"' >> ~/.profile
+echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.profile
 sudo ln -sf python3 /usr/bin/python
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
@@ -103,4 +104,4 @@ nvm install --lts=erbium && nvm alias default node
 
 sudo timedatectl set-local-rtc 1
 sudo systemctl disable ssh
-# shutdown -r now
+shutdown -r now

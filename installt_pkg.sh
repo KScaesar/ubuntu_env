@@ -1,4 +1,4 @@
-#!/bin/bash
+# !/bin/bash
 
 # sudo add-apt-repository -y ppa:git-core/ppa
 # sudo apt update && sudo apt install --yes aptitude
@@ -50,6 +50,12 @@
 # wget -P ~/Downloads https://releases.hashicorp.com/vagrant/2.2.7/vagrant_2.2.7_x86_64.deb
 # sudo dpkg -i ~/Downloads/vagrant_2.2.7_x86_64.deb; sudo apt aptitude -f -y
 
+# sudo aptitude install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+# curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+# sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+# sudo aptitude update && sudo aptitude install -y docker-ce docker-ce-cli containerd.io
+# sudo usermod -aG docker caesar
+
 # wget -P ~/Downloads https://dl.google.com/go/go1.13.8.linux-amd64.tar.gz
 # sudo tar -C /usr/local -xzf ~/Downloads/go1.13.8.linux-amd64.tar.gz
 # mkdir -p ~/go
@@ -58,12 +64,6 @@
 # export PATH=$PATH:/usr/local/go/bin
 # go env -w GOPATH=$HOME/go
 # go env -w GO111MODULE=on
-
-# sudo aptitude install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
-# curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-# sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-# sudo aptitude update && sudo aptitude install -y docker-ce docker-ce-cli containerd.io
-# sudo usermod -aG docker caesar
 
 # sudo aptitude install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm
 # curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
@@ -83,7 +83,7 @@
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 # nvm install --lts=erbium && nvm alias default node
 
-# =================== 個人筆電用 start =================== 
+# # =================== 個人筆電用 start =================== 
 
 # sudo aptitude install -y \
 # bluetooth bluez blueman \
@@ -94,7 +94,7 @@
 # sudo add-apt-repository -y ppa:linrunner/tlp 
 # sudo aptitude update && sudo aptitude install -y tlp tlp-rdw
 
-# =================== 個人筆電用 end =================== 
+# # =================== 個人筆電用 end =================== 
 
 # sudo timedatectl set-local-rtc 1
 # sudo systemctl disable ssh

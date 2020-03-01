@@ -46,3 +46,15 @@ cat << EOF > ~/.gitconfig
 [credential]
     helper = store
 EOF
+
+# show git branch
+echo -e '\n# show git branch' >> ~/.bashrc
+echo 'function parse_git_branch () {' >> ~/.bashrc
+echo '  git branch 2> /dev/null | sed -e "/^[^*]/d" -e "s/* \(.*\)/(\1)/"' >> ~/.bashrc
+echo '}' >> ~/.bashrc
+echo 'RED="\[\033[01;31m\]"' >> ~/.bashrc
+echo 'YELLOW="\[\033[01;33m\]"' >> ~/.bashrc
+echo 'GREEN="\[\033[01;32m\]"' >> ~/.bashrc
+echo 'BLUE="\[\033[01;34m\]"' >> ~/.bashrc
+echo 'NO_COLOR="\[\033[00m\]"' >> ~/.bashrc
+echo 'PS1="$GREEN\u@\h$NO_COLOR:$BLUE\w $YELLOW\$(parse_git_branch)\n$NO_COLOR\$ "' >> ~/.bashrc

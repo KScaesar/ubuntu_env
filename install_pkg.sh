@@ -101,7 +101,9 @@ nvm install --lts=erbium && nvm alias default node
 # kazam \
 
 # sudo add-apt-repository -y ppa:linrunner/tlp 
-# sudo aptitude update && sudo aptitude install -y tlp tlp-rdw
+# sudo add-apt-repository -y ppa:linuxuprising/apps
+# sudo aptitude update && sudo aptitude install -y tlp tlp-rdw tlpui
+# sudo service tlp start
 
 # =================== 個人筆電用 end =================== 
 

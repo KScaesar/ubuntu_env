@@ -16,6 +16,7 @@ tmux \
 vim \
 htop \
 ssh \
+tree \
 fonts-firacode \
 gdebi \
 
@@ -104,6 +105,10 @@ nvm install --lts=erbium && nvm alias default node
 # sudo add-apt-repository -y ppa:linuxuprising/apps
 # sudo aptitude update && sudo aptitude install -y tlp tlp-rdw tlpui
 # sudo service tlp start
+
+echo -e '\n #graphic driver config' >> /etc/modprobe.d/blacklist-nouvea.conf
+echo 'blacklist nouveau' >> /etc/modprobe.d/blacklist-nouvea.conf
+echo 'options nouveau modeset=0' >> /etc/modprobe.d/blacklist-nouvea.conf
 
 # =================== 個人筆電用 end =================== 
 

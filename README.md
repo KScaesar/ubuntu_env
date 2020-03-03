@@ -7,3 +7,9 @@
 ```bash
 chmod 777 config_files.sh installt_pkg.sh 
 ```
+
+## 執行
+
+```bash
+./config_files.sh && ./installt_pkg.sh 
+```

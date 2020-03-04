@@ -67,9 +67,10 @@ wget -P ~/Downloads https://dl.google.com/go/go1.13.8.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzf ~/Downloads/go1.13.8.linux-amd64.tar.gz
 mkdir -p ~/go
 echo -e '\n# golang config' >> ~/.bashrc
-echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc
+echo 'export PATH=$PATH:~/go/bin:/usr/local/go/bin' >> ~/.bashrc
 export PATH=$PATH:/usr/local/go/bin
 go env -w GOPATH=$HOME/go
+go env -w GOBIN=$(go env GOPATH)/bin
 go env -w GO111MODULE=on
 
 sudo aptitude install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm

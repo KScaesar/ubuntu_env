@@ -17,8 +17,6 @@ vim \
 htop \
 ssh \
 tree \
-fonts-firacode \
-gdebi \
 
 sudo aptitude install -y \
 synaptic \
@@ -28,6 +26,9 @@ exfat-utils exfat-fuse \
 mpv \
 gnome-tweak-tool \
 telegram-desktop \
+fonts-firacode \
+gdebi \
+dconf-editor \
 
 wget -P ~/Downloads https://d11yldzmag5yn.cloudfront.net/prod/3.5.359539.0224/zoom_amd64.deb
 sudo aptitude install -y libglib2.0-0 libgstreamer-plugins-base1.0-dev libxcb-shape0 libxcb-shm0 libxcb-xfixes0 libxcb-randr0 libxcb-image0 libfontconfig1 libgl1-mesa-glx libxi6 libsm6 libxrender1 libpulse0 libxcomposite1 libxslt1.1 libsqlite3-0 libxcb-keysyms1 libxcb-xtest0

@@ -109,11 +109,6 @@ nvm install --lts=erbium && nvm alias default node
 
 # =================== 個人筆電用 end ===================
 
-echo -e '# graphic driver config' | sudo tee /etc/modprobe.d/blacklist-nouvea.conf
-echo 'blacklist nouveau' | sudo tee -a /etc/modprobe.d/blacklist-nouvea.conf
-echo 'options nouveau modeset=0' | sudo tee -a /etc/modprobe.d/blacklist-nouvea.conf
-sudo update-initramfs -u
-
 sudo timedatectl set-local-rtc 1
 sudo systemctl disable ssh
 shutdown -r now

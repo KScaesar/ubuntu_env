@@ -58,3 +58,9 @@ echo 'GREEN="\[\033[01;32m\]"' >> ~/.bashrc
 echo 'BLUE="\[\033[01;34m\]"' >> ~/.bashrc
 echo 'NO_COLOR="\[\033[00m\]"' >> ~/.bashrc
 echo 'PS1="$GREEN\u@\h$NO_COLOR:$BLUE\w $YELLOW\$(parse_git_branch)\n$NO_COLOR\$ "' >> ~/.bashrc
+
+# graphic driver config
+echo -e '# graphic driver config' | sudo tee /etc/modprobe.d/blacklist-nouvea.conf
+echo 'blacklist nouveau' | sudo tee -a /etc/modprobe.d/blacklist-nouvea.conf
+echo 'options nouveau modeset=0' | sudo tee -a /etc/modprobe.d/blacklist-nouvea.conf
+sudo update-initramfs -u

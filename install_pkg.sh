@@ -9,7 +9,6 @@ sudo snap install snap-store postman
 sudo aptitude install -y \
 build-essential \
 curl \
-tldr \
 jq \
 git \
 tmux \
@@ -29,6 +28,7 @@ telegram-desktop \
 fonts-firacode \
 gdebi \
 dconf-editor \
+cpu-checker \
 
 wget -P ~/Downloads https://d11yldzmag5yn.cloudfront.net/prod/3.5.359539.0224/zoom_amd64.deb
 sudo aptitude install -y libglib2.0-0 libgstreamer-plugins-base1.0-dev libxcb-shape0 libxcb-shm0 libxcb-xfixes0 libxcb-randr0 libxcb-image0 libfontconfig1 libgl1-mesa-glx libxi6 libsm6 libxrender1 libpulse0 libxcomposite1 libxslt1.1 libsqlite3-0 libxcb-keysyms1 libxcb-xtest0
@@ -51,6 +51,8 @@ sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/packages.microso
 sudo aptitude install -y apt-transport-https
 sudo aptitude update && sudo aptitude install code
 
+sudo aptitude install -y qemu-kvm libvirt-bin ubuntu-vm-builder bridge-utils
+sudo adduser `id -un` libvirt
 wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib"
 sudo aptitude update && sudo aptitude install -y virtualbox-6.1

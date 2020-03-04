@@ -33,7 +33,7 @@ cat << EOF > ~/.gitconfig
     name = caesar
     email = x246libra@hotmail.com
 [core]
-    editor = code --wait 
+    editor = code --wait
     autocrlf = input
 [merge]
     tool = vscode
@@ -46,6 +46,10 @@ cat << EOF > ~/.gitconfig
 [credential]
     helper = store
 EOF
+
+# my alias
+echo -e '\n# my alias' >> ~/.bashrc
+echo 'alias fm="nautilus"' >> ~/.bashrc
 
 # show git branch
 echo -e '\n# show git branch' >> ~/.bashrc

@@ -94,7 +94,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 nvm install --lts=erbium && nvm alias default node
 
-# =================== 個人筆電用 start =================== 
+# =================== 個人筆電用 start ===================
 
 # sudo aptitude install -y \
 # bluetooth bluez blueman \
@@ -102,16 +102,17 @@ nvm install --lts=erbium && nvm alias default node
 # vokoscreen \
 # kazam \
 
-# sudo add-apt-repository -y ppa:linrunner/tlp 
+# sudo add-apt-repository -y ppa:linrunner/tlp
 # sudo add-apt-repository -y ppa:linuxuprising/apps
 # sudo aptitude update && sudo aptitude install -y tlp tlp-rdw tlpui
 # sudo service tlp start
 
-echo -e '\n #graphic driver config' >> /etc/modprobe.d/blacklist-nouvea.conf
-echo 'blacklist nouveau' >> /etc/modprobe.d/blacklist-nouvea.conf
-echo 'options nouveau modeset=0' >> /etc/modprobe.d/blacklist-nouvea.conf
+# =================== 個人筆電用 end ===================
 
-# =================== 個人筆電用 end =================== 
+echo -e '# graphic driver config' | sudo tee /etc/modprobe.d/blacklist-nouvea.conf
+echo 'blacklist nouveau' | sudo tee -a /etc/modprobe.d/blacklist-nouvea.conf
+echo 'options nouveau modeset=0' | sudo tee -a /etc/modprobe.d/blacklist-nouvea.conf
+sudo update-initramfs -u
 
 sudo timedatectl set-local-rtc 1
 sudo systemctl disable ssh

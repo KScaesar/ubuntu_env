@@ -56,6 +56,7 @@ sudo adduser `id -un` libvirt
 wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib"
 sudo aptitude update && sudo aptitude install -y virtualbox-6.1
+# https://www.vagrantup.com/downloads.html
 wget -P ~/Downloads https://releases.hashicorp.com/vagrant/2.2.7/vagrant_2.2.7_x86_64.deb
 sudo dpkg -i ~/Downloads/vagrant_2.2.7_x86_64.deb; sudo aptitude install -fy
 
@@ -64,6 +65,9 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 sudo aptitude update && sudo aptitude install -y docker-ce docker-ce-cli containerd.io
 sudo usermod -aG docker caesar
+# https://docs.docker.com/compose/install/
+sudo curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
 
 wget -P ~/Downloads https://dl.google.com/go/go1.13.8.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzf ~/Downloads/go1.13.8.linux-amd64.tar.gz

@@ -16,7 +16,6 @@ vim \
 htop \
 ssh \
 tree \
-gksu \
 
 sudo aptitude install -y \
 synaptic \

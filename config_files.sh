@@ -49,8 +49,8 @@ EOF
 
 # my alias
 echo -e '\n# my alias' >> ~/.bashrc
-echo 'alias fm="nautilus"' >> ~/.bashrc
-echo 'alias sfm="sudo nautilus"' >> ~/.bashrc
+echo 'alias fm="gio open"' >> ~/.bashrc
+echo 'alias sfm="sudo gio open"' >> ~/.bashrc
 
 # show git branch
 echo -e '\n# show git branch' >> ~/.bashrc

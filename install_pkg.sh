@@ -90,7 +90,7 @@ echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.profile
 echo -e '\n# pyenv config' >> ~/.bashrc
 echo 'eval "$(pyenv init -)"' >> ~/.bashrc
 echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
-sudo ln -sf python3 /usr/bin/python
+sudo ln -s python3 /usr/bin/python
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 pyenv install 3.8.2 && pyenv global 3.8.2

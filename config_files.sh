@@ -51,6 +51,7 @@ EOF
 echo -e '\n# my alias' >> ~/.bashrc
 echo 'alias fm="gio open"' >> ~/.bashrc
 echo 'alias sfm="sudo gio open"' >> ~/.bashrc
+echo 'alias dcom="docker-compose"' >> ~/.bashrc
 
 # show git branch
 echo -e '\n# show git branch' >> ~/.bashrc

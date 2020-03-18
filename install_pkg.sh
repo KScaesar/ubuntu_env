@@ -16,6 +16,7 @@ vim \
 htop \
 ssh \
 tree \
+cloc \
 
 sudo aptitude install -y \
 synaptic \

@@ -73,7 +73,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 wget -P ~/Downloads https://dl.google.com/go/go1.13.8.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzf ~/Downloads/go1.13.8.linux-amd64.tar.gz
 mkdir -p ~/go
-echo -e '\n# golang config' >> ~/.bashrc
+echo -e '\n# golang' >> ~/.bashrc
 echo 'export PATH=$PATH:~/go/bin:/usr/local/go/bin' >> ~/.bashrc
 export PATH=$PATH:/usr/local/go/bin
 go env -w GOPATH=$HOME/go
@@ -82,12 +82,12 @@ go env -w GO111MODULE=on
 
 sudo aptitude install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm
 curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
-echo -e '\n# pyenv config' >> ~/.profile
+echo -e '\n# pyenv' >> ~/.profile
 echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.profile
 echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.profile
 echo 'eval "$(pyenv init -)"' >> ~/.profile
 echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.profile
-echo -e '\n# pyenv config' >> ~/.bashrc
+echo -e '\n# pyenv' >> ~/.bashrc
 echo 'eval "$(pyenv init -)"' >> ~/.bashrc
 echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
 sudo ln -s python3 /usr/bin/python
@@ -95,7 +95,7 @@ export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 pyenv install 3.8.2 && pyenv global 3.8.2
 
-echo -e '\n# nvm config' >> ~/.bashrc
+echo -e '\n# nvm' >> ~/.bashrc
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"

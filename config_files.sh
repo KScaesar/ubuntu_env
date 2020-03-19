@@ -48,7 +48,7 @@ cat << EOF > ~/.gitconfig
 EOF
 
 # my alias
-echo -e '\n# my alias' >> ~/.bashrc
+echo -e '\n# user alias' >> ~/.bashrc
 echo 'alias fm="gio open"' >> ~/.bashrc
 echo 'alias sfm="sudo gio open"' >> ~/.bashrc
 echo 'alias dcom="docker-compose"' >> ~/.bashrc

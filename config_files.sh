@@ -47,12 +47,6 @@ cat << EOF > ~/.gitconfig
     helper = store
 EOF
 
-# user alias
-echo -e '\n# user alias' >> ~/.bashrc
-echo 'alias fm="gio open"' >> ~/.bashrc
-echo 'alias sfm="sudo gio open"' >> ~/.bashrc
-echo 'alias dcom="docker-compose"' >> ~/.bashrc
-
 # show git branch
 echo -e '\n# show git branch' >> ~/.bashrc
 echo 'function parse_git_branch () {' >> ~/.bashrc
@@ -83,6 +77,20 @@ NO_COLOR="\[\033[00m\]"
 BWhite="\[\033[1;37m\]"
 EOF
 echo 'PS1="$YELLOW[\A]$NO_COLOR $On_Red$BWhite\u$NO_COLOR@$RED\h: $BIBlue\w\n$NO_COLOR# "'  | sudo tee -a /root/.bashrc
+
+# user alias
+echo -e '\n# user alias' >> ~/.bashrc
+echo 'alias fm="gio open"' >> ~/.bashrc
+echo 'alias sfm="sudo gio open"' >> ~/.bashrc
+echo 'alias dcom="docker-compose"' >> ~/.bashrc
+
+# tmux
+echo -e '\n# tmux' >> ~/.bashrc
+cat << EOF >> ~/.bashrc
+if [[ \$TMUX ]]; then
+  return
+fi
+EOF
 
 # graphic driver config
 # echo -e '# graphic driver config' | sudo tee /etc/modprobe.d/blacklist-nouvea.conf

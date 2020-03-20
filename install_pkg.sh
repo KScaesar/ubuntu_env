@@ -106,6 +106,7 @@ nvm install --lts=erbium && nvm alias default node
 # lm-sensors hddtemp psensor \
 # vokoscreen \
 # kazam \
+# pcscd pcsc-tools
 
 # sudo add-apt-repository -y ppa:linrunner/tlp
 # sudo add-apt-repository -y ppa:linuxuprising/apps

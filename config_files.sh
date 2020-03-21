@@ -102,10 +102,10 @@ echo 'alias fm="gio open"' >> ~/.bashrc
 echo 'alias sfm="sudo gio open"' >> ~/.bashrc
 echo 'alias dcom="docker-compose"' >> ~/.bashrc
 
-# tmux
-echo -e '\n# tmux' >> ~/.bashrc
+# avoid duplicate env variable
+echo -e '\n# avoid duplicate env variable' >> ~/.bashrc
 cat << EOF >> ~/.bashrc
-if [[ \$TMUX ]]; then
+if [[ \$TMUX != "" ]] || [[ \$TERM_PROGRAM == "vscode" ]]; then
   return
 fi
 EOF

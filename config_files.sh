@@ -27,6 +27,23 @@ bind M \\
     display 'Mouse: OFF'
 EOF
 
+# imwheel
+cat << EOF > ~/.imwheelrc
+".*"
+None, Up,   Button4, 5
+None, Down, Button5, 5
+None, Thumb1, Alt_L|Left
+None, Thumb2, Alt_L|Right
+
+# 橫向移動
+Shift_L,   Up,   Shift_L|Button4, 3
+Shift_L,   Down, Shift_L|Button5, 3
+
+# zoom
+Control_L, Up,   Control_L|Button4
+Control_L, Down, Control_L|Button5
+EOF
+
 # git config
 cat << EOF > ~/.gitconfig
 [user]

@@ -80,6 +80,8 @@ PATH=$PATH:/usr/local/go/bin
 go env -w GOPATH=$HOME/go
 go env -w GOBIN=$(go env GOPATH)/bin
 go env -w GO111MODULE=on
+go get -u github.com/posener/complete/gocomplete
+gocomplete -install
 
 sudo aptitude install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm
 curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash

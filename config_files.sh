@@ -4,6 +4,7 @@
 cat << EOF > ~/.tmux.conf
 # default
 set-option -g mouse on
+set -g default-command "/bin/bash"
 set -g default-terminal "screen-256color"
 
 # Toggle synpanes on

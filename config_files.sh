@@ -98,9 +98,12 @@ echo 'PS1="$YELLOW[\A]$NO_COLOR $On_Red$BWhite\u$NO_COLOR@$RED\h: $BIBlue\w\n$NO
 
 # user alias
 echo -e '\n# user alias' >> ~/.bashrc
-echo 'alias fm="gio open"' >> ~/.bashrc
-echo 'alias sfm="sudo gio open"' >> ~/.bashrc
-echo 'alias dcom="docker-compose"' >> ~/.bashrc
+cat << EOF >> ~/.bashrc
+alias fm="gio open"
+alias sfm="sudo gio open"
+alias dcom="docker-compose"
+alias scode="sudo code --user-data-dir='\$HOME/.config/Code'"
+EOF
 
 # avoid duplicate env variable
 echo -e '\n# avoid duplicate env variable' >> ~/.bashrc

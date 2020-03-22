@@ -133,6 +133,7 @@ PS1="$RED[\A]$NO_COLOR $GREEN\u@\h$BWhite: $Cyan\w $YELLOW\$(parse_git_branch)\n
 alias fm="gio open"
 alias sfm="sudo gio open"
 alias dcom="docker-compose"
+alias scode="sudo code --user-data-dir='$HOME/.config/Code'"
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
@@ -145,23 +146,12 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-# tmux vscode
-if [[ $TMUX != "" ]] || [[ $TERM_PROGRAM == "vscode" ]]; then
-  return
+# avoid duplicate env variable
+if [[ $TMUX == "" ]] ; then
+	# golang
+	export PATH=~/go/bin:/usr/local/go/bin:$PATH
 fi
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
+complete -C /home/caesar/go/bin/gocomplete go
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
-fi
-
-# golang
-export PATH=~/go/bin:/usr/local/go/bin:$PATH
-
-
-
+# export PATH=bashrc.$-_Command.$0_Param.$@:$PATH

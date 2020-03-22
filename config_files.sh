@@ -108,9 +108,20 @@ EOF
 # avoid duplicate env variable
 echo -e '\n# avoid duplicate env variable' >> ~/.bashrc
 cat << EOF >> ~/.bashrc
-if [[ \$TMUX != "" ]] || [[ \$TERM_PROGRAM == "vscode" ]]; then
-  return
+if [[ \$TMUX == "" ]] ; then
+    echo "move export env to here"
+    return
 fi
+EOF
+
+# avoid duplicate env variable for vscode
+echo -e '\n# avoid duplicate env variable for vscode' >> ~/.profile
+cat << EOF >> ~/.profile
+echo "move case statement to ~/.profile head"
+case \$- in
+    *m*) ;;
+    *) return ;;
+esac
 EOF
 
 # graphic driver config

@@ -71,25 +71,15 @@ sudo usermod -aG docker caesar
 sudo curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 
-wget -P ~/Downloads https://dl.google.com/go/go1.13.8.linux-amd64.tar.gz
-sudo tar -C /usr/local -xzf ~/Downloads/go1.13.8.linux-amd64.tar.gz
-mkdir -p ~/go
-echo -e '\n# golang' >> ~/.bashrc
-echo 'export PATH=~/go/bin:/usr/local/go/bin:$PATH' >> ~/.bashrc
-PATH=$PATH:/usr/local/go/bin
-go env -w GOPATH=$HOME/go
-go env -w GOBIN=$(go env GOPATH)/bin
-go env -w GO111MODULE=on
-go get -u github.com/posener/complete/gocomplete
-gocomplete -install
-
 sudo aptitude install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm
 curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
 echo -e '\n# pyenv' >> ~/.bashrc
-echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
-echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
-echo 'eval "$(pyenv init -)"' >> ~/.bashrc
-echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
+cat << EOF >> ~/.bashrc
+export PYENV_ROOT="\$HOME/.pyenv"
+export PATH="\$PYENV_ROOT/bin:\$PATH"
+eval "\$(pyenv init -)"
+eval "\$(pyenv virtualenv-init -)"
+EOF
 sudo ln -s python3 /usr/bin/python
 PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
@@ -101,6 +91,18 @@ NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 nvm install --lts=erbium && nvm alias default node
+
+wget -P ~/Downloads https://dl.google.com/go/go1.13.8.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf ~/Downloads/go1.13.8.linux-amd64.tar.gz
+mkdir -p ~/go
+echo -e '\n# golang' >> ~/.bashrc
+echo 'export PATH=~/go/bin:/usr/local/go/bin:$PATH' >> ~/.bashrc
+PATH=$PATH:/usr/local/go/bin
+go env -w GOPATH=$HOME/go
+go env -w GOBIN=$(go env GOPATH)/bin
+go env -w GO111MODULE=on
+go get -u github.com/posener/complete/gocomplete
+gocomplete -install
 
 # =================== 個人筆電用 start ===================
 

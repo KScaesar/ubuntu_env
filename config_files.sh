@@ -99,8 +99,8 @@ echo 'PS1="$YELLOW[\A]$NO_COLOR $On_Red$BWhite\u$NO_COLOR@$RED\h: $BIBlue\w\n$NO
 # user alias
 echo -e '\n# user alias' >> ~/.bashrc
 cat << EOF >> ~/.bashrc
-alias fm="gio open"
-alias sfm="sudo gio open"
+alias wm="gio open"
+alias swm="sudo gio open"
 alias dcom="docker-compose"
 alias scode="sudo code --user-data-dir='\$HOME/.config/Code'"
 EOF
@@ -125,7 +125,7 @@ esac
 EOF
 
 # graphic driver config
-# echo -e '# graphic driver config' | sudo tee /etc/modprobe.d/blacklist-nouvea.conf
 # echo 'blacklist nouveau' | sudo tee -a /etc/modprobe.d/blacklist-nouvea.conf
 # echo 'options nouveau modeset=0' | sudo tee -a /etc/modprobe.d/blacklist-nouvea.conf
+# echo -e '# graphic driver config' | sudo tee /etc/modprobe.d/blacklist-nouvea.conf
 # sudo update-initramfs -u

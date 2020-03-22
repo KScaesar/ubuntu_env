@@ -130,8 +130,8 @@ BWhite="\[\033[1;37m\]"
 PS1="$RED[\A]$NO_COLOR $GREEN\u@\h$BWhite: $Cyan\w $YELLOW\$(parse_git_branch)\n$NO_COLOR\$ "
 
 # user alias
-alias fm="gio open"
-alias sfm="sudo gio open"
+alias wm="gio open"
+alias swm="sudo gio open"
 alias dcom="docker-compose"
 alias scode="sudo code --user-data-dir='$HOME/.config/Code'"
 

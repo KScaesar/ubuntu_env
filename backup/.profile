@@ -10,8 +10,7 @@
 
 # avoid duplicate env variable for vscode
 case $- in
-  *m*) ;;
-	*) return;;
+    hiBHc) return ;;
 esac
 
 # if running bash
@@ -31,5 +30,7 @@ fi
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
+
+export PATH=~/go/bin:/usr/local/go/bin:$PATH
 
 # export PATH=profile.$-_Command.$0_Param.$@:$PATH

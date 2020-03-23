@@ -146,12 +146,6 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-# avoid duplicate env variable
-if [[ $TMUX == "" ]] ; then
-	# golang
-	export PATH=~/go/bin:/usr/local/go/bin:$PATH
-fi
-
 complete -C /home/caesar/go/bin/gocomplete go
 
 # export PATH=bashrc.$-_Command.$0_Param.$@:$PATH

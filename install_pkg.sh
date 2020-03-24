@@ -115,6 +115,7 @@ PATH=$PATH:/usr/local/go/bin
 go env -w GOPATH=$HOME/go
 go env -w GOBIN=$(go env GOPATH)/bin
 go env -w GO111MODULE=on
+go env -w CGO_ENABLED=0
 go get -u github.com/posener/complete/gocomplete
 gocomplete -install
 

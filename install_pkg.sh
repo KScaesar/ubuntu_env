@@ -59,6 +59,11 @@ sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/packages.microso
 sudo aptitude install -y apt-transport-https
 sudo aptitude update && sudo aptitude install code
 
+# dbeaver
+sudo add-apt-repository -y ppa:serge-rider/dbeaver-ce
+sudo aptitude update
+sudo aptitude install -y dbeaver-ce
+
 # virtualbox
 sudo aptitude install -y qemu-kvm libvirt-bin ubuntu-vm-builder bridge-utils
 sudo adduser `id -un` libvirt

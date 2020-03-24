@@ -66,7 +66,7 @@ wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-
 sudo add-apt-repository "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib"
 sudo aptitude update && sudo aptitude install -y virtualbox-6.1
 
-# vagrant 
+# vagrant
 # https://www.vagrantup.com/downloads.html
 wget -P ~/Downloads https://releases.hashicorp.com/vagrant/2.2.7/vagrant_2.2.7_x86_64.deb
 sudo dpkg -i ~/Downloads/vagrant_2.2.7_x86_64.deb; sudo aptitude install -fy

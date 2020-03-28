@@ -5,11 +5,11 @@
 ## 前置準備
 
 ```bash
-chmod 777 config_files.sh install_pkg.sh 
+chmod 777 config_files.sh install_pkg.sh
 ```
 
 ## 執行
 
 ```bash
-./config_files.sh && ./install_pkg.sh 
+./config_files.sh && ./install_pkg.sh
 ```

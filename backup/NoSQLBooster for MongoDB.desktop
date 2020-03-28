@@ -1,0 +1,8 @@
+#!/usr/bin/env xdg-open
+
+[Desktop Entry]
+Name=NoSQLBooster
+Exec=/home/caesar/MyApp/NoSQLBooster/nosqlbooster4mongo-5.2.10.AppImage
+Icon=/home/caesar/MyApp/NoSQLBooster/nosqlbooster4mongo.png
+Type=Application
+StartupNotify=true

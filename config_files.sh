@@ -32,8 +32,8 @@ EOF
 # imwheel
 cat << EOF > ~/.imwheelrc
 ".*"
-None, Up,   Button4, 5
-None, Down, Button5, 5
+None, Up,   Button4, 3
+None, Down, Button5, 3
 None, Thumb1, Alt_L|Left
 None, Thumb2, Alt_L|Right
 

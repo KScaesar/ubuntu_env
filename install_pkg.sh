@@ -44,10 +44,20 @@ export PATH="\$PYENV_ROOT/bin:\$PATH"
 eval "\$(pyenv init -)"
 eval "\$(pyenv virtualenv-init -)"
 EOF
-sudo ln -s python3 /usr/bin/python
+if [ ! -f /usr/bin/python ]; then
+    sudo ln -s python3 /usr/bin/python
+fi
 PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 pyenv install 3.8.2 && pyenv global 3.8.2
+
+# python completion
+pip completion --bash | sudo tee /etc/bash_completion.d/python-pip
+pip install argcomplete
+activate-global-python-argcomplete --user
+sudo mv $HOME/.bash_completion.d/python-argcomplete /etc/bash_completion.d/python-argcomplete
+sudo chown -R root:root /etc/bash_completion.d
+rm -r $HOME/.bash_completion.d
 
 # nvm
 echo -e '\n# nvm' >> ~/.bashrc
@@ -70,6 +80,9 @@ go env -w GO111MODULE=on
 go env -w CGO_ENABLED=0
 go get -v github.com/posener/complete/gocomplete
 $(go env GOBIN)/gocomplete -install -y
+
+# ansible
+pip install ansible
 
 # zoom
 wget -P ~/Downloads https://d11yldzmag5yn.cloudfront.net/prod/3.5.359539.0224/zoom_amd64.deb

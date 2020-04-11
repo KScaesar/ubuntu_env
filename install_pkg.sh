@@ -88,7 +88,7 @@ sudo curl -L "https://github.com/docker/compose/releases/download/$docker_compos
 sudo chmod +x /usr/local/bin/docker-compose
 
 # pyenv
-sudo aptitude install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm lzma-dev
+sudo aptitude install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
 echo -e '\n# pyenv' >> ~/.bashrc
 cat << EOF >> ~/.bashrc

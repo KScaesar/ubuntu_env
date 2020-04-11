@@ -17,6 +17,7 @@ htop \
 ssh \
 tree \
 cloc \
+ntp \
 
 sudo aptitude install -y \
 synaptic \

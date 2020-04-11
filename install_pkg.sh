@@ -34,6 +34,43 @@ imwheel \
 
 sudo aptitude install -y samba-common-bin && mkdir /var/lib/samba/usershares
 
+# pyenv
+sudo aptitude install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+echo -e '\n# pyenv' >> ~/.bashrc
+cat << EOF >> ~/.bashrc
+export PYENV_ROOT="\$HOME/.pyenv"
+export PATH="\$PYENV_ROOT/bin:\$PATH"
+eval "\$(pyenv init -)"
+eval "\$(pyenv virtualenv-init -)"
+EOF
+sudo ln -s python3 /usr/bin/python
+PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+pyenv install 3.8.2 && pyenv global 3.8.2
+
+# nvm
+echo -e '\n# nvm' >> ~/.bashrc
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
+NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+nvm install --lts=erbium && nvm alias default node
+
+# go
+wget -P ~/Downloads https://dl.google.com/go/go1.13.8.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf ~/Downloads/go1.13.8.linux-amd64.tar.gz
+mkdir -p ~/go
+echo -e '\n# golang' >> ~/.profile
+echo 'export PATH=~/go/bin:/usr/local/go/bin:$PATH' >> ~/.profile
+PATH=$PATH:/usr/local/go/bin
+go env -w GOPATH=$HOME/go
+go env -w GOBIN=$(go env GOPATH)/bin
+go env -w GO111MODULE=on
+go env -w CGO_ENABLED=0
+go get -v github.com/posener/complete/gocomplete
+$(go env GOBIN)/gocomplete -install -y
+
 # zoom
 wget -P ~/Downloads https://d11yldzmag5yn.cloudfront.net/prod/3.5.359539.0224/zoom_amd64.deb
 sudo aptitude install -y libglib2.0-0 libgstreamer-plugins-base1.0-dev libxcb-shape0 libxcb-shm0 libxcb-xfixes0 libxcb-randr0 libxcb-image0 libfontconfig1 libgl1-mesa-glx libxi6 libsm6 libxrender1 libpulse0 libxcomposite1 libxslt1.1 libsqlite3-0 libxcb-keysyms1 libxcb-xtest0
@@ -73,56 +110,34 @@ sudo aptitude update && sudo aptitude install -y virtualbox-6.1
 
 # vagrant
 # https://www.vagrantup.com/downloads.html
-wget -P ~/Downloads https://releases.hashicorp.com/vagrant/2.2.7/vagrant_2.2.7_x86_64.deb
-sudo dpkg -i ~/Downloads/vagrant_2.2.7_x86_64.deb; sudo aptitude install -fy
+vagrant_version=2.2.7
+wget -P ~/Downloads https://releases.hashicorp.com/vagrant/$vagrant_version/vagrant_$vagrant_version\_x86_64.deb
+sudo dpkg -i ~/Downloads/vagrant_$vagrant_version\_x86_64.deb; sudo aptitude install -fy
 
-# docker docker-compose
-# https://docs.docker.com/compose/install/
-docker_compose_version=1.25.4
+# docker
 sudo aptitude install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 sudo aptitude update && sudo aptitude install -y docker-ce docker-ce-cli containerd.io
 sudo usermod -aG docker caesar
+
+# docker-compose
+# https://docs.docker.com/compose/install/
+docker_compose_version=1.25.4
 sudo curl -L "https://github.com/docker/compose/releases/download/$docker_compose_version/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 
-# pyenv
-sudo aptitude install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
-curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
-echo -e '\n# pyenv' >> ~/.bashrc
-cat << EOF >> ~/.bashrc
-export PYENV_ROOT="\$HOME/.pyenv"
-export PATH="\$PYENV_ROOT/bin:\$PATH"
-eval "\$(pyenv init -)"
-eval "\$(pyenv virtualenv-init -)"
-EOF
-sudo ln -s python3 /usr/bin/python
-PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-pyenv install 3.8.2 && pyenv global 3.8.2
-
-# nvm
-echo -e '\n# nvm' >> ~/.bashrc
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
-NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-nvm install --lts=erbium && nvm alias default node
-
-# go
-wget -P ~/Downloads https://dl.google.com/go/go1.13.8.linux-amd64.tar.gz
-sudo tar -C /usr/local -xzf ~/Downloads/go1.13.8.linux-amd64.tar.gz
-mkdir -p ~/go
-echo -e '\n# golang' >> ~/.profile
-echo 'export PATH=~/go/bin:/usr/local/go/bin:$PATH' >> ~/.profile
-PATH=$PATH:/usr/local/go/bin
-go env -w GOPATH=$HOME/go
-go env -w GOBIN=$(go env GOPATH)/bin
-go env -w GO111MODULE=on
-go env -w CGO_ENABLED=0
-go get -v github.com/posener/complete/gocomplete
-$(go env GOBIN)/gocomplete -install -y
+# Docker Machine
+# https://docs.docker.com/machine/install-machine/
+base=https://github.com/docker/machine/releases/download/v0.16.0 &&
+  curl -L $base/docker-machine-$(uname -s)-$(uname -m) >/tmp/docker-machine &&
+  sudo mv /tmp/docker-machine /usr/local/bin/docker-machine &&
+  chmod +x /usr/local/bin/docker-machine
+base=https://raw.githubusercontent.com/docker/machine/v0.16.0
+for i in docker-machine-wrapper.bash docker-machine.bash
+do
+  sudo wget "$base/contrib/completion/bash/${i}" -P /etc/bash_completion.d
+done
 
 # =================== 個人筆電用 start ===================
 

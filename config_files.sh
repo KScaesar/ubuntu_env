@@ -80,7 +80,7 @@ Cyan="\[\033[1;36m\]"
 NO_COLOR="\[\033[00m\]"
 BWhite="\[\033[1;37m\]"
 EOF
-echo 'PS1="$RED[\A]$NO_COLOR $GREEN\u@\h$BWhite: $Cyan\w $YELLOW\$(parse_git_branch)\n$NO_COLOR\$ "'>> ~/.bashrc
+echo 'PS1="$RED[\A]$NO_COLOR $GREEN\u@\h$BWhite: $Cyan\w $YELLOW$(parse_git_branch)\n$NO_COLOR\$ "'>> ~/.bashrc
 
 #  set PS1 for root user
 echo -e '\n# set PS1 for root user'  | sudo tee -a /root/.bashrc

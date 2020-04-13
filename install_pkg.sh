@@ -94,6 +94,7 @@ go get -v github.com/posener/complete/gocomplete
 
 ## ansible
 pip install ansible
+wget https://raw.githubusercontent.com/ansible/ansible/devel/examples/ansible.cfg -O "$HOME"/.ansible.cfg
 
 ## zoom
 wget -P ~/Downloads https://d11yldzmag5yn.cloudfront.net/prod/3.5.359539.0224/zoom_amd64.deb

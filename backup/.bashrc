@@ -127,7 +127,7 @@ BIPurple="\[\033[1;95m\]"
 Cyan="\[\033[1;36m\]"
 NO_COLOR="\[\033[00m\]"
 BWhite="\[\033[1;37m\]"
-PS1="$RED[\A]$NO_COLOR $GREEN\u@\h$BWhite: $Cyan\w $YELLOW\$(parse_git_branch)\n$NO_COLOR\$ "
+PS1="$RED[\A]$NO_COLOR $GREEN\u@\h$BWhite:$Cyan\w $YELLOW\$(parse_git_branch)$NO_COLOR\$ "
 
 # user alias
 alias wm="gio open"
@@ -149,3 +149,4 @@ eval "$(pyenv virtualenv-init -)"
 complete -C /home/caesar/go/bin/gocomplete go
 
 # export PATH=bashrc.$-_Command.$0_Param.$@:$PATH
+

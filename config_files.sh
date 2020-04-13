@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# tmux config
+## tmux config
 cat << EOF > ~/.tmux.conf
 # default
 set-option -g mouse on
@@ -29,7 +29,7 @@ bind M \\
     display 'Mouse: OFF'
 EOF
 
-# imwheel
+## imwheel
 cat << EOF > ~/.imwheelrc
 ".*"
 None, Up,   Button4, 3
@@ -46,7 +46,7 @@ Control_L, Up,   Control_L|Button4
 Control_L, Down, Control_L|Button5
 EOF
 
-# git config
+## git config
 cat << EOF > ~/.gitconfig
 [user]
     name = caesar
@@ -66,12 +66,13 @@ cat << EOF > ~/.gitconfig
     helper = store
 EOF
 
-# show git branch
-echo -e '\n# show git branch' >> ~/.bashrc
-echo 'function parse_git_branch () {' >> ~/.bashrc
-echo '  git branch 2> /dev/null | sed -e "/^[^*]/d" -e "s/* \(.*\)/(\1)/"' >> ~/.bashrc
-echo '}' >> ~/.bashrc
-cat << EOF >> ~/.bashrc
+## show git branch
+{
+echo -e '\n# show git branch'
+echo 'function parse_git_branch () {'
+echo '  git branch 2> /dev/null | sed -e "/^[^*]/d" -e "s/* \(.*\)/(\1)/"'
+echo '}'
+cat << EOF
 RED="\[\033[01;31m\]"
 YELLOW="\[\033[01;33m\]"
 GREEN="\[\033[01;32m\]"
@@ -80,11 +81,13 @@ Cyan="\[\033[1;36m\]"
 NO_COLOR="\[\033[00m\]"
 BWhite="\[\033[1;37m\]"
 EOF
-echo 'PS1="$RED[\A]$NO_COLOR $GREEN\u@\h$BWhite: $Cyan\w $YELLOW$(parse_git_branch)\n$NO_COLOR\$ "'>> ~/.bashrc
+echo 'PS1="$RED[\A] $NO_COLOR$GREEN\u@\h$BWhite:$Cyan\w $YELLOW\$(parse_git_branch)$NO_COLOR\$ "'
+} >> ~/.bashrc
 
-#  set PS1 for root user
-echo -e '\n# set PS1 for root user'  | sudo tee -a /root/.bashrc
-cat << EOF | sudo tee -a /root/.bashrc
+##  set PS1 for root user
+{
+echo -e '\n# set PS1 for root user'
+cat << EOF
 RED="\[\033[01;31m\]"
 On_Red="\[\033[41m\]"
 YELLOW="\[\033[01;33m\]"
@@ -95,9 +98,10 @@ Cyan="\[\033[1;36m\]"
 NO_COLOR="\[\033[00m\]"
 BWhite="\[\033[1;37m\]"
 EOF
-echo 'PS1="$YELLOW[\A]$NO_COLOR $On_Red$BWhite\u$NO_COLOR@$RED\h: $BIBlue\w\n$NO_COLOR# "'  | sudo tee -a /root/.bashrc
+echo 'PS1="$YELLOW[\A] $NO_COLOR$On_Red$BWhite\u$NO_COLOR@$RED\h$BWhite:$BIBlue\w $NO_COLOR# "'
+} | sudo tee -a /root/.bashrc
 
-# user alias
+## user alias
 echo -e '\n# user alias' >> ~/.bashrc
 cat << EOF >> ~/.bashrc
 alias wm="gio open"
@@ -106,7 +110,7 @@ alias dcom="docker-compose"
 alias scode="sudo code --user-data-dir='\$HOME/.config/Code'"
 EOF
 
-# avoid duplicate env variable for vscode
+## avoid duplicate env variable for vscode
 echo -e '\n# avoid duplicate env variable for vscode' >> ~/.profile
 cat << EOF >> ~/.profile
 echo "move case statement to ~/.profile head"
@@ -115,8 +119,10 @@ case \$- in
 esac
 EOF
 
-# graphic driver config
-# echo 'blacklist nouveau' | sudo tee -a /etc/modprobe.d/blacklist-nouvea.conf
-# echo 'options nouveau modeset=0' | sudo tee -a /etc/modprobe.d/blacklist-nouvea.conf
-# echo -e '# graphic driver config' | sudo tee /etc/modprobe.d/blacklist-nouvea.conf
+## graphic driver config
+# {
+# echo -e '# graphic driver config'
+# echo 'blacklist nouveau'
+# echo 'options nouveau modeset=0'
+# } | sudo tee /etc/modprobe.d/blacklist-nouvea.conf
 # sudo update-initramfs -u

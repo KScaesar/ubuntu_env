@@ -105,6 +105,7 @@ echo 'PS1="$RED[\A] $NO_COLOR$GREEN\u@\h$BWhite:$Cyan\w $YELLOW\$(parse_git_bran
 echo -e '\n## user alias' >> ~/.bashrc
 cat << EOF >> ~/.bashrc
 alias wm="gio open"
+alias ll="ls -alhF"
 alias swm="sudo gio open"
 alias dcom="docker-compose"
 alias scode="sudo code --user-data-dir='\$HOME/.config/Code'"

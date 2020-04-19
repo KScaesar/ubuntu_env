@@ -108,6 +108,7 @@ alias wm="gio open"
 alias swm="sudo gio open"
 alias dcom="docker-compose"
 alias scode="sudo code --user-data-dir='\$HOME/.config/Code'"
+alias screenkey="XMODIFIERS='' GTK_IM_MODULES='' QT_IM_MODULES='' screenkey"
 EOF
 
 ## avoid duplicate env variable for vscode

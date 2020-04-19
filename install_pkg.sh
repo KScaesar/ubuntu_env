@@ -20,6 +20,7 @@ ssh \
 tree \
 cloc \
 ntp \
+cmake \
 
 ## desktop tool
 sudo aptitude purge -y gnome-software-plugin-snap
@@ -60,11 +61,10 @@ if [ ! -f /usr/bin/python ]; then
 fi
 PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
-pyenv install 3.8.2 && pyenv global 3.8.2
+pyenv install 3.7.6 && pyenv global 3.7.6
 
 ## python completion
-pip completion --bash | sudo tee /etc/bash_completion.d/python-pip
-pip install argcomplete
+pip completion --bash | sudo tee /etc/bash_completion.d/python-pip && pip install argcomplete
 activate-global-python-argcomplete --user
 sudo mv "$HOME"/.bash_completion.d/python-argcomplete /etc/bash_completion.d/python-argcomplete
 sudo chown -R root:root /etc/bash_completion.d
@@ -163,6 +163,11 @@ for i in docker-machine-wrapper.bash docker-machine.bash
 do
   sudo wget "$base/contrib/completion/bash/${i}" -P /etc/bash_completion.d
 done
+
+## screenkey
+sudo aptitude install -y \
+python-gtk2 python-setuptools python-distutils-extra python-appindicator libcanberra-gtk-module libcanberra-gtk3-module\
+screenkey \
 
 ## =================== 個人筆電用 start ===================
 # {

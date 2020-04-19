@@ -65,11 +65,11 @@ cat << EOF > ~/.gitconfig
 [credential]
     helper = store
 [alias]
-    ch = checkout
-    br = branch
-    st = status
-    l = log --oneline --graph
-    ls = log --graph --pretty=format:\"%h <%an> %ar %s\"
+	ch = checkout
+	br = branch
+	st = status
+	l = log --oneline --graph
+    la = log --all --pretty=format:\"%h <%an> %s\" --graph
 EOF
 
 ##  set PS1 for root user

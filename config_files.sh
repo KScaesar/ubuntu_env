@@ -57,19 +57,19 @@ cat << EOF > ~/.gitconfig
 [merge]
     tool = vscode
 [mergetool "vscode"]
-    cmd = code --wait $MERGED
+    cmd = code --wait \$MERGED
 [diff]
     tool = vscode
 [difftool "vscode"]
-    cmd = code --wait --diff $LOCAL $REMOTE
+    cmd = code --wait --diff \$LOCAL \$REMOTE
 [credential]
     helper = store
 [alias]
-	ch = checkout
-	br = branch
-	st = status
-	l = log --oneline --graph
-    la = log --all --pretty=format:\"%h <%an> %s\" --graph
+    ch = checkout
+    br = branch
+    st = status
+    co = commit
+    l = log --oneline --all --graphh
 EOF
 
 ##  set PS1 for root user
@@ -116,6 +116,10 @@ alias swm="sudo gio open"
 alias dcom="docker-compose"
 alias scode="sudo code --user-data-dir='\$HOME/.config/Code'"
 alias screenkey="XMODIFIERS='' GTK_IM_MODULES='' QT_IM_MODULES='' screenkey"
+
+source <(kubectl completion bash)
+alias k=kubectl
+complete -F __start_kubectl k
 EOF
 
 ## avoid duplicate env variable for vscode

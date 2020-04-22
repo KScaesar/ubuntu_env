@@ -86,14 +86,14 @@ Cyan="\[\033[1;36m\]"
 NO_COLOR="\[\033[00m\]"
 BWhite="\[\033[1;37m\]"
 EOF
-echo 'PS1="$YELLOW[\A] $NO_COLOR$On_Red$BWhite\u$NO_COLOR@$RED\h$BWhite:$BIBlue\w $NO_COLOR# "'
+echo 'PS1="$YELLOW[\A]$NO_COLOR$On_Red$BWhite\u$NO_COLOR@$RED\h$BWhite:$BIBlue\w$BWhite\# $NO_COLOR"'
 } | sudo tee -a /root/.bashrc
 
 ## show git branch
 {
 echo -e '\n## show git branch'
 echo 'function parse_git_branch () {'
-echo '  git branch 2> /dev/null | sed -e "/^[^*]/d" -e "s/* \(.*\)/(\1)/"'
+echo '  git branch 2> /dev/null | sed -e "/^[^*]/d" -e "s/* \(.*\)/[\1]/"'
 echo '}'
 cat << EOF
 RED="\[\033[01;31m\]"
@@ -104,7 +104,7 @@ Cyan="\[\033[1;36m\]"
 NO_COLOR="\[\033[00m\]"
 BWhite="\[\033[1;37m\]"
 EOF
-echo 'PS1="$RED[\A] $NO_COLOR$GREEN\u@\h$BWhite:$Cyan\w $YELLOW\$(parse_git_branch)$NO_COLOR\$ "'
+echo 'PS1="$RED[\A]$NO_COLOR$GREEN\u@\h$BWhite:$Cyan\w$YELLOW\$(parse_git_branch)$BWhite\$ $NO_COLOR"'
 } >> ~/.bashrc
 
 ## user alias

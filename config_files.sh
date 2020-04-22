@@ -69,7 +69,7 @@ cat << EOF > ~/.gitconfig
     br = branch
     st = status
     co = commit
-    l = log --oneline --all --graphh
+    l = log --oneline --all --graph
 EOF
 
 ##  set PS1 for root user

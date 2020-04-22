@@ -76,8 +76,8 @@ esac
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
 
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
@@ -118,7 +118,7 @@ fi
 
 # show git branch
 function parse_git_branch () {
-  git branch 2> /dev/null | sed -e "/^[^*]/d" -e "s/* \(.*\)/(\1)/"
+  git branch 2> /dev/null | sed -e "/^[^*]/d" -e "s/* \(.*\)/[\1]/"
 }
 RED="\[\033[01;31m\]"
 YELLOW="\[\033[01;33m\]"
@@ -127,13 +127,14 @@ BIPurple="\[\033[1;95m\]"
 Cyan="\[\033[1;36m\]"
 NO_COLOR="\[\033[00m\]"
 BWhite="\[\033[1;37m\]"
-PS1="$RED[\A]$NO_COLOR $GREEN\u@\h$BWhite:$Cyan\w $YELLOW\$(parse_git_branch)$NO_COLOR\$ "
+PS1="$RED[\A]$NO_COLOR$GREEN\u@\h$BWhite:$Cyan\w$YELLOW\$(parse_git_branch)$BWhite\$ $NO_COLOR"
 
 # user alias
 alias wm="gio open"
 alias swm="sudo gio open"
 alias dcom="docker-compose"
 alias scode="sudo code --user-data-dir='$HOME/.config/Code'"
+alias screenkey="XMODIFIERS='' GTK_IM_MODULES='' QT_IM_MODULES='' screenkey"
 
 # nvm
 export NVM_DIR="$HOME/.nvm"

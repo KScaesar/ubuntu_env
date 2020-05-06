@@ -4,7 +4,7 @@
 echo 'vm.overcommit_memory=1' | sudo tee -a /etc/sysctl.conf
 
 # TCP backlog setting
-echo 'net.core.somaxconn=1024' | sudo tee -a /etc/sysctl.conf
+echo 'net.core.somaxconn=4096' | sudo tee -a /etc/sysctl.conf
 
 # Transparent Huge Pages (THP)
 if [ ! -f /etc/rc.d ];then

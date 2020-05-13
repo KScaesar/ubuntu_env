@@ -20,7 +20,8 @@ sudo aptitude install -y \
   tree \
   cloc \
   ntp \
-  cmake
+  cmake \
+  sysstat
 
 ## desktop tool
 sudo aptitude purge -y gnome-software-plugin-snap

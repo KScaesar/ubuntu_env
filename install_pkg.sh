@@ -8,56 +8,56 @@ sudo apt update && sudo apt install --yes aptitude && aptitude update
 
 ## develop tool
 sudo aptitude install -y \
-build-essential \
-gdebi \
-curl \
-jq \
-git \
-tmux \
-vim \
-htop \
-ssh \
-tree \
-cloc \
-ntp \
-cmake \
+  build-essential \
+  gdebi \
+  curl \
+  jq \
+  git \
+  tmux \
+  vim \
+  htop \
+  ssh \
+  tree \
+  cloc \
+  ntp \
+  cmake
 
 ## desktop tool
 sudo aptitude purge -y gnome-software-plugin-snap
 sudo aptitude install -y samba-common-bin && mkdir /var/lib/samba/usershares
 
 sudo snap install \
-snap-store \
-postman \
+  snap-store \
+  postman
 
 sudo aptitude install -y \
-exfat-utils exfat-fuse \
-synaptic \
-gparted \
-filezilla \
-mpv \
-gnome-tweak-tool \
-telegram-desktop \
-fonts-firacode \
-dconf-editor \
-cpu-checker \
-imwheel \
-vokoscreen \
-kazam \
-pcscd pcsc-tools \
+  exfat-utils exfat-fuse \
+  synaptic \
+  gparted \
+  filezilla \
+  mpv \
+  gnome-tweak-tool \
+  telegram-desktop \
+  fonts-firacode \
+  dconf-editor \
+  cpu-checker \
+  imwheel \
+  vokoscreen \
+  kazam \
+  pcscd pcsc-tools
 
 ## pyenv
 sudo aptitude install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
-echo -e '\n## pyenv' >> ~/.bashrc
-cat << EOF >> ~/.bashrc
+echo -e '\n## pyenv' >>~/.bashrc
+cat <<EOF >>~/.bashrc
 export PYENV_ROOT="\$HOME/.pyenv"
 export PATH="\$PYENV_ROOT/bin:\$PATH"
 eval "\$(pyenv init -)"
 eval "\$(pyenv virtualenv-init -)"
 EOF
 if [ ! -f /usr/bin/python ]; then
-    sudo ln -s python3 /usr/bin/python
+  sudo ln -s python3 /usr/bin/python
 fi
 PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
@@ -71,7 +71,7 @@ sudo chown -R root:root /etc/bash_completion.d
 rm -r "$HOME"/.bash_completion.d
 
 ## nvm
-echo -e '\n## nvm' >> ~/.bashrc
+echo -e '\n## nvm' >>~/.bashrc
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
 NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
@@ -82,8 +82,8 @@ nvm install --lts=erbium && nvm alias default node
 wget -P ~/Downloads https://dl.google.com/go/go1.13.8.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzf ~/Downloads/go1.13.8.linux-amd64.tar.gz
 mkdir -p ~/go
-echo -e '\n## golang' >> ~/.profile
-echo "export PATH=~/go/bin:/usr/local/go/bin:$PATH" >> ~/.profile
+echo -e '\n## golang' >>~/.profile
+echo "export PATH=~/go/bin:/usr/local/go/bin:$PATH" >>~/.profile
 PATH=$PATH:/usr/local/go/bin
 go env -w GOPATH="$HOME"/go
 go env -w GOBIN="$(go env GOPATH)"/bin
@@ -115,7 +115,7 @@ wget -P ~/Downloads https://dl.google.com/linux/direct/google-chrome-stable_curr
 sudo gdebi -n ~/Downloads/google-chrome-stable_current_amd64.deb
 
 ## vscode
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor >packages.microsoft.gpg
 sudo install -o root -g root -m 644 packages.microsoft.gpg /usr/share/keyrings/
 sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 sudo aptitude install -y apt-transport-https
@@ -137,7 +137,8 @@ sudo aptitude update && sudo aptitude install -y virtualbox-6.1
 ## https://www.vagrantup.com/downloads.html
 vagrant_version=2.2.7
 wget -P ~/Downloads https://releases.hashicorp.com/vagrant/"$vagrant_version"/vagrant_"$vagrant_version"_x86_64.deb
-sudo dpkg -i ~/Downloads/vagrant_"$vagrant_version"_x86_64.deb; sudo aptitude install -fy
+sudo dpkg -i ~/Downloads/vagrant_"$vagrant_version"_x86_64.deb
+sudo aptitude install -fy
 
 ## docker
 sudo aptitude install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
@@ -159,15 +160,13 @@ base=https://github.com/docker/machine/releases/download/v0.16.0 &&
   sudo mv /tmp/docker-machine /usr/local/bin/docker-machine &&
   chmod +x /usr/local/bin/docker-machine
 base=https://raw.githubusercontent.com/docker/machine/v0.16.0
-for i in docker-machine-wrapper.bash docker-machine.bash
-do
+for i in docker-machine-wrapper.bash docker-machine.bash; do
   sudo wget "$base/contrib/completion/bash/${i}" -P /etc/bash_completion.d
 done
 
 ## screenkey
 sudo aptitude install -y \
-python-gtk2 python-setuptools python-distutils-extra python-appindicator libcanberra-gtk-module libcanberra-gtk3-module\
-screenkey \
+  python-gtk2 python-setuptools python-distutils-extra python-appindicator libcanberra-gtk-module libcanberra-gtk3-modulescreenkey
 
 ## =================== 個人筆電用 start ===================
 # {

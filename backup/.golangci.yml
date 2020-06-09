@@ -14,6 +14,15 @@ run:
     # - ".*\\.my\\.go$"
     # - lib/bad.go
 
+linters-settings:
+  gocyclo:
+    # minimal code complexity to report, 30 by default (but we recommend 10-20)
+    min-complexity: 20
+
+  errcheck:
+    ignore: fmt:.*,io/ioutil:^Read.*
+
+
 linters:
   fast: false
   disable-all: true
@@ -31,7 +40,6 @@ linters:
   - gosimple
   - govet
   - ineffassign
-  - staticcheck
   - structcheck
   - typecheck
   - unused
@@ -41,11 +49,28 @@ linters:
   - gocognit
   - gocyclo
 
-issue:
+issues:
+  # Show only new issues: if there are unstaged changes or untracked files,
+  # only those changes are analyzed, else only changes in HEAD~ are analyzed.
+  # It's a super-useful option for integration of golangci-lint into existing
+  # large codebase. It's not practical to fix all existing issues at the moment
+  # of integration: much better don't allow issues in new code.
+  # Default is false.
+  # new: true
+
+  # Show only new issues created after git revision `REV`
+  # new-from-rev: HEAD~1
+
   exclude-rules:
+    # Exclude some linters from running on tests files.
+    - path: _test\.go
+      linters:
+        - gocyclo
+        - gomnd
+        - errcheck
+
     # - linters:
     #     - staticcheck
     #   text: "SA9003:"
 
-  # Show only new issues created after git revision `REV`
-  # new-from-rev: HEAD-1
+

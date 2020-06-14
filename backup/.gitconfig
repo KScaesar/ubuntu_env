@@ -1,0 +1,22 @@
+[user]
+    name = caesar
+    email = x246libra@hotmail.com
+[core]
+    editor = code --wait
+    autocrlf = input
+[merge]
+    tool = vscode
+[mergetool "vscode"]
+    cmd = code --wait $MERGED
+[diff]
+    tool = vscode
+[difftool "vscode"]
+    cmd = code --wait --diff $LOCAL $REMOTE
+[credential]
+    helper = store
+[alias]
+	ch = checkout
+	br = branch
+	st = status
+	co = commit
+	l = log --oneline --graph

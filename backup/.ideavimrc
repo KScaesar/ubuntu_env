@@ -53,10 +53,14 @@ vmap zF :action IntroduceField<CR>
 vmap zP :action IntroduceParameter<CR>
 
 nmap ,ge :action GotoNextError<CR>
+nmap ,gd :action GotoTypeDeclaration<CR>
+imap ,gd <Esc>:action GotoTypeDeclaration<CR>
+nmap ,gr :action ShowUsages<CR>
+imap ,gr <Esc>:action ShowUsages<CR>
 nmap ,gi :action GotoImplementation<CR>
 imap ,gi <Esc>:action GotoImplementation<CR>
-nmap ,gd :action ShowUsages<CR>
-imap ,gd <Esc>:action ShowUsages<CR>
+nmap ,gt :action GotoTest<CR>
+imap ,gt <Esc>:action GotoTest<CR>
 
 nmap ,hw :action HideActiveWindow<CR>
 imap ,hw <Esc>:action HideActiveWindow<CR>
@@ -66,5 +70,5 @@ imap ,ha <Esc>:action HideAllWindows<CR>
 nmap ,fs :action ReformatCode<CR>:action FileStructurePopup<CR>
 imap ,fs <Esc>action ReformatCode<CR>:action FileStructurePopup<CR>
 
-nmap ,dd :action EditorDeleteLine<CR>
-imap ,dd <Esc>:action EditorDeleteLine<CR>
+nmap ,d :action EditorDeleteLine<CR>
+imap ,d <Esc>:action EditorDeleteLine<CR>

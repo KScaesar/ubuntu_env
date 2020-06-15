@@ -1,0 +1,70 @@
+nmap zso :source /home/caesar/.ideavimrc <CR>
+
+"" http://ideavim.sourceforge.net/vim/options.html
+
+"""" vim """"
+"set number
+set relativenumber
+set hlsearch
+set incsearch
+set digraph
+set showmode
+set showcmd
+set visualbell
+set scrolloff=2
+set clipboard+=unnamed
+
+"""" plugin """"
+set surround
+set ReplaceWithRegister
+
+"""" native map """"
+imap jj <Esc>
+
+nmap <BS> a<BS><Esc>
+vmap <BS> d
+
+nmap zh ^
+imap zh <Esc>I
+nmap zl $
+imap zl <End>
+
+nmap ,a <C-A>
+nmap ,x <C-X>
+
+imap zc. ->
+imap zc, <-
+
+"""" action map """"
+nmap zra :action RearrangeCode<CR>:action ReformatCode<CR>:action OptimizeImports<CR>:action Refresh<CR>
+imap zra <Esc>:action RearrangeCode<CR>:action ReformatCode<CR>:action OptimizeImports<CR>:action Refresh<CR>
+nmap zci :action FileWatcher.runForFiles<CR>:action InspectCode<CR>
+imap zci <Esc>:action FileWatcher.runForFiles<CR>:action InspectCode<CR>
+
+map zrr :action RenameElement<CR>
+imap zrr <Esc>:action RenameElement<CR>
+map zro :action Move<CR>
+imap zro <Esc>:action Move<CR>
+map zrs :action ModifyObject<CR>
+imap zrs <Esc>:action ModifyObject<CR>
+
+vmap zM :action ExtractMethod<CR>
+vmap zF :action IntroduceField<CR>
+vmap zP :action IntroduceParameter<CR>
+
+nmap ,ge :action GotoNextError<CR>
+nmap ,gi :action GotoImplementation<CR>
+imap ,gi <Esc>:action GotoImplementation<CR>
+nmap ,gd :action ShowUsages<CR>
+imap ,gd <Esc>:action ShowUsages<CR>
+
+nmap ,hw :action HideActiveWindow<CR>
+imap ,hw <Esc>:action HideActiveWindow<CR>
+nmap ,ha :action HideAllWindows<CR>
+imap ,ha <Esc>:action HideAllWindows<CR>
+
+nmap ,fs :action ReformatCode<CR>:action FileStructurePopup<CR>
+imap ,fs <Esc>action ReformatCode<CR>:action FileStructurePopup<CR>
+
+nmap ,dd :action EditorDeleteLine<CR>
+imap ,dd <Esc>:action EditorDeleteLine<CR>

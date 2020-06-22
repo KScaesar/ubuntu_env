@@ -22,17 +22,20 @@ set ReplaceWithRegister
 imap jj <Esc>
 
 nmap <BS> a<BS><Esc>
-vmap <BS> d
+vmap <BS> <Delete>
 
 nmap zh ^
+vmap zh ^
 imap zh <Esc>I
 nmap zl $
+vmap zl $h
 imap zl <End>
 
 nmap ,a <C-A>
 nmap ,x <C-X>
 
 imap zc <-
+imap zp <Esc>"0pa
 
 """" action map """"
 
@@ -57,14 +60,22 @@ nmap zrn :action Inline<CR>
 vmap zF :action IntroduceField<CR>
 vmap zP :action IntroduceParameter<CR>
 
+nmap <S-F1> mb?func<CR>vf{%y`bp?Test<CR>/?<CR>[wct(
+imap <S-F1> <Esc>mb?func<CR>vf{%y`bp?Test<CR>/?<CR>[wct(
+
 "" 2. can't add/delete code
 nmap <Space>fmt :action RearrangeCode<CR>:action ReformatCode<CR>:action OptimizeImports<CR>
+nmap <Space>ci <Space>fmt :action FileWatcher.runForFiles<CR>:action InspectCode<CR>
+
 nmap <Space>bp :action ViewBreakpoints<CR>
 nmap <Space>fs :action FileStructurePopup<CR>
 
-nmap <Space>ci <Space>fmt :action FileWatcher.runForFiles<CR>:action InspectCode<CR>
-nmap <Space>uu <Space>fmt :action Rerun<CR>
-nmap <Space>ug <Space>fmt :action RunContextGroup<CR>
+nmap zuu <Space>fmt:action Rerun<CR>
+nmap zuc <Space>fmt:action RunContextGroup<CR>
+nmap zuf <Space>fmt:action RerunFailedTests<CR>
+imap zuu <Esc><Space>fmt:action Rerun<CR>
+imap zuc <Esc><Space>fmt:action RunContextGroup<CR>
+imap zuf <Esc><Space>fmt:action RerunFailedTests<CR>
 
 nmap <Space>hw :action HideActiveWindow<CR>
 nmap <Space>ha :action HideAllWindows<CR>

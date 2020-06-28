@@ -47,6 +47,7 @@ map zrr :action RenameElement<CR>
 imap zrr <Esc>:action RenameElement<CR>
 map zrs :action ChangeSignature<CR>
 imap zrs <Esc>:action ChangeSignature<CR>
+
 nmap zd vF<Space>l"_c
 imap zd <Esc>vF<Space>l"_c
 
@@ -74,6 +75,9 @@ imap zgt <Esc>:action GotoTest<CR>
 nmap ze :action GotoNextError<CR>
 imap ze <Esc>:action GotoNextError<CR>
 
+nmap zif ?if<CR>/?<CR>wvt{h
+imap zif <Esc>?if<CR>/?<CR>wvt{h
+
 nmap <Space>fmt :action RearrangeCode<CR>:action ReformatCode<CR>:action OptimizeImports $ProjectFileDir$<CR>
 nmap <Space>ci <Space>fmt :action FileWatcher.runForFiles<CR> :action SaveAll<CR> :action InspectCode<CR>
 
@@ -94,5 +98,4 @@ nmap <Space>gi :action GotoImplementation<CR>
 
 nmap <Space>mk :action MethodUp<CR>
 nmap <Space>mj :action MethodDown<CR>
-
 

@@ -1,77 +1,5 @@
 #!/bin/bash
 
-## tmux config
-cat <<EOF >~/.tmux.conf
-## default
-set-option -g mouse on
-set -g default-command "/bin/bash"
-set -g default-terminal "screen-256color"
-set-window-option -g mode-keys vi
-
-## Toggle synpanes on
-bind k \\
-    set synchronize-panes on \;\\
-    display 'SynPanes: ON'
-
-## Toggle synpanes off
-bind K \\
-    set synchronize-panes off \;\\
-    display 'SynPanes: OFF'
-
-## Toggle mouse on
-bind m \\
-    set-option -g mouse on \;\\
-    display 'Mouse: ON'
-
-## Toggle mouse off
-bind M \\
-    set-option -g mouse off \;\\
-    display 'Mouse: OFF'
-EOF
-
-## imwheel
-cat <<EOF >~/.imwheelrc
-".*"
-None, Up,   Button4, 3
-None, Down, Button5, 3
-None, Thumb1, Alt_L|Left
-None, Thumb2, Alt_L|Right
-
-## 橫向移動
-Shift_L,   Up,   Shift_L|Button4, 3
-Shift_L,   Down, Shift_L|Button5, 3
-
-## zoom
-Control_L, Up,   Control_L|Button4
-Control_L, Down, Control_L|Button5
-EOF
-
-## git config
-cat <<EOF >~/.gitconfig
-[user]
-    name = caesar
-    email = x246libra@hotmail.com
-[core]
-    editor = code --wait
-    autocrlf = input
-[merge]
-    tool = vscode
-[mergetool "vscode"]
-    cmd = code --wait \$MERGED
-[diff]
-    tool = vscode
-[difftool "vscode"]
-    cmd = code --wait --diff \$LOCAL \$REMOTE
-[credential]
-    helper = store
-[alias]
-    ch = checkout
-    br = branch
-    st = status
-    co = commit
-    l = log --oneline --graph
-EOF
-
 ##  set PS1 for root user
 {
     echo -e '\n## set PS1 for root user'
@@ -106,21 +34,6 @@ BWhite="\[\033[1;37m\]"
 EOF
     echo 'PS1="$RED[\A]$NO_COLOR$GREEN\u@\h$BWhite:$Cyan\w$YELLOW\$(parse_git_branch)$BWhite\$ $NO_COLOR"'
 } >>~/.bashrc
-
-## user alias
-echo -e '\n## user alias' >>~/.bashrc
-cat <<EOF >>~/.bashrc
-alias wm="gio open"
-alias ll="ls -alhF"
-alias swm="sudo gio open"
-alias dcom="docker-compose"
-alias scode="sudo code --user-data-dir='\$HOME/.config/Code'"
-alias screenkey="XMODIFIERS='' GTK_IM_MODULES='' QT_IM_MODULES='' screenkey"
-
-source <(kubectl completion bash)
-alias k=kubectl
-complete -F __start_kubectl k
-EOF
 
 ## avoid duplicate env variable for vscode
 echo -e '\n## avoid duplicate env variable for vscode' >>~/.profile

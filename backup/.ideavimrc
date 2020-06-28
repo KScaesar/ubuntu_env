@@ -3,11 +3,10 @@ nmap <Space>so :source /home/caesar/.ideavimrc <CR>
 "" http://ideavim.sourceforge.net/vim/options.html
 
 """" vim """"
-"set number
 set relativenumber
+set number
 set hlsearch
 set incsearch
-set digraph
 set showmode
 set showcmd
 set visualbell
@@ -36,59 +35,64 @@ nmap ,x <C-X>
 
 imap zc <-
 imap zp <Esc>"0pa
+nmap zp "0pa
 
 """" action map """"
 
 "" 1. can add/delete code
-nmap zd :action EditorDeleteLine<CR>
-imap zd <Esc>:action EditorDeleteLine<CR>
-
 map zmv :action Move<CR>
 imap zmv <Esc>:action Move<CR>
 
 map zrr :action RenameElement<CR>
 imap zrr <Esc>:action RenameElement<CR>
-map zrs :action ModifyObject<CR>
-imap zrs <Esc>:action ModifyObject<CR>
+map zrs :action ChangeSignature<CR>
+imap zrs <Esc>:action ChangeSignature<CR>
+nmap zd vF<Space>l"_c
+imap zd <Esc>vF<Space>l"_c
 
 nmap zri :action ExtractInterface<CR>
-vmap zrm :action ExtractMethod<CR>
-nmap zrv :action IntroduceVariable<CR>
-nmap zrc :action IntroduceConstant<CR>
+map zrm :action ExtractMethod<CR>
+map zrv :action IntroduceVariable<CR>
+map zrc :action IntroduceConstant<CR>
 nmap zrn :action Inline<CR>
 
 vmap zF :action IntroduceField<CR>
 vmap zP :action IntroduceParameter<CR>
 
-nmap <S-F1> mb?func<CR>vf{%y`bp?Test<CR>/?<CR>[wct(
-imap <S-F1> <Esc>mb?func<CR>vf{%y`bp?Test<CR>/?<CR>[wct(
+nmap <S-F1> mb?func<CR>vf{%y`bpo<Esc>?Test<CR>/?<CR>[wct(
+imap <S-F1> <Esc>mb?func<CR>vf{%y`bpo<Esc>?Test<CR>/?<CR>[wct(
 
 "" 2. can't add/delete code
-nmap <Space>fmt :action RearrangeCode<CR>:action ReformatCode<CR>:action OptimizeImports<CR>
-nmap <Space>ci <Space>fmt :action FileWatcher.runForFiles<CR>:action InspectCode<CR>
+nmap zuu <Space>fmt:action Rerun<CR>
+imap zuu <Esc><Space>fmt:action Rerun<CR>
+nmap zur <Space>fmt:action RunMenu<CR>
+imap zur <Esc><Space>fmt:action RunMenu<CR>
+nmap zuf <Space>fmt:action RerunFailedTests<CR>
+imap zuf <Esc><Space>fmt:action RerunFailedTests<CR>
+nmap zgt :action GotoTest<CR>
+imap zgt <Esc>:action GotoTest<CR>
+nmap ze :action GotoNextError<CR>
+imap ze <Esc>:action GotoNextError<CR>
+
+nmap <Space>fmt :action RearrangeCode<CR>:action ReformatCode<CR>:action OptimizeImports $ProjectFileDir$<CR>
+nmap <Space>ci <Space>fmt :action FileWatcher.runForFiles<CR> :action SaveAll<CR> :action InspectCode<CR>
 
 nmap <Space>bp :action ViewBreakpoints<CR>
 nmap <Space>fs :action FileStructurePopup<CR>
-
-nmap zuu <Space>fmt:action Rerun<CR>
-nmap zuc <Space>fmt:action RunContextGroup<CR>
-nmap zuf <Space>fmt:action RerunFailedTests<CR>
-imap zuu <Esc><Space>fmt:action Rerun<CR>
-imap zuc <Esc><Space>fmt:action RunContextGroup<CR>
-imap zuf <Esc><Space>fmt:action RerunFailedTests<CR>
 
 nmap <Space>hw :action HideActiveWindow<CR>
 nmap <Space>ha :action HideAllWindows<CR>
 
 map <Space>tt :action $TranslateTextComponent<CR>
 nmap <Space>td :action $ShowTranslationDialogAction<CR>
+nmap <Space>ts :action $ShowInstantTranslationDialogAction<CR>
 
 nmap <Space>gw :action JumpToLastWindow<CR>
-nmap <Space>ge :action GotoNextError<CR>
 nmap <Space>gd :action GotoTypeDeclaration<CR>
 nmap <Space>gr :action ShowUsages<CR>
 nmap <Space>gi :action GotoImplementation<CR>
-nmap <Space>gt :action GotoTest<CR>
 
+nmap <Space>mk :action MethodUp<CR>
+nmap <Space>mj :action MethodDown<CR>
 
 

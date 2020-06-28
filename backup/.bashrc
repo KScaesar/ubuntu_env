@@ -130,6 +130,7 @@ BWhite="\[\033[1;37m\]"
 PS1="$RED[\A]$NO_COLOR$GREEN\u@\h$BWhite:$Cyan\w$YELLOW\$(parse_git_branch)$BWhite\$ $NO_COLOR"
 
 # user alias
+alias ll='ls -alFh'
 alias wm="gio open"
 alias swm="sudo gio open"
 alias dcom="docker-compose"

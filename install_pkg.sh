@@ -4,6 +4,7 @@
 
 ## prepare
 sudo add-apt-repository -y ppa:git-core/ppa
+sudo add-apt-repository -y ppa:peek-developers/stable
 sudo apt update && sudo apt install --yes aptitude && aptitude update
 
 ## develop tool
@@ -48,7 +49,8 @@ sudo aptitude install -y \
   kazam \
   pcscd pcsc-tools \
   qbittorrent \
-  kolourpaint4
+  kolourpaint4 \
+  peek
 
 ## pyenv
 sudo aptitude install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
@@ -171,6 +173,10 @@ done
 ## screenkey
 sudo aptitude install -y \
   python-gtk2 python-setuptools python-distutils-extra python-appindicator libcanberra-gtk-module libcanberra-gtk3-modulescreenkey
+
+## wireshark 安裝時, 需要確認是否允許 non-root
+sudo aptitude install -y wireshark
+sudo usermod -aG wireshark $(whoami)
 
 ## =================== 個人筆電用 start ===================
 # {

@@ -65,7 +65,6 @@ vmap zF :action IntroduceField<CR>
 vmap zP :action IntroduceParameter<CR>
 
 
-
 "" 2. can't add/delete code
 nmap zuu <Space>fmt:action Rerun<CR>
 imap zuu <Esc><Space>fmt:action Rerun<CR>
@@ -78,8 +77,8 @@ imap zgt <Esc>:action GotoTest<CR>
 nmap ze :action GotoNextError<CR>
 imap ze <Esc>:action GotoNextError<CR>
 
-nmap zif ?if<CR>/?<CR>wvt{h
-imap zif <Esc>?if<CR>/?<CR>wvt{h
+nmap zif ?if<CR>/?=<CR>wvt{h
+imap zif <Esc>?if<CR>/?=<CR>wvt{h
 
 nmap <Space>fmt :action RearrangeCode<CR>:action ReformatCode<CR>:action OptimizeImports $ProjectFileDir$<CR>
 nmap <Space>ci <Space>fmt :action FileWatcher.runForFiles<CR> :action SaveAll<CR> :action InspectCode<CR>
@@ -98,6 +97,7 @@ nmap <Space>gw :action JumpToLastWindow<CR>
 nmap <Space>gd :action GotoTypeDeclaration<CR>
 nmap <Space>gr :action ShowUsages<CR>
 nmap <Space>gi :action GotoImplementation<CR>
+nmap <Space>gI :action GotoSuperMethod<CR>
 
 nmap <Space>mk :action MethodUp<CR>
 nmap <Space>mj :action MethodDown<CR>

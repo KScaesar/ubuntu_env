@@ -23,7 +23,8 @@ sudo aptitude install -y \
   ntp \
   cmake \
   sysstat \
-  iotop
+  iotop \
+  graphviz
 
 ## desktop tool
 sudo aptitude purge -y gnome-software-plugin-snap
@@ -97,6 +98,7 @@ go env -w GO111MODULE=on
 go env -w CGO_ENABLED=0
 go get -v github.com/posener/complete/gocomplete
 "$(go env GOBIN)"/gocomplete -install -y
+go get -v github.com/google/pprof
 
 ## ansible
 pip install ansible

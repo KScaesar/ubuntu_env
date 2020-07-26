@@ -54,6 +54,9 @@ imap zrs <Esc>:action ChangeSignature<CR>
 nmap zd vF<Space>l"_c
 imap zd <Esc>vF<Space>l"_c
 
+map zs :action SurroundWith<CR>
+imap zs <Esc>:action SurroundWith<CR>
+
 nmap zri :action ExtractInterface<CR>
 map zrm :action ExtractMethod<CR>
 imap zrm <Esc>:action ExtractMethod<CR>
@@ -63,7 +66,6 @@ nmap zrn :action Inline<CR>
 
 vmap zF :action IntroduceField<CR>
 vmap zP :action IntroduceParameter<CR>
-
 
 "" 2. can't add/delete code
 nmap zuu <Space>fmt:action Rerun<CR>
@@ -75,7 +77,6 @@ imap zuf <Esc><Space>fmt:action RerunFailedTests<CR>
 nmap zgt :action GotoTest<CR>
 imap zgt <Esc>:action GotoTest<CR>
 nmap ze :action GotoNextError<CR>
-imap ze <Esc>:action GotoNextError<CR>
 
 nmap zif ?if<CR>/?=<CR>wvt{h
 imap zif <Esc>?if<CR>/?=<CR>wvt{h

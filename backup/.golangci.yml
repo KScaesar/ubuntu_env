@@ -6,8 +6,12 @@ run:
   # - src/external_libs
 
   skip-files:
-    # - ".*\\.my\\.go$"
-    # - lib/bad.go
+  # - ".*\\.my\\.go$"
+  # - lib/bad.go
+
+  build-tags:
+    - integration
+    - experiment
 
 linters-settings:
   gocyclo:
@@ -61,14 +65,19 @@ issues:
         - gocyclo
         - gomnd
         - errcheck
-        - scopelint
-    # - path: pkg/mock
-    #   linters:
-    #     - gomnd
+
+    - path: pkg/mock
+      linters:
+        - gomnd
+
+    - path: pkg/testtool
+      linters:
+        - gomnd
 
     - linters:
         - golint
       text: "a blank import"
+
     - linters:
         - golint
       text: "returns unexported"

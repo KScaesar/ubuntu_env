@@ -68,12 +68,12 @@ vmap zF :action IntroduceField<CR>
 vmap zP :action IntroduceParameter<CR>
 
 "" 2. can't add/delete code
-nmap zuu <Space>fmt:action Rerun<CR>
-imap zuu <Esc><Space>fmt:action Rerun<CR>
-nmap zur <Space>fmt:action RunMenu<CR>
-imap zur <Esc><Space>fmt:action RunMenu<CR>
-nmap zuf <Space>fmt:action RerunFailedTests<CR>
-imap zuf <Esc><Space>fmt:action RerunFailedTests<CR>
+nmap zuu <Space>ff:action Rerun<CR>
+imap zuu <Esc><Space>ff:action Rerun<CR>
+nmap zur <Space>ff:action RunMenu<CR>
+imap zur <Esc><Space>ff:action RunMenu<CR>
+nmap zuf <Space>ff:action RerunFailedTests<CR>
+imap zuf <Esc><Space>ff:action RerunFailedTests<CR>
 nmap zgt :action GotoTest<CR>
 imap zgt <Esc>:action GotoTest<CR>
 nmap ze :action GotoNextError<CR>
@@ -81,8 +81,8 @@ nmap ze :action GotoNextError<CR>
 nmap zif ?if<CR>/?=<CR>wvt{h
 imap zif <Esc>?if<CR>/?=<CR>wvt{h
 
-nmap <Space>fmt :action RearrangeCode<CR>:action ReformatCode<CR>:action OptimizeImports $ProjectFileDir$<CR>
-nmap <Space>ci <Space>fmt :action FileWatcher.runForFiles<CR> :action SaveAll<CR> :action InspectCode<CR>
+nmap <Space>ff :action RearrangeCode<CR>:action ReformatCode<CR>:action OptimizeImports $ProjectFileDir$<CR>
+nmap <Space>ci <Space>ff :action FileWatcher.runForFiles<CR> :action SaveAll<CR> :action InspectCode<CR>
 
 nmap <Space>bp :action ViewBreakpoints<CR>
 nmap <Space>fs :action FileStructurePopup<CR>

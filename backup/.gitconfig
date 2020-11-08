@@ -4,6 +4,7 @@
 [core]
     editor = code --wait
     autocrlf = input
+	ignorecase = false
 [merge]
     tool = vscode
 [mergetool "vscode"]

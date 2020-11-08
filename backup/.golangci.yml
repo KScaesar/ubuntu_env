@@ -18,11 +18,8 @@ linters-settings:
     # minimal code complexity to report, 30 by default (but we recommend 10-20)
     min-complexity: 20
 
-  errcheck:
-    ignore: fmt:.*,io/ioutil:^Read.*
-
 linters:
-  fast: false
+  fast: true
   disable-all: true
   enable:
     - bodyclose
@@ -34,7 +31,6 @@ linters:
     - gosec
     - gochecknoglobals
     - deadcode
-    - errcheck
     - gosimple
     - govet
     - ineffassign
@@ -66,13 +62,15 @@ issues:
         - gomnd
         - errcheck
 
-    - path: pkg/mock
+    - path: pkg/assistant/helpertest/
       linters:
         - gomnd
 
-    - path: pkg/testtool
-      linters:
-        - gomnd
+    #    - path: pkg/assistant/datastruct/
+    #      linters:
+    #        - golint
+    #        - stylecheck
+    #      text: "use underscores in Go names"
 
     - linters:
         - golint
@@ -80,4 +78,13 @@ issues:
 
     - linters:
         - golint
+        - stylecheck
+      text: "comment on exported var"
+
+    - linters:
+        - golint
       text: "returns unexported"
+
+    - linters:
+        - govet
+      text: "composite literal uses unkeyed fields"

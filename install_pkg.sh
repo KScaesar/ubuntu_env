@@ -52,7 +52,8 @@ sudo aptitude install -y \
   qbittorrent \
   kolourpaint4 \
   peek \
-  ntpdate 
+  ntpdate \
+  flameshot
 
 ## pyenv
 sudo aptitude install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
@@ -111,13 +112,13 @@ sudo aptitude install -y libglib2.0-0 libgstreamer-plugins-base1.0-dev libxcb-sh
 sudo gdebi -n ~/Downloads/zoom_amd64.deb
 
 ## shutter
-sudo aptitude install -y shutter
-wget -P ~/Downloads https://launchpad.net/ubuntu/+archive/primary/+files/libgoocanvas-common_1.0.0-1_all.deb
-wget -P ~/Downloads https://launchpad.net/ubuntu/+archive/primary/+files/libgoocanvas3_1.0.0-1_amd64.deb
-wget -P ~/Downloads https://launchpad.net/ubuntu/+archive/primary/+files/libgoo-canvas-perl_0.06-2ubuntu3_amd64.deb
-sudo gdebi -n ~/Downloads/libgoocanvas-common_1.0.0-1_all.deb
-sudo gdebi -n ~/Downloads/libgoocanvas3_1.0.0-1_amd64.deb
-sudo gdebi -n ~/Downloads/libgoo-canvas-perl_0.06-2ubuntu3_amd64.deb
+## sudo aptitude install -y shutter
+## wget -P ~/Downloads https://launchpad.net/ubuntu/+archive/primary/+files/libgoocanvas-common_1.0.0-1_all.deb
+## wget -P ~/Downloads https://launchpad.net/ubuntu/+archive/primary/+files/libgoocanvas3_1.0.0-1_amd64.deb
+## wget -P ~/Downloads https://launchpad.net/ubuntu/+archive/primary/+files/libgoo-canvas-perl_0.06-2ubuntu3_amd64.deb
+## sudo gdebi -n ~/Downloads/libgoocanvas-common_1.0.0-1_all.deb
+## sudo gdebi -n ~/Downloads/libgoocanvas3_1.0.0-1_amd64.deb
+## sudo gdebi -n ~/Downloads/libgoo-canvas-perl_0.06-2ubuntu3_amd64.deb
 
 ## chrome
 wget -P ~/Downloads https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
@@ -161,17 +162,6 @@ sudo usermod -aG docker caesar
 docker_compose_version=1.25.4
 sudo curl -L "https://github.com/docker/compose/releases/download/$docker_compose_version/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
-
-## Docker Machine
-## https://docs.docker.com/machine/install-machine/
-base=https://github.com/docker/machine/releases/download/v0.16.0 &&
-  curl -L $base/docker-machine-"$(uname -s)"-"$(uname -m)" >/tmp/docker-machine &&
-  sudo mv /tmp/docker-machine /usr/local/bin/docker-machine &&
-  chmod +x /usr/local/bin/docker-machine
-base=https://raw.githubusercontent.com/docker/machine/v0.16.0
-for i in docker-machine-wrapper.bash docker-machine.bash; do
-  sudo wget "$base/contrib/completion/bash/${i}" -P /etc/bash_completion.d
-done
 
 ## screenkey
 sudo aptitude install -y \

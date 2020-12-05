@@ -24,7 +24,8 @@ sudo aptitude install -y \
   cmake \
   sysstat \
   iotop \
-  graphviz
+  graphviz \
+  silversearcher-ag
 
 ## desktop tool
 sudo aptitude purge -y gnome-software-plugin-snap
@@ -54,6 +55,29 @@ sudo aptitude install -y \
   peek \
   ntpdate \
   flameshot
+
+## ripgrep https://github.com/BurntSushi/ripgrep
+wget -P ~/Downloads https://github.com/BurntSushi/ripgrep/releases/download/12.1.1/ripgrep_12.1.1_amd64.deb
+sudo gdebi -n ~/Downloads/ripgrep_12.1.1_amd64.deb
+
+## autojump
+sudo aptitude install -y autojump
+echo -e '\n## autojump' >>~/.bashrc
+cat <<EOF >>~/.bashrc
+. /usr/share/autojump/autojump.sh
+EOF
+echo -e '\n## autojump' >>~/.profile
+cat <<EOF >>~/.profile
+. /usr/share/autojump/autojump.sh
+EOF
+
+## fd
+wget -P ~/Downloads https://github.com/sharkdp/fd/releases/download/v8.1.1/fd_8.1.1_amd64.deb
+sudo gdebi -n ~/Downloads/fd_8.1.1_amd64.deb
+
+## fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
 
 ## pyenv
 sudo aptitude install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev

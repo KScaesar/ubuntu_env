@@ -34,3 +34,7 @@ fi
 export PATH=~/go/bin:/usr/local/go/bin:$PATH
 
 # export PATH=profile.$-_Command.$0_Param.$@:$PATH
+
+## autojump
+. /usr/share/autojump/autojump.sh
+

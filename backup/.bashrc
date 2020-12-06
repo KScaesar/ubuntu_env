@@ -152,3 +152,10 @@ complete -C /home/caesar/go/bin/gocomplete go
 
 # export PATH=bashrc.$-_Command.$0_Param.$@:$PATH
 
+## autojump
+. /usr/share/autojump/autojump.sh
+
+## fzf
+export FZF_DEFAULT_OPTS='--height 50% --layout=reverse'
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+

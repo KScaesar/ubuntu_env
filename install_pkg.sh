@@ -62,13 +62,15 @@ sudo gdebi -n ~/Downloads/ripgrep_12.1.1_amd64.deb
 
 ## autojump
 sudo aptitude install -y autojump
-echo -e '\n## autojump' >>~/.bashrc
 cat <<EOF >>~/.bashrc
+## autojump
 . /usr/share/autojump/autojump.sh
+
 EOF
-echo -e '\n## autojump' >>~/.profile
 cat <<EOF >>~/.profile
+## autojump
 . /usr/share/autojump/autojump.sh
+
 EOF
 
 ## fd
@@ -76,6 +78,11 @@ wget -P ~/Downloads https://github.com/sharkdp/fd/releases/download/v8.1.1/fd_8.
 sudo gdebi -n ~/Downloads/fd_8.1.1_amd64.deb
 
 ## fzf
+cat <<EOF >>~/.bashrc
+## fzf
+export FZF_DEFAULT_OPTS='--height 50% --layout=reverse'
+
+EOF
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
@@ -193,7 +200,7 @@ sudo aptitude install -y \
 
 ## wireshark 安裝時, 需要確認是否允許 non-root
 sudo aptitude install -y wireshark
-sudo usermod -aG wireshark $(whoami)
+sudo usermod -aG wireshark "$(whoami)"
 
 ## =================== 個人筆電用 start ===================
 # {

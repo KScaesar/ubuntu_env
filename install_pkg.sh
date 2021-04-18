@@ -25,7 +25,8 @@ sudo aptitude install -y \
   sysstat \
   iotop \
   graphviz \
-  silversearcher-ag
+  silversearcher-ag \
+  tldr
 
 ## desktop tool
 sudo aptitude purge -y gnome-software-plugin-snap

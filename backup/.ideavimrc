@@ -19,7 +19,6 @@ set ReplaceWithRegister
 
 """" native map """"
 imap jj <Esc>
-vmap jj <Esc>
 
 nmap <BS> a<BS><Esc>
 vmap <BS> <Delete>
@@ -34,12 +33,8 @@ imap zl <End>
 nmap ,a <C-A>
 nmap ,x <C-X>
 
-imap zc <-
 imap zp <Esc>"0pa
 nmap zp "0pa
-
-""nmap <S-F1> mb?func<CR>vf{%y`bpo<Esc>?Test<CR>/<Space>t?<CR>[wct(
-""imap <S-F1> <Esc>mb?func<CR>vf{%y`bpo<Esc>?Test<CR>/<Space>t?<CR>[wct(
 
 """" action map """"
 
@@ -68,8 +63,11 @@ nmap zrn :action Inline<CR>
 vmap zF :action IntroduceField<CR>
 vmap zP :action IntroduceParameter<CR>
 
-nmap <S-F1> o<Esc>V?}<CR>%:action EditorDuplicate<CR>
-imap <S-F1> <CR><Esc>V?}<CR>%:action EditorDuplicate<CR>
+""nmap <S-F1> mb?func<CR>vf{%y`bpo<Esc>?Test<CR>/<Space>t?<CR>[wct(
+""imap <S-F1> <Esc>mb?func<CR>vf{%y`bpo<Esc>?Test<CR>/<Space>t?<CR>[wct(
+
+nmap zcc o<Esc>V?}<CR>%:action EditorDuplicate<CR>
+imap zcc <CR><Esc>V?}<CR>%:action EditorDuplicate<CR>
 
 "" 2. can't add/delete code
 nmap zuu <Space>ff:action Rerun<CR>
@@ -82,7 +80,6 @@ nmap zgt :action GotoTest<CR>
 imap zgt <Esc>:action GotoTest<CR>
 nmap ze :action GotoNextError<CR>
 nmap zE :action GotoPreviousError<CR>
-
 
 nmap zif ?if<CR>/?=<CR>wvt{h
 imap zif <Esc>?if<CR>/?=<CR>wvt{h

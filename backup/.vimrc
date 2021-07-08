@@ -21,7 +21,6 @@ hi Search cterm=reverse ctermbg=none ctermfg=none
 
 "" keymap ""
 imap jj <Esc>
-vmap jj <Esc>
 
 nmap <BS> a<BS><Esc>
 vmap <BS> <Delete>

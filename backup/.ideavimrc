@@ -11,7 +11,8 @@ set showmode
 set showcmd
 set visualbell
 set scrolloff=2
-"set clipboard+=unnamed
+set clipboard^=unnamed,unnamedplus
+set matchit 
 
 """" plugin """"
 set surround

@@ -14,6 +14,7 @@ set laststatus=2
 set showcmd
 set showmode
 set mouse=a
+set clipboard^=unnamed,unnamedplus
 
 set t_Co=256
 hi CursorLine cterm=none ctermbg=DarkMagenta ctermfg=White

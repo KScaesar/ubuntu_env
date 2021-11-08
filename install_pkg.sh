@@ -15,7 +15,7 @@ sudo aptitude install -y \
   jq \
   git \
   tmux \
-  vim \
+  vim-gtk3 \
   htop \
   ssh \
   tree \

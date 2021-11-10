@@ -26,6 +26,7 @@ sudo aptitude install -y \
   iotop \
   graphviz \
   silversearcher-ag \
+  ipcalc \
   tldr
 
 ## desktop tool

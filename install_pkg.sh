@@ -58,6 +58,11 @@ sudo aptitude install -y \
   ntpdate \
   flameshot
 
+## neovim
+sudo add-apt-repository -y ppa:neovim-ppa/stable
+sudo apt-get update
+sudo apt-get install neovim
+
 ## ripgrep https://github.com/BurntSushi/ripgrep
 wget -P ~/Downloads https://github.com/BurntSushi/ripgrep/releases/download/12.1.1/ripgrep_12.1.1_amd64.deb
 sudo gdebi -n ~/Downloads/ripgrep_12.1.1_amd64.deb

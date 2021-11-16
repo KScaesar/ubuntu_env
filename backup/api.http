@@ -1,0 +1,23 @@
+POST {{path}}/user/login
+Content-Type: application/json
+
+{
+  "email": "",
+  "password": ""
+}
+
+> {% client.global.set("token", response.body.data.token); %}
+
+###
+GET {{path}}/users/profile
+Authorization: Bearer {{token}}
+
+###
+POST {{path}}/users
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "name": "caesar"
+}
+

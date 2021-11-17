@@ -1,3 +1,22 @@
+call plug#begin('~/.config/nvim')
+
+if exists('g:vscode')
+	"Plug 'asvetliakov/vim-easymotion', { 'as': 'vsc-easymotion' }
+else
+	"Plug 'easymotion/vim-easymotion'
+endif
+
+Plug 'tpope/vim-repeat'
+Plug 'justinmk/vim-sneak'
+
+call plug#end()
+
+""https://github.com/justinmk/vim-sneak""
+let g:sneak#label = 1
+let g:sneak#s_next = 1
+map f <Plug>Sneak_s
+map F <Plug>Sneak_S
+
 set nocompatible
 set encoding=utf-8
 
@@ -33,8 +52,8 @@ nmap zl $
 vmap zl $h
 imap zl <End>
 
-nmap ,a <C-A>
-nmap ,x <C-X>
+nmap <leader>a <C-A>
+nmap <leader>x <C-X>
 
 ""imap zp <Esc>"0pa
 ""nmap zp "0pa

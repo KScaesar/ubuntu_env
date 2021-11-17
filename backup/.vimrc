@@ -33,8 +33,8 @@ nmap zl $
 vmap zl $h
 imap zl <End>
 
-nmap ,a <C-A>
-nmap ,x <C-X>
+nmap <leader>a <C-A>
+nmap <leader>x <C-X>
 
 ""imap zp <Esc>"0pa
 ""nmap zp "0pa

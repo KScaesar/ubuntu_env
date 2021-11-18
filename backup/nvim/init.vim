@@ -1,9 +1,9 @@
 call plug#begin('~/.config/nvim')
 
 if exists('g:vscode')
-	"Plug 'asvetliakov/vim-easymotion', { 'as': 'vsc-easymotion' }
+	Plug 'asvetliakov/vim-easymotion', { 'as': 'vsc-easymotion' }
 else
-	"Plug 'easymotion/vim-easymotion'
+	Plug 'easymotion/vim-easymotion'
 endif
 
 Plug 'tpope/vim-repeat'
@@ -12,10 +12,16 @@ Plug 'justinmk/vim-sneak'
 call plug#end()
 
 ""https://github.com/justinmk/vim-sneak""
-let g:sneak#label = 1
-let g:sneak#s_next = 1
-map f <Plug>Sneak_s
-map F <Plug>Sneak_S
+"let g:sneak#label = 1
+"let g:sneak#s_next = 1
+"map f <Plug>Sneak_s
+"map F <Plug>Sneak_S
+
+""https://github.com/easymotion/vim-easymotion""
+let g:EasyMotion_smartcase = 1
+
+map <Leader> <Plug>(easymotion-prefix)
+nmap f <Plug>(easymotion-overwin-f2)
 
 set nocompatible
 set encoding=utf-8

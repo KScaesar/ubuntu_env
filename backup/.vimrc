@@ -14,13 +14,15 @@ set laststatus=2
 set showcmd
 set showmode
 set mouse=a
-set clipboard^=unnamed,unnamedplus
+set ignorecase
+set smartcase
+"set clipboard^=unnamed,unnamedplus
 
 set t_Co=256
 hi CursorLine cterm=none ctermbg=DarkMagenta ctermfg=White
 hi Search cterm=reverse ctermbg=none ctermfg=none
 
-"" keymap ""
+"keymap
 imap jj <Esc>
 
 nmap <BS> a<BS><Esc>
@@ -33,6 +35,3 @@ noremap H ^
 noremap L $
 noremap J G
 noremap K gg
-
-""imap zp <Esc>"0pa
-""nmap zp "0pa

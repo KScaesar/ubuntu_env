@@ -1,8 +1,7 @@
 nmap <Space>so :source /home/caesar/.ideavimrc <CR>
 
-"" http://ideavim.sourceforge.net/vim/options.html
+"http://ideavim.sourceforge.net/vim/options.html
 
-"""" vim """"
 set relativenumber
 set number
 set hlsearch
@@ -11,14 +10,10 @@ set showmode
 set showcmd
 set visualbell
 set scrolloff=2
-"" set clipboard^=unnamed,unnamedplus
-set matchit 
+"set clipboard^=unnamed,unnamedplus
+set matchit
 
-"""" plugin """"
-set surround
-set ReplaceWithRegister
-
-"""" native map """"
+"native keymap
 imap jj <Esc>
 
 nmap <BS> a<BS><Esc>
@@ -32,12 +27,14 @@ noremap L $
 noremap J G
 noremap K gg
 
-"imap zp <Esc>"0pa
-"nmap zp "0pa
 
-"""" action map """"
+"plugin
+set surround
+set ReplaceWithRegister
 
-"" 1. can add/delete code
+"jetbrain action
+
+" 1. can add/delete code
 map zmv :action Move<CR>
 imap zmv <Esc>:action Move<CR>
 
@@ -62,13 +59,13 @@ nmap zrn :action Inline<CR>
 vmap zF :action IntroduceField<CR>
 vmap zP :action IntroduceParameter<CR>
 
-""nmap <S-F1> mb?func<CR>vf{%y`bpo<Esc>?Test<CR>/<Space>t?<CR>[wct(
-""imap <S-F1> <Esc>mb?func<CR>vf{%y`bpo<Esc>?Test<CR>/<Space>t?<CR>[wct(
+"nmap <S-F1> mb?func<CR>vf{%y`bpo<Esc>?Test<CR>/<Space>t?<CR>[wct(
+"imap <S-F1> <Esc>mb?func<CR>vf{%y`bpo<Esc>?Test<CR>/<Space>t?<CR>[wct(
 
 nmap zcc o<Esc>V?}<CR>%:action EditorDuplicate<CR>
 imap zcc <CR><Esc>V?}<CR>%:action EditorDuplicate<CR>
 
-"" 2. can't add/delete code
+" 2. can't add/delete code
 nmap zur <Space>ff:action RunClass<CR>
 imap zur <Esc><Space>ff:action RunClass<CR>
 
@@ -108,5 +105,3 @@ nmap <Space>mj :action MethodDown<CR>
 
 nmap <Space><Up> :action EditorCloneCaretAbove<CR>
 nmap <Space><Down> :action EditorCloneCaretBelow<CR>
-
-

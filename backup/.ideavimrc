@@ -11,7 +11,7 @@ set showcmd
 set visualbell
 set scrolloff=2
 "set clipboard^=unnamed,unnamedplus
-set matchit
+set matchit 
 
 "native keymap
 imap jj <Esc>
@@ -21,6 +21,7 @@ vmap <BS> <Delete>
 
 nmap <leader>a <C-A>
 nmap <leader>x <C-X>
+nmap <leader>v <C-V>
 
 noremap H ^
 noremap L $
@@ -105,3 +106,5 @@ nmap <Space>mj :action MethodDown<CR>
 
 nmap <Space><Up> :action EditorCloneCaretAbove<CR>
 nmap <Space><Down> :action EditorCloneCaretBelow<CR>
+
+

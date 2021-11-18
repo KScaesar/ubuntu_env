@@ -30,6 +30,7 @@ vmap <BS> <Delete>
 
 nmap <leader>a <C-A>
 nmap <leader>x <C-X>
+nmap <leader>v <C-V>
 
 noremap H ^
 noremap L $

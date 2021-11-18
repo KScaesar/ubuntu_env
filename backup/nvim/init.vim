@@ -30,6 +30,7 @@ vmap <BS> <Delete>
 
 nmap <leader>a <C-A>
 nmap <leader>x <C-X>
+nmap <leader>v <C-V>
 
 noremap H ^
 noremap L $
@@ -50,5 +51,5 @@ call plug#end()
 "https://github.com/justinmk/vim-sneak
 let g:sneak#label = 1
 let g:sneak#use_ic_scs = 1
-map f <Plug>Sneak_s
-map F <Plug>Sneak_S
+map <leader>f <Plug>Sneak_s
+map <leader>F <Plug>Sneak_S

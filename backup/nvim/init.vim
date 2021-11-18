@@ -40,7 +40,7 @@ noremap K gg
 "plugin
 call plug#begin('~/.config/nvim')
     if exists('g:vscode')
-        else
+    else
     endif
 
     Plug 'justinmk/vim-sneak'
@@ -53,3 +53,10 @@ let g:sneak#label = 1
 let g:sneak#use_ic_scs = 1
 map <leader>f <Plug>Sneak_s
 map <leader>F <Plug>Sneak_S
+
+"vscode action
+if exists('g:vscode')
+  nmap zur <Cmd>call VSCodeNotify('go.test.cursor')<CR>
+  nmap zud <Cmd>call VSCodeNotify('go.debug.cursor')<CR>
+endif
+

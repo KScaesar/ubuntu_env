@@ -7,7 +7,8 @@ else
 endif
 
 Plug 'tpope/vim-repeat'
-Plug 'justinmk/vim-sneak'
+Plug 'tpope/vim-surround'
+"Plug 'justinmk/vim-sneak'
 
 call plug#end()
 
@@ -17,11 +18,11 @@ call plug#end()
 "map f <Plug>Sneak_s
 "map F <Plug>Sneak_S
 
-""https://github.com/easymotion/vim-easymotion""
+""https://gPlugInstallithub.com/easymotion/vim-easymotion""
+"let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
-
 map <Leader> <Plug>(easymotion-prefix)
-nmap f <Plug>(easymotion-overwin-f2)
+nmap <Leader>f <Plug>(easymotion-overwin-f2)
 
 set nocompatible
 set encoding=utf-8
@@ -51,15 +52,13 @@ imap jj <Esc>
 nmap <BS> a<BS><Esc>
 vmap <BS> <Delete>
 
-nmap zh ^
-vmap zh ^
-imap zh <Esc>I
-nmap zl $
-vmap zl $h
-imap zl <End>
-
 nmap <leader>a <C-A>
 nmap <leader>x <C-X>
+
+noremap H ^
+noremap L $
+noremap J G
+noremap K gg
 
 ""imap zp <Esc>"0pa
 ""nmap zp "0pa

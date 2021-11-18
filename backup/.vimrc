@@ -26,15 +26,13 @@ imap jj <Esc>
 nmap <BS> a<BS><Esc>
 vmap <BS> <Delete>
 
-nmap zh ^
-vmap zh ^
-imap zh <Esc>I
-nmap zl $
-vmap zl $h
-imap zl <End>
-
 nmap <leader>a <C-A>
 nmap <leader>x <C-X>
+
+noremap H ^
+noremap L $
+noremap J G
+noremap K gg
 
 ""imap zp <Esc>"0pa
 ""nmap zp "0pa

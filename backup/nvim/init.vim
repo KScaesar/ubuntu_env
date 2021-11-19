@@ -39,7 +39,8 @@ noremap J G
 noremap K gg
 
 noremap zj J
-noremap zp mp2kpO<Esc>`p
+noremap zp makp`aO<Esc>jzz
+noremap <Space>vf V$%^
 
 "plugin
 call plug#begin('~/.config/nvim')

@@ -30,7 +30,10 @@ noremap J G
 noremap K gg
 
 noremap zj J
-noremap zp mp2kpO<Esc>`p
+noremap zp makp`aO<Esc>jzz
+noremap <Space>vf V$%^
+
+"nmap <S-F1> mb?func<CR>vf{%y`bpo<Esc>?Test<CR>/<Space>t?<CR>[wct(
 
 "plugin
 set surround
@@ -62,12 +65,6 @@ nmap zrn :action Inline<CR>
 
 vmap zF :action IntroduceField<CR>
 vmap zP :action IntroduceParameter<CR>
-
-"nmap <S-F1> mb?func<CR>vf{%y`bpo<Esc>?Test<CR>/<Space>t?<CR>[wct(
-"imap <S-F1> <Esc>mb?func<CR>vf{%y`bpo<Esc>?Test<CR>/<Space>t?<CR>[wct(
-
-"nmap zcc o<Esc>V?}<CR>%:action EditorDuplicate<CR>
-"imap zcc <CR><Esc>V?}<CR>%:action EditorDuplicate<CR>
 
 " 2. can't add/delete code
 nmap zur <Space>ff:action RunClass<CR>

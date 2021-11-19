@@ -10,8 +10,9 @@ set showmode
 set showcmd
 set visualbell
 set scrolloff=2
-"set clipboard^=unnamed,unnamedplus
 set matchit 
+
+"set clipboard^=unnamed,unnamedplus
 
 "native keymap
 imap jj <Esc>
@@ -28,6 +29,8 @@ noremap L $
 noremap J G
 noremap K gg
 
+noremap zj J
+noremap zp mp2kpO<Esc>`p
 
 "plugin
 set surround
@@ -63,8 +66,8 @@ vmap zP :action IntroduceParameter<CR>
 "nmap <S-F1> mb?func<CR>vf{%y`bpo<Esc>?Test<CR>/<Space>t?<CR>[wct(
 "imap <S-F1> <Esc>mb?func<CR>vf{%y`bpo<Esc>?Test<CR>/<Space>t?<CR>[wct(
 
-nmap zcc o<Esc>V?}<CR>%:action EditorDuplicate<CR>
-imap zcc <CR><Esc>V?}<CR>%:action EditorDuplicate<CR>
+"nmap zcc o<Esc>V?}<CR>%:action EditorDuplicate<CR>
+"imap zcc <CR><Esc>V?}<CR>%:action EditorDuplicate<CR>
 
 " 2. can't add/delete code
 nmap zur <Space>ff:action RunClass<CR>
@@ -106,5 +109,4 @@ nmap <Space>mj :action MethodDown<CR>
 
 nmap <Space><Up> :action EditorCloneCaretAbove<CR>
 nmap <Space><Down> :action EditorCloneCaretBelow<CR>
-
 

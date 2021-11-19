@@ -2,10 +2,10 @@ set nocompatible
 set encoding=utf-8
 
 syntax on
+set relativenumber
 set hlsearch
 set incsearch
 set ruler
-set relativenumber
 set number
 set cursorline
 set cindent
@@ -16,11 +16,12 @@ set showmode
 set mouse=a
 set ignorecase
 set smartcase
-"set clipboard^=unnamed,unnamedplus
 
 set t_Co=256
 hi CursorLine cterm=none ctermbg=DarkMagenta ctermfg=White
 hi Search cterm=reverse ctermbg=none ctermfg=none
+
+"set clipboard^=unnamed,unnamedplus
 
 "keymap
 imap jj <Esc>
@@ -36,6 +37,9 @@ noremap H ^
 noremap L $
 noremap J G
 noremap K gg
+
+noremap zj J
+noremap zp mp2kpO<Esc>`p
 
 "plugin
 call plug#begin('~/.config/nvim')

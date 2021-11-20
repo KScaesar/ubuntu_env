@@ -30,13 +30,14 @@ noremap J G
 noremap K gg
 
 noremap zj J
-noremap zp makp`aO<Esc>jzz
+noremap zp mFkp`FO<Esc>jzz:delm F<CR>
 noremap <Space>vf V$%^
 
 "nmap <S-F1> mb?func<CR>vf{%y`bpo<Esc>?Test<CR>/<Space>t?<CR>[wct(
 
 "plugin
 set surround
+set highlightedyank
 set ReplaceWithRegister
 
 "jetbrain action

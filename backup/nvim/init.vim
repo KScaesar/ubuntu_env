@@ -39,7 +39,7 @@ noremap J G
 noremap K gg
 
 noremap zj J
-noremap zp makp`aO<Esc>jzz
+noremap zp mFkp`FO<Esc>jzz
 noremap <Space>vf V$%^
 
 "plugin

@@ -78,7 +78,7 @@ nmap zuf <Space>ff:action RerunFailedTests<CR>
 imap zuf <Esc><Space>ff:action RerunFailedTests<CR>
 
 nmap <Space>gt :action GotoTest<CR>
-imap <Space>gt <Esc>:action GotoTest<CR>
+"imap <Space>gt <Esc>:action GotoTest<CR>
 
 nmap zif ?if<CR>/?=<CR>wvt{h
 imap zif <Esc>?if<CR>/?=<CR>wvt{h

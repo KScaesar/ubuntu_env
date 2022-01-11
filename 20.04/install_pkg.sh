@@ -4,6 +4,7 @@
 
 ## prepare
 sudo timedatectl set-local-rtc 1
+mkdir -p ~/.local/bin
 
 sudo add-apt-repository -y \
   ppa:git-core/ppa \
@@ -44,14 +45,11 @@ sudo aptitude update && sudo aptitude install -y \
   ipcalc \
   tldr \
   dbeaver-ce
-  
+
 ## https://github.com/junegunn/vim-plug
 # into nvim > :PlugInstall
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  
-## vscode
-# https://code.visualstudio.com/download
 
 ## desktop tool
 sudo aptitude update && sudo aptitude install -y \
@@ -72,17 +70,26 @@ sudo aptitude update && sudo aptitude install -y \
   flameshot \
   webcam
   
-## zoom
-wget -P ~/Downloads https://zoom.us/client/latest/zoom_amd64.deb
-sudo gdebi -n ~/Downloads/zoom_amd64.deb
+## pyenv
+# https://github.com/pyenv/pyenv/wiki#suggested-build-environment
 
-## virtualbox
-# https://www.virtualbox.org/wiki/Linux_Downloads
+# https://github.com/pyenv/pyenv#automatic-installer
+curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
 
-## vagrant
-curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
-sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
-sudo aptitude update && sudo aptitude install -y vagrant
+# need logout in order to reset enviroment variable
+pyenv install 3.10.1 && pyenv global 3.10.1
+
+cat <<EOF >>~/.bashrc
+
+source $(pyenv root)/completions/pyenv.bash
+source <(pip completion --bash)
+EOF
+
+## pipx
+# https://pypa.github.io/pipx/installation/
+pip install pipx
+pipx ensurepath
+echo 'eval "$(register-python-argcomplete pipx)"' >> ~/.bashrc
 
 ## gvm
 # https://github.com/moovweb/gvm#linux-requirements
@@ -99,19 +106,6 @@ go env -w GOBIN="$HOME"/.local/bin
 go env -w GO111MODULE=on
 go env -w CGO_ENABLED=0
 
-## pyenv
-# https://github.com/pyenv/pyenv/wiki#suggested-build-environment
-
-# https://github.com/pyenv/pyenv#automatic-installer
-curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
-
-cat <<EOF >>~/.bashrc
-
-source $(pyenv root)/completions/pyenv.bash
-EOF
-
-pyenv install 3.10.1 && pyenv global 3.10.1
-
 ## nvm
 # https://github.com/nvm-sh/nvm#installing-and-updating
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
@@ -121,6 +115,24 @@ nvm install --lts
 
 # https://github.com/nvm-sh/nvm#set-default-node-version
 nvm alias default node
+  
+## vscode
+# https://code.visualstudio.com/download
+
+## jetbrains toolbox
+# https://www.jetbrains.com/toolbox-app/
+
+## zoom
+wget -P ~/Downloads https://zoom.us/client/latest/zoom_amd64.deb
+sudo gdebi -n ~/Downloads/zoom_amd64.deb
+
+## virtualbox
+# https://www.virtualbox.org/wiki/Linux_Downloads
+
+## vagrant
+curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+sudo aptitude update && sudo aptitude install -y vagrant
 
 ## docker
 # https://docs.docker.com/engine/install/ubuntu/
@@ -128,6 +140,7 @@ nvm alias default node
 # https://docs.docker.com/engine/install/linux-postinstall/
 sudo usermod -aG docker $USER
 newgrp docker
+docker run hello-world
 exit
 
 ## docker-compose
@@ -152,3 +165,6 @@ EOF
 ## helm
 # https://helm.sh/docs/intro/install/
 curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+
+## git-filter-repo
+pipx install git-filter-repo

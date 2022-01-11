@@ -10,7 +10,8 @@ sudo add-apt-repository -y \
   ppa:git-core/ppa \
   ppa:peek-developers/stable \
   ppa:neovim-ppa/stable \
-  ppa:serge-rider/dbeaver-ce
+  ppa:serge-rider/dbeaver-ce \
+  ppa:wireshark-dev/stable
   
 sudo apt update && sudo apt install --yes aptitude
 
@@ -44,7 +45,14 @@ sudo aptitude update && sudo aptitude install -y \
   silversearcher-ag \
   ipcalc \
   tldr \
-  dbeaver-ce
+  dbeaver-ce \
+  wireshark
+
+## wireshark
+# https://itsfoss.com/install-wireshark-ubuntu/
+# Running Wireshark without sudo, and select Yes
+sudo aptitude install -y wireshark
+sudo usermod -aG wireshark $(whoami)
 
 ## https://github.com/junegunn/vim-plug
 # into nvim > :PlugInstall
@@ -139,9 +147,6 @@ sudo aptitude update && sudo aptitude install -y vagrant
 
 # https://docs.docker.com/engine/install/linux-postinstall/
 sudo usermod -aG docker $USER
-newgrp docker
-docker run hello-world
-exit
 
 ## docker-compose
 # https://docs.docker.com/compose/install/

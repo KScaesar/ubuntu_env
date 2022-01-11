@@ -121,3 +121,34 @@ nvm install --lts
 
 # https://github.com/nvm-sh/nvm#set-default-node-version
 nvm alias default node
+
+## docker
+# https://docs.docker.com/engine/install/ubuntu/
+
+# https://docs.docker.com/engine/install/linux-postinstall/
+sudo usermod -aG docker $USER
+newgrp docker
+exit
+
+## docker-compose
+# https://docs.docker.com/compose/install/
+docker_compose_version=1.29.2
+sudo curl -L "https://github.com/docker/compose/releases/download/$docker_compose_version/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && sudo chmod +x /usr/local/bin/docker-compose
+
+## kubectl
+# https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+
+chmod +x kubectl
+mv ./kubectl ~/.local/bin
+
+cat <<EOF >>~/.bashrc
+
+source <(kubectl completion bash)
+alias k=kubectl
+complete -F __start_kubectl k
+EOF
+
+## helm
+# https://helm.sh/docs/intro/install/
+curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash

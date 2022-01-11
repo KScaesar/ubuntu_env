@@ -129,4 +129,11 @@ NO_COLOR="\[\033[00m\]"
 BWhite="\[\033[1;37m\]"
 PS1="$RED[\A]$NO_COLOR$GREEN\u@\h$BWhite:$Cyan\w$YELLOW\$(parse_git_branch)$BWhite\$ $NO_COLOR"
 
+[[ -s "/home/caesar/.gvm/scripts/gvm" ]] && source "/home/caesar/.gvm/scripts/gvm"
 
+eval "$(pyenv init -)"
+source $(pyenv root)/completions/pyenv.bash
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

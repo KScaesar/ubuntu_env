@@ -2,11 +2,11 @@
     name = caesar
     email = x246libra@hotmail.com
 [core]
-    editor = code --wait
+#    editor = code --wait
     autocrlf = input
     ignorecase = false
 [merge]
-    tool = vscode
+#    tool = vscode
 [mergetool "vscode"]
     cmd = code --wait $MERGED
 [diff]

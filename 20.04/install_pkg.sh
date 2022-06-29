@@ -12,7 +12,7 @@ sudo add-apt-repository -y \
   ppa:neovim-ppa/stable \
   ppa:serge-rider/dbeaver-ce \
   ppa:wireshark-dev/stable
-  
+
 sudo apt update && sudo apt install --yes aptitude
 
 sudo aptitude update && sudo aptitude install -y \
@@ -76,8 +76,9 @@ sudo aptitude update && sudo aptitude install -y \
   peek \
   ntpdate \
   flameshot \
-  webcam
-  
+  webcam \
+  hw-probe
+
 ## pyenv
 # https://github.com/pyenv/pyenv/wiki#suggested-build-environment
 
@@ -123,7 +124,7 @@ nvm install --lts
 
 # https://github.com/nvm-sh/nvm#set-default-node-version
 nvm alias default node
-  
+
 ## vscode
 # https://code.visualstudio.com/download
 

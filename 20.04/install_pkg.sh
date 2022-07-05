@@ -115,6 +115,9 @@ go env -w GOBIN="$HOME"/.local/bin
 go env -w GO111MODULE=on
 go env -w CGO_ENABLED=0
 
+## Terminal JSON viewer: fx
+go install github.com/antonmedv/fx@latest
+
 ## nvm
 # https://github.com/nvm-sh/nvm#installing-and-updating
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash

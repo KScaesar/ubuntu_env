@@ -175,5 +175,10 @@ EOF
 # https://helm.sh/docs/intro/install/
 curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 
+## nsenter
+# https://github.com/jpetazzo/nsenter
+docker run --rm -v /usr/local/bin:/target jpetazzo/nsenter
+
 ## git-filter-repo
 pipx install git-filter-repo
+

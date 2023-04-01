@@ -30,3 +30,12 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 eval "$(pyenv init --path)"
+
+export PATH="/home/caesar/.local/share/solana/install/active_release/bin:$PATH"
+
+
+# Added by Toolbox App
+export PATH="$PATH:/home/caesar/.local/share/JetBrains/Toolbox/scripts"
+
+# rustup
+. "$HOME/.cargo/env"

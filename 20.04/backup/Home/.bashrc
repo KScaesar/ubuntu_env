@@ -116,19 +116,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# show git branch
-function parse_git_branch () {
-  git branch 2> /dev/null | sed -e "/^[^*]/d" -e "s/* \(.*\)/[\1]/"
-}
-RED="\[\033[01;31m\]"
-YELLOW="\[\033[01;33m\]"
-GREEN="\[\033[01;32m\]"
-BIPurple="\[\033[1;95m\]"
-Cyan="\[\033[1;36m\]"
-NO_COLOR="\[\033[00m\]"
-BWhite="\[\033[1;37m\]"
-PS1="$RED[\A]$NO_COLOR$GREEN\u@\h$BWhite:$Cyan\w$YELLOW\$(parse_git_branch)$BWhite\$ $NO_COLOR"
-
 [[ -s "/home/caesar/.gvm/scripts/gvm" ]] && source "/home/caesar/.gvm/scripts/gvm"
 
 eval "$(pyenv init -)"
@@ -144,4 +131,10 @@ source <(kubectl completion bash)
 alias k=kubectl
 complete -F __start_kubectl k
 
+export PATH="/home/caesar/.local/share/solana/install/active_release/bin:$PATH"
 
+. "$HOME/.cargo/env"
+source <(rustup completions bash)
+
+# Starship prompt
+eval "$(starship init bash)"

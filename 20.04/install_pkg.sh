@@ -20,7 +20,7 @@ sudo aptitude update && sudo aptitude install -y \
   gdebi \
   curl \
   git \
-  gnome-tweak-tool \
+  gnome-tweak-tool
 
 sudo apt install -y dconf-editor
 
@@ -78,6 +78,25 @@ sudo aptitude update && sudo aptitude install -y \
   flameshot \
   webcam \
   hw-probe
+
+## Nerd Font
+# https://github.com/ryanoasis/nerd-fonts/
+Nerd_Font_Version="v2.3.3"
+declare -a fonts=("FiraCode" "JetBrainsMono")
+for font in "${fonts[@]}"; do
+  curl -fLo /tmp/"$font".zip https://github.com/ryanoasis/nerd-fonts/releases/download/"$Nerd_Font_Version"/"$font".zip
+  sudo unzip /tmp/"$font".zip -d /usr/share/fonts/truetype/"$font"
+done
+fc-cache -f
+
+## starship
+# https://starship.rs/guide/#%F0%9F%9A%80-installation
+curl -sS https://starship.rs/install.sh | sh -s -- --yes
+
+sudo sh -c 'echo "\n# Starship prompt\neval \"\$(starship init bash)\"" >> /root/.bashrc'
+starship preset plain-text-symbols | sudo tee /root/.config/starship.toml >/dev/null
+
+echo -e "\n# Starship prompt\neval \"\$(starship init bash)\"" >>~/.bashrc
 
 ## pyenv
 # https://github.com/pyenv/pyenv/wiki#suggested-build-environment
@@ -150,7 +169,7 @@ sudo aptitude update && sudo aptitude install -y vagrant
 # https://docs.docker.com/engine/install/ubuntu/
 
 # https://docs.docker.com/engine/install/linux-postinstall/
-sudo usermod -aG docker $USER
+sudo usermod -aG docker "$USER"
 
 ## docker-compose
 # https://docs.docker.com/compose/install/
@@ -181,4 +200,3 @@ docker run --rm -v /usr/local/bin:/target jpetazzo/nsenter
 
 ## git-filter-repo
 pipx install git-filter-repo
-

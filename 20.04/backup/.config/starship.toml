@@ -8,11 +8,12 @@ add_newline = false
 disabled = true
 
 [character]
-error_symbol = "[✖](bold red)"
-success_symbol = "[->](bold green)"
+format = " $symbol "
+error_symbol = "[🙀 ✖](bold red)"
+success_symbol = "[🐱 ](bold green)"
 
 [os]
-disabled = false
+disabled = true
 
 [directory]
 truncation_length = 0
@@ -20,7 +21,7 @@ truncate_to_repo = false
 style = "white bold"
 
 [localip]
-disabled = true
+disabled = false
 ssh_only = false
 
 [time]
@@ -30,6 +31,9 @@ time_format = '%R'
 [username]
 show_always = true
 style_user = "cyan bold"
+
+[sudo]
+disabled = false
 
 [golang]
 symbol = " "

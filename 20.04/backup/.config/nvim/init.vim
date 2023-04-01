@@ -22,6 +22,9 @@ hi CursorLine cterm=none ctermbg=DarkMagenta ctermfg=White
 hi Search cterm=reverse ctermbg=none ctermfg=none
 
 "set clipboard^=unnamed,unnamedplus
+if exists('g:vscode')
+  set clipboard=unnamed
+endif
 
 "keymap
 imap jj <Esc>

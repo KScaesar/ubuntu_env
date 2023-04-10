@@ -1,0 +1,109 @@
+{
+  "settings": {
+    "prompt": [
+      {
+        "key": "1",
+        "text": "自由提問",
+        "prefix": "",
+        "suffix": "",
+        "isVisible": true
+      },
+      {
+        "key": "2",
+        "text": "英文句型",
+        "prefix": "你現在是一個英文教育專家，分析以下英文句子，請使用繁體中文回答。\n",
+        "suffix": "\n提供我詳細文法解說，並給出 2 個相似的句型範例。",
+        "isVisible": true
+      },
+      {
+        "key": "3",
+        "text": "英文單字",
+        "prefix": "你現在是一個英文教育專家，分析以下英文單字，請使用繁體中文回答。\n",
+        "suffix": "\n提供我單字的拼音、詞性、翻譯，並給出 5 個中英文範例。",
+        "isVisible": true
+      },
+      {
+        "key": "4",
+        "text": "程式問題",
+        "prefix": "你現在是一個專業的 software developer，\n",
+        "suffix": "\n，請使用繁體中文回答。",
+        "isVisible": true
+      },
+      {
+        "key": "5",
+        "text": "CSS 範例",
+        "prefix": "你現在是一個 CSS 專家，請幫我做出以下敘述的樣式：\n",
+        "suffix": "\n，請使用繁體中文回答。",
+        "isVisible": true
+      },
+      {
+        "key": "6",
+        "text": "整理重點",
+        "prefix": "你現在是個閱讀專家，請幫我整理下面文章的重點，使用條列方式，列出 10 點，最後給出一個總結：\n\n",
+        "suffix": "\n\n，請使用繁體中文回答。",
+        "isVisible": true
+      },
+      {
+        "key": "7",
+        "text": "研究報告",
+        "prefix": "寫一篇有關",
+        "suffix": "的 300 字研究報告，報告中需引述最新的研究，並引用專家觀點，請使用繁體中文回答。",
+        "isVisible": true
+      },
+      {
+        "key": "8",
+        "text": "文字修飾",
+        "prefix": "請幫我修飾以下敘述，符合台灣用語，且輕鬆活潑。\n\n",
+        "suffix": "",
+        "isVisible": true
+      },
+      {
+        "key": "9",
+        "text": "問題建議",
+        "prefix": "我遇到以下問題：\n",
+        "suffix": "\n請幫我想出解決方式或替代方案，並使用繁體中文回答。",
+        "isVisible": true
+      },
+      {
+        "key": "10",
+        "text": "多國語系翻譯",
+        "prefix": "你現在是一個翻譯專家，請幫我翻譯 [",
+        "suffix": "] 的繁體中文、簡體中文、英文、日文，\n並請使用表格顯示，表頭分別為 zh-tw、zh-cn、en、ja，\n不需要其他解釋或說明。",
+        "isVisible": true
+      }
+    ],
+    "quickReply": [
+      {
+        "key": "Y",
+        "text": "提供其它範例",
+        "quickReplyMessage": "請提供其它範例",
+        "isVisible": true
+      },
+      {
+        "key": "U",
+        "text": "更詳細的說明",
+        "quickReplyMessage": "請提供更細節的說明",
+        "isVisible": true
+      },
+      {
+        "key": "I",
+        "text": "提供程式範例",
+        "quickReplyMessage": "請提供程式範例",
+        "isVisible": true
+      },
+      {
+        "key": "O",
+        "text": "翻譯成繁體中文",
+        "quickReplyMessage": "請翻譯成繁體中文",
+        "isVisible": true
+      },
+      {
+        "key": "P",
+        "text": "翻譯成英文",
+        "quickReplyMessage": "請翻譯成英文",
+        "isVisible": true
+      }
+    ],
+    "isHiddenMenu": "N"
+  }
+}

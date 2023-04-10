@@ -9,28 +9,35 @@ disabled = true
 
 [character]
 format = " $symbol "
-error_symbol = "[🙀 ✖](bold red)"
-success_symbol = "[🐱 ](bold green)"
+error_symbol = "🙀 [✕](bold #FF0000)"
+success_symbol = "🐱 [](bold #00EC00)"
 
-[os]
-disabled = true
+[username]
+show_always = true
+style_user = "bold bg:#5B00AE fg:#FFFFFF"
+style_root = "bold bg:#5B00AE fg:#EA0000"
+format = """
+[$user]($style) \
+"""
 
 [directory]
 truncation_length = 0
 truncate_to_repo = false
-style = "white bold"
-
-[localip]
-disabled = false
-ssh_only = false
+style = "bold #FFFFFF"
 
 [time]
 disabled = false
 time_format = '%R'
+style = "bold bg:#4F4F4F fg:#BE77FF"
+format = 'at [\[$time\]]($style) '
 
-[username]
-show_always = true
-style_user = "cyan bold"
+[os]
+disabled = true
+
+[localip]
+disabled = false
+ssh_only = false
+style = "bold cyan"
 
 [sudo]
 disabled = false

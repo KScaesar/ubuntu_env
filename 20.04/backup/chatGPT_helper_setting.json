@@ -11,15 +11,15 @@
       {
         "key": "2",
         "text": "英文句型",
-        "prefix": "你現在是一個英文教育專家，分析以下英文句子，請使用繁體中文回答。\n",
-        "suffix": "\n提供我詳細文法解說，並給出 2 個相似的句型範例。",
+        "prefix": "你現在是一個英文教育專家，分析以下英文句子，回答方式以英文為主\n",
+        "suffix": "\n用以下結構回答: [1. List Syntax Analysis] [2. 用 + 的符號, 表達整體句型結構] [3. Grammar Explanation] [4. 2個相似的句型範例]",
         "isVisible": true
       },
       {
         "key": "3",
         "text": "英文單字",
-        "prefix": "你現在是一個英文教育專家，分析以下英文單字，請使用繁體中文回答。\n",
-        "suffix": "\n提供我單字的拼音、詞性、翻譯，並給出 5 個中英文範例。",
+        "prefix": "你現在是一個英文教育專家，分析以下英文單字，回答方式以英文為主\n",
+        "suffix": "\n提供我單字的翻譯、詞性、拼音，不同詞性各別給出 2 個的繁中和英文範例。",
         "isVisible": true
       },
       {
@@ -93,14 +93,14 @@
       },
       {
         "key": "O",
-        "text": "翻譯成繁體中文",
-        "quickReplyMessage": "請翻譯成繁體中文",
+        "text": "TO 中文",
+        "quickReplyMessage": "用繁體中文，翻譯上一個內容",
         "isVisible": true
       },
       {
         "key": "P",
-        "text": "翻譯成英文",
-        "quickReplyMessage": "請翻譯成英文",
+        "text": "TO 英文",
+        "quickReplyMessage": "用英文，翻譯上一個內容",
         "isVisible": true
       }
     ],

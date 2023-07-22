@@ -46,7 +46,8 @@ sudo aptitude update && sudo aptitude install -y \
   ipcalc \
   tldr \
   dbeaver-ce \
-  wireshark
+  wireshark \
+  socat
 
 ## wireshark
 # https://itsfoss.com/install-wireshark-ubuntu/

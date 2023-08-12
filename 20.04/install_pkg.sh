@@ -119,7 +119,7 @@ EOF
 # https://pypa.github.io/pipx/installation/
 pip install pipx
 pipx ensurepath
-echo 'eval "$(register-python-argcomplete pipx)"' >> ~/.bashrc
+echo 'eval "$(register-python-argcomplete pipx)"' >>~/.bashrc
 
 ## gvm
 # https://github.com/moovweb/gvm#linux-requirements
@@ -138,6 +138,8 @@ go env -w CGO_ENABLED=0
 
 ## Terminal JSON viewer: fx
 go install github.com/antonmedv/fx@latest
+
+go install -v github.com/google/pprof@latest
 
 ## nvm
 # https://github.com/nvm-sh/nvm#installing-and-updating

@@ -48,7 +48,8 @@ sudo aptitude update && sudo aptitude install -y \
   dbeaver-ce \
   wireshark \
   socat \
-  fio
+  fio \
+  iftop
 
 ## wireshark
 # https://itsfoss.com/install-wireshark-ubuntu/

@@ -122,16 +122,25 @@ pip install pipx
 pipx ensurepath
 echo 'eval "$(register-python-argcomplete pipx)"' >>~/.bashrc
 
-## gvm
-# https://github.com/moovweb/gvm#linux-requirements
+## goenv
+# https://github.com/go-nv/goenv/blob/master/INSTALL.md
+git clone https://github.com/go-nv/goenv.git ~/.goenv
 
-# https://github.com/moovweb/gvm#installing
-bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+cat <<EOF >>~/.bash_profile
+# Add by goenv
+export GOENV_ROOT="$HOME/.goenv"
+export PATH="$GOENV_ROOT/bin:$PATH"
+eval "$(goenv init -)"
+EOF
+cat <<EOF >>~/.bashrc
+# Add by goenv
+export PATH="$GOROOT/bin:$PATH"
+export PATH="$GOPATH/bin:$PATH"
+EOF
 
-gvm install go1.4 -B
-gvm use go1.4
-export GOROOT_BOOTSTRAP=$GOROOT
-gvm install go1.17.6 && gvm use go1.17.6 --default
+# https://github.com/go-nv/goenv/blob/master/COMMANDS.md
+goenv install 1.21.1
+goenv global 1.21.1
 
 go env -w GOBIN="$HOME"/.local/bin
 go env -w GO111MODULE=on

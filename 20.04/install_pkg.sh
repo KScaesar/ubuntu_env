@@ -145,6 +145,7 @@ goenv global 1.21.1
 go env -w GOBIN="$HOME"/.local/bin
 go env -w GO111MODULE=on
 go env -w CGO_ENABLED=0
+# go env -w GOPRIVATE=talent.com/
 
 ## Terminal JSON viewer: fx
 go install github.com/antonmedv/fx@latest

@@ -9,8 +9,8 @@ disabled = true
 
 [character]
 format = " $symbol "
-error_symbol = "🙀 [X](bold #FF0000)"
-success_symbol = "🐱 [>](bold #00EC00)"
+error_symbol = "[X](bold #FF0000)"
+success_symbol = "[>](bold #00EC00)"
 
 [username]
 show_always = true

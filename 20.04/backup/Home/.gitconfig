@@ -5,7 +5,7 @@
 #    editor = code --wait
     autocrlf = input
     ignorecase = false
-# [merge]
+[merge]
 #    tool = vscode
 [mergetool "vscode"]
     cmd = code --wait $MERGED
@@ -23,3 +23,6 @@
     l = log --oneline --graph
 [init]
 	defaultBranch = main
+
+[pull]
+	rebase = false

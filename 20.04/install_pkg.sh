@@ -152,6 +152,10 @@ go install github.com/antonmedv/fx@latest
 
 go install -v github.com/google/pprof@latest
 
+## watch 替代工具
+## https://github.com/sachaos/viddy#viddy
+go install github.com/sachaos/viddy@latest
+
 ## nvm
 # https://github.com/nvm-sh/nvm#installing-and-updating
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash

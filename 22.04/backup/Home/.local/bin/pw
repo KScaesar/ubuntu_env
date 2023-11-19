@@ -1,0 +1,5 @@
+#!/bin/env bash
+source ~/my_password
+echo "$Sudo_Password" | /usr/bin/sudo -S date &>/dev/null
+unset Sudo_Password
+

@@ -1,0 +1,4 @@
+#!/bin/env bash
+
+# https://linux-hardware.org/?view=howto
+sudo ~/.local/bin/hw-probe.AppImage -all -upload

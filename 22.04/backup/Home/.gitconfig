@@ -1,0 +1,34 @@
+[user]
+	name = ksCaesar
+	email = x246libra@htomail.com
+
+[core]
+#	editor = code --wait
+	autocrlf = input
+	ignorecase = false
+	editor = vim
+
+[merge]
+#	tool = vscode
+[mergetool "vscode"]
+	cmd = code --wait $MERGED
+
+[diff]
+	tool = vscode
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE
+
+[credential]
+	helper = store
+[init]
+	defaultBranch = main
+[pull]
+	rebase = falise
+
+[alias]
+	ch = checkout
+	br = branch
+	st = status
+	co = commit
+	l = log --oneline --graph
+

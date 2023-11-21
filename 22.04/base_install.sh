@@ -52,6 +52,9 @@ gnome-shell-extension-prefs \
 synaptic \
 gdebi \
 cpu-checker \
+nvme-cli \
+smartmontools \
+gsmartcontrol \
 lm-sensors \
 acpi \
 gparted \

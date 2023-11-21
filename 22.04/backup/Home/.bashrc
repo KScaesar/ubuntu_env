@@ -124,22 +124,25 @@ export PYENV_ROOT="$HOME/.pyenv"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
+# Add for goenv
+export GOENV_ROOT="$HOME/.goenv"
+export PATH="$GOENV_ROOT/bin:$PATH"
+eval "$(goenv init -)"
+
 # Add for python
 source /home/caesar/.pyenv/completions/pyenv.bash
 source <(pip completion --bash)
 eval "$(register-python-argcomplete pipx)"
+
+# Add for golang
+source $(goenv root)/completions/goenv.bash
+export PATH="$GOROOT/bin:$PATH"
+complete -C /home/caesar/.local/bin/gocomplete go
 
 # Added for nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# Add for goenv
-export GOENV_ROOT="$HOME/.goenv"
-export PATH="$GOENV_ROOT/bin:$PATH"
-eval "$(goenv init -)"
+export FZF_DEFAULT_OPTS="--preview 'echo {}' --preview-window top:40%,hidden,wrap --bind ctrl-w:toggle-preview"
 
-# Add for golang
-source $(goenv root)/completions/goenv.bash
-export PATH="$GOROOT/bin:$PATH"
-complete -C /home/caesar/.local/bin/gocomplete go

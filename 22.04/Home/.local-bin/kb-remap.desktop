@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name="Set Keyboard to default"
+Comment="Caps Lock and Ctrl keys set to default"
+Exec="/home/caesar/.local/bin/kb-remap --reset"
+Icon="/home/caesar/.local/bin/kb-remap.jpeg"
+Terminal=true
+Type=Application
+Categories=Utility;

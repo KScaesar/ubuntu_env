@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+    case "$1" in
+        -i|--install)
+            setxkbmap -option ctrl:swapcaps
+            echo "Caps Lock and Ctrl keys remapped"
+            setxkbmap -query
+            ;;
+        -r|--reset)
+            setxkbmap -option ""
+            echo "Caps Lock and Ctrl keys set to default"
+            setxkbmap -query
+            ;;
+        *)
+            echo "Usage: kb-remap"
+            echo "  -i, --install : Caps Lock and Ctrl keys remapped"
+            echo "  -r, --reset   : Caps Lock and Ctrl keys set to default"
+            echo ""
+            setxkbmap -query
+            ;;
+    esac

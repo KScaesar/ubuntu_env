@@ -5,13 +5,15 @@
 ## prepare
 mkdir -p \
 ~/.local/bin \
+~/.config \
 ~/.themes 
 
+## password
 touch ~/my_password
 cat <<'EOF' >>~/.local/bin/pw
 #!/bin/env bash
 source ~/my_password
-echo "$Sudo_Password" | /usr/bin/sudo -S date &>/dev/null
+echo "$Sudo_Password" | sudo -S date &>/dev/null
 EOF
 chmod 755 ~/.local/bin/pw
 echo 'pw' >> ~/.bashrc
@@ -32,27 +34,34 @@ EOL
 sudo apt install --yes --no-install-recommends gnome-software
 ## remove snap end
 
-sudo add-apt-repository --yes \
-universe
+## Flatpak
+# https://flathub.org/setup/Ubuntu
+sudo add-apt-repository -y ppa:flatpak/stable
+sudo apt update && sudo apt install -y flatpak
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+sudo reboot
 
 ## must tool
 # https://github.com/AppImage/AppImageKit/wiki/FUSE
 # https://flameshot.org/docs/guide/key-bindings/#on-ubuntu-and-other-gnome-based-distros
+sudo add-apt-repository -y universe
+sudo add-apt-repository -y ppa:cappelikan/ppa # mainline
+
 sudo apt update && sudo apt install --yes \
 build-essential \
 git \
 curl \
+apt-rdepends \
 exfatprogs \
 libfuse2 \
 dconf-editor \
 gnome-tweaks \
-gnome-session \
-gnome-shell-extension-manager \
-gnome-shell-extension-prefs \
+mainline \
 synaptic \
 gdebi \
 cpu-checker \
 nvme-cli \
+usbutils \
 smartmontools \
 gsmartcontrol \
 lm-sensors \
@@ -62,8 +71,40 @@ flameshot
 
 ## GNOME Extensions
 sudo apt update && sudo apt install --yes \
+gnome-shell-extension-manager \
+gnome-shell-extension-prefs \
+chrome-gnome-shell \
 gir1.2-gda-5.0 gir1.2-gsound-1.0
 
+## touchegg
+# https://github.com/JoseExposito/touchegg
+sudo add-apt-repository -y ppa:touchegg/stable
+sudo apt update && sudo apt install -y touchegg
+
+# https://flathub.org/apps/com.github.joseexposito.touche
+flatpak install -y flathub com.github.joseexposito.touche
+
+## Nerd Font
+# https://github.com/ryanoasis/nerd-fonts/
+Nerd_Font_Version="v3.1.0"
+declare -a fonts=("FiraCode")
+for font in "${fonts[@]}"; do
+  curl -fLo /tmp/"$font".zip https://github.com/ryanoasis/nerd-fonts/releases/download/"$Nerd_Font_Version"/"$font".zip
+  sudo unzip /tmp/"$font".zip -d /usr/share/fonts/truetype/"$font"
+done
+fc-cache -f
+
+## starship
+# https://starship.rs/guide/#%F0%9F%9A%80-installation
+curl -sS https://starship.rs/install.sh | sh -s -- --yes
+
+starship preset bracketed-segments -o ~/.config/starship.toml
+echo -e "\n# Starship prompt\neval \"\$(starship init bash)\"" >>~/.bashrc
+
+starship preset plain-text-symbols | sudo tee /root/.config/starship.toml >/dev/null
+sudo sh -c 'echo "\n# Starship prompt\neval \"\$(starship init bash)\"" >> /root/.bashrc'
+
+## git
 git config --global user.name "ksCaesar"
 git config --global user.email "x246libra@htomail.com"
 git config --global core.editor "vim"
@@ -91,14 +132,6 @@ EOF
 pip install pipx
 pipx ensurepath
 pipx completions
-
-## nvm
-# https://github.com/nvm-sh/nvm#installing-and-updating
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
-nvm install --lts
-
-# https://github.com/nvm-sh/nvm#set-default-node-version
-nvm alias default node
 
 ## goenv
 # https://github.com/go-nv/goenv/blob/master/INSTALL.md
@@ -129,4 +162,12 @@ EOF
 
 go install github.com/posener/complete/gocomplete@latest
 gocomplete -install -y
+
+## nvm
+# https://github.com/nvm-sh/nvm#installing-and-updating
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
+nvm install --lts
+
+# https://github.com/nvm-sh/nvm#set-default-node-version
+nvm alias default node
 

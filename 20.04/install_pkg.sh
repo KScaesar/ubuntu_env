@@ -96,8 +96,9 @@ fc-cache -f
 # https://starship.rs/guide/#%F0%9F%9A%80-installation
 curl -sS https://starship.rs/install.sh | sh -s -- --yes
 
+starship preset plain-text-symbols -o ~/.config/starship.toml
 sudo sh -c 'echo "\n# Starship prompt\neval \"\$(starship init bash)\"" >> /root/.bashrc'
-starship preset plain-text-symbols | sudo tee /root/.config/starship.toml >/dev/null
+
 
 echo -e "\n# Starship prompt\neval \"\$(starship init bash)\"" >>~/.bashrc
 

@@ -9,6 +9,9 @@
 !configs/template-*
 !configs/*.go
 
+.go-version
+.python-version
+
 # go,python,jupyternotebooks,react,node,rust,windows,macos,linux
 # get by https://www.toptal.com/developers/gitignore
 

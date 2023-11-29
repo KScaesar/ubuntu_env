@@ -1,10 +1,9 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 
     case "$1" in
         -f)
             shift
             { tail -f -n 0 "$@" & cat "$@"; } | fzf -i +s -e --tac
-            return
             ;;
         *)
             cat "$@" | fzf -i +s -e --tac

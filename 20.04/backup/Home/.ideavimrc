@@ -10,7 +10,7 @@ set showmode
 set showcmd
 set visualbell
 set scrolloff=2
-set matchit
+set matchit 
 
 "set clipboard^=unnamed,unnamedplus
 

@@ -2,7 +2,7 @@ set nocompatible
 set encoding=utf-8
 
 syntax on
-set relativenumber
+"set relativenumber
 set hlsearch
 set incsearch
 set ruler

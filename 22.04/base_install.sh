@@ -52,6 +52,7 @@ build-essential \
 git \
 curl \
 apt-rdepends \
+mtools \
 exfatprogs \
 libfuse2 \
 dconf-editor \

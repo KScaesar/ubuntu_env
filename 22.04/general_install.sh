@@ -11,6 +11,23 @@ tree
 
 tldr --update
 
+## desktop tool
+sudo apt update && sudo apt install --yes \
+
+## backup
+# https://freefilesync.org/download.php
+
+install_FreeFileSync() {
+    local version="$1"
+    local tar_filename="FreeFileSync_${version}_Linux.tar.gz"
+    local extracted_filename="FreeFileSync_${version}_Install.run"
+
+    wget -P ~/Download/ "https://freefilesync.org/download/$tar_filename" 
+    tar -zxvf ~/Download/$tar_filename -C ~/Download
+    chmod +x ~/Download/$extracted_filename && ~/Download/$extracted_filename
+}
+install_FreeFileSync "13.2"
+
 ## fzf
 # https://github.com/junegunn/fzf/tree/master/shells
 curl -sSL https://github.com/junegunn/fzf/releases/download/0.44.1/fzf-0.44.1-linux_amd64.tar.gz | sudo tar --no-same-owner -xz -C /usr/bin/

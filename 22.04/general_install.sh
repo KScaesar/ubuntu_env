@@ -18,7 +18,10 @@ curl https://raw.githubusercontent.com/junegunn/fzf/master/bin/fzf-preview.sh -o
 curl https://raw.githubusercontent.com/junegunn/fzf/master/bin/fzf-tmux -o  ~/.local/bin/fzf-tmux && chmod 755 ~/.local/bin/fzf-tmux
 sudo curl https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.bash -o /etc/bash_completion.d/fzf-key-bindings.bash
 sudo curl https://raw.githubusercontent.com/junegunn/fzf/master/shell/completion.bash -o /etc/bash_completion.d/fzf-completion.bash
-echo 'export FZF_DEFAULT_OPTS="--multi --bind=alt-k:up,alt-j:down --bind '\''home:last,end:first'\'' --bind '\''ctrl-o:execute(vim {}),ctrl-]:execute(sudo vim {})'\' --preview \'echo {}'\'' --preview-window top:40%:hidden:wrap --bind '\''ctrl-o:toggle-preview'\''"' >> ~/.bashrc
+
+cat <<'EOF' >>~/.bashrc
+export FZF_DEFAULT_OPTS="--multi --bind=alt-k:up,alt-j:down --bind 'home:last,end:first' --bind 'ctrl-o:execute(vim {}),ctrl-]:execute(sudo vim {})' --preview 'echo {}' --preview-window top:40%:hidden:wrap --bind 'ctrl-p:toggle-preview'"
+EOF
 
 ## bat
 # https://github.com/sharkdp/bat/releases

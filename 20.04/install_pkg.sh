@@ -75,7 +75,7 @@ sudo aptitude update && sudo aptitude install -y \
   kazam \
   pcscd pcsc-tools \
   qbittorrent \
-  kolourpaint4 \
+  kolourpaint \
   peek \
   ntpdate \
   flameshot \

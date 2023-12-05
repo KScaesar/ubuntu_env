@@ -18,7 +18,7 @@ EOF
 chmod 755 ~/.local/bin/pw
 echo 'pw' >> ~/.bashrc
 
-## remove snap start
+## remove snap
 # https://sysin.org/blog/ubuntu-remove-snap/
 sudo snap set system refresh.retain=2
 for p in $(snap list | awk '{print $1}'); do
@@ -32,7 +32,6 @@ Pin-Priority: -10
 EOL
 
 sudo apt install --yes --no-install-recommends gnome-software
-## remove snap end
 
 ## Flatpak
 # https://flathub.org/setup/Ubuntu
@@ -41,7 +40,7 @@ sudo apt update && sudo apt install -y flatpak
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 sudo reboot
 
-## must tool
+## system tool
 # https://github.com/AppImage/AppImageKit/wiki/FUSE
 # https://flameshot.org/docs/guide/key-bindings/#on-ubuntu-and-other-gnome-based-distros
 sudo add-apt-repository -y universe
@@ -67,8 +66,34 @@ smartmontools \
 gsmartcontrol \
 lm-sensors \
 acpi \
-gparted \
-flameshot 
+gparted
+
+## desktop tool
+sudo apt update && sudo apt install --yes \
+flameshot \
+kolourpaint \
+vokoscreen \
+peek
+
+## cli tool
+sudo apt update && sudo apt install --yes \
+tldr \
+htop \
+tree 
+
+tldr --update
+
+## fzf
+# https://github.com/junegunn/fzf/tree/master/shells
+curl -sSL https://github.com/junegunn/fzf/releases/download/0.44.1/fzf-0.44.1-linux_amd64.tar.gz | sudo tar --no-same-owner -xz -C /usr/bin/
+curl https://raw.githubusercontent.com/junegunn/fzf/master/bin/fzf-preview.sh -o ~/.local/bin/fzf-preview.sh && chmod 755 ~/.local/bin/fzf-preview.sh
+curl https://raw.githubusercontent.com/junegunn/fzf/master/bin/fzf-tmux -o  ~/.local/bin/fzf-tmux && chmod 755 ~/.local/bin/fzf-tmux
+sudo curl https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.bash -o /etc/bash_completion.d/fzf-key-bindings.bash
+sudo curl https://raw.githubusercontent.com/junegunn/fzf/master/shell/completion.bash -o /etc/bash_completion.d/fzf-completion.bash
+
+cat <<'EOF' >>~/.bashrc
+export FZF_DEFAULT_OPTS="--multi --bind=alt-k:up,alt-j:down --bind 'home:last,end:first' --bind 'ctrl-o:execute(vim {}),ctrl-]:execute(sudo vim {})' --preview 'echo {}' --preview-window top:40%:hidden:wrap --bind 'ctrl-p:toggle-preview'"
+EOF
 
 ## GNOME Extensions
 sudo apt update && sudo apt install --yes \
@@ -84,6 +109,25 @@ sudo apt update && sudo apt install -y touchegg
 
 # https://flathub.org/apps/com.github.joseexposito.touche
 flatpak install -y flathub com.github.joseexposito.touche
+
+## backup
+# https://freefilesync.org/download.php
+
+install_FreeFileSync() {
+    local version="$1"
+    local tar_filename="FreeFileSync_${version}_Linux.tar.gz"
+    local extracted_filename="FreeFileSync_${version}_Install.run"
+
+    wget -P ~/Download/ "https://freefilesync.org/download/$tar_filename" 
+    tar -zxvf ~/Download/$tar_filename -C ~/Download
+    chmod +x ~/Download/$extracted_filename && ~/Download/$extracted_filename
+}
+install_FreeFileSync "13.2"
+
+# https://github.com/teejee2008/timeshift#ubuntu-based-distributions
+sudo add-apt-repository -y ppa:teejee2008/timeshift
+sudo apt-get update
+sudo apt-get install -y timeshift
 
 ## Nerd Font
 # https://github.com/ryanoasis/nerd-fonts/

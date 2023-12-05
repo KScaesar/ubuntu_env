@@ -13,6 +13,12 @@ tldr --update
 
 ## desktop tool
 sudo apt update && sudo apt install --yes \
+kolourpaint \
+vokoscreen \
+qbittorrent \
+peek
+
+
 
 ## backup
 # https://freefilesync.org/download.php

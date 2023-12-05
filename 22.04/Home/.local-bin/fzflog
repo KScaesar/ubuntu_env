@@ -1,13 +1,81 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
+## example:
+# fzflog -q "!cub !GameId !lucky !broadCastPot !config\ im" -t $(fzf)
+
+if [[ $# -eq 0 ]]; then
+    echo "Usage: $0 [options] <file1> [file2] ..."
+    echo "Options:"
+    echo "  -q, --query <query_arg>   Specify a query argument for fzf."
+    echo "  -f, --filter <filter_arg> Specify a filter argument for fzf."
+    echo "  -n                        Use 'cat -n' to display line numbers."
+    echo "  -t, --track               Enable tracking mode for specified files for tail."
+    exit 1
+fi
+
+cat_cmd="cat"
+read_file_cmd=""
+fzf_cmd="fzf -i +s -e --tac"
+files=""
+
+## Parse Parameter
+while [ $# -gt 0 ]; do
     case "$1" in
-        -f)
+    -f | --filter)
+        shift
+        if [ -n "$1" ]; then
+            filter_arg="$1"
             shift
-            { tail -f -n 0 "$@" & cat "$@"; } | fzf -i +s -e --tac
-            ;;
-        *)
-            cat "$@" | fzf -i +s -e --tac
-            ;;
+            fzf_cmd="fzf -i +s -e -f '$filter_arg'"
+        else
+            echo "Error: Option -f requires a filter argument."
+            exit 1
+        fi
+        ;;
+    -q | --query)
+        shift
+        if [ -n "$1" ]; then
+            query_arg="$1"
+            shift
+            fzf_cmd="fzf -i +s -e --tac -q '$query_arg'"
+        else
+            echo "Error: Option -q requires a query argument."
+            exit 1
+        fi
+        ;;
+
+    -n)
+        shift
+        cat_cmd="cat -n"
+        ;;
+
+    -t | --track)
+        shift
+        files="$@"
+        read_file_cmd="$cat_cmd $files; tail -f -n 0 $files &"
+        break
+        ;;
+    *)
+        files="$@"
+        read_file_cmd="$cat_cmd $files"
+        break
+        ;;
     esac
+done
 
+if [ -z "$files" ]; then
+    echo "Error: At least one file argument is required."
+    exit 1
+fi
 
+fzf_cmd="$fzf_cmd --bind 'ctrl-r:reload($read_file_cmd)'"
+eval "$read_file_cmd" | eval "$fzf_cmd"
+
+# bug fix: 
+# 無法精準關閉執行指令當下的 tail process
+# 多人一起查詢同一個檔案, 可能會有問題
+tial_pid=$(pgrep -u "$USER" -n -f "tail -f -n 0 $files")
+echo "$tial_pid"
+kill "$tial_pid"
+
+# echo -e "\n  Debug: $read_file_cmd | $fzf_cmd"

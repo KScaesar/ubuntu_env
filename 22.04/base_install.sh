@@ -6,7 +6,8 @@
 mkdir -p \
 ~/.local/bin \
 ~/.config \
-~/.themes 
+~/.themes \
+~/App
 
 ## password
 touch ~/my_password
@@ -47,26 +48,48 @@ sudo add-apt-repository -y universe
 sudo add-apt-repository -y ppa:cappelikan/ppa # mainline
 
 sudo apt update && sudo apt install --yes \
-build-essential \
-git \
-curl \
+build-essential git curl \
 apt-rdepends \
 mtools \
 exfatprogs \
 libfuse2 \
-dconf-editor \
-gnome-tweaks \
-mainline \
-synaptic \
-gdebi \
+dconf-editor gnome-tweaks \
+mainline synaptic gdebi \
+nvme-cli usbutils smartmontools gsmartcontrol \
 cpu-checker \
-nvme-cli \
-usbutils \
-smartmontools \
-gsmartcontrol \
 lm-sensors \
 acpi \
 gparted
+
+## git
+git config --global user.name "ksCaesar"
+git config --global user.email "x246libra@htomail.com"
+git config --global core.editor "vim"
+git config --global credential.helper store
+
+## fcitx5
+# https://github.com/openvanilla/fcitx5-mcbopomofo.git
+git clone https://github.com/openvanilla/fcitx5-mcbopomofo.git ~/App
+
+sudo apt install -y \
+fcitx5 libfcitx5core-dev libfcitx5config-dev libfcitx5utils-dev \
+cmake extra-cmake-modules gettext libfmt-dev
+    
+sudo apt install -y \
+fcitx5-chinese-addons \
+fcitx5-table \
+fcitx5-frontend-gtk2 fcitx5-frontend-gtk3 \
+opencc
+
+# https://fcitx-im.org/wiki/Setup_Fcitx_5#Environment_variables
+echo 'export XMODIFIERS=@im=fcitx' | sudo tee -a /etc/profile.d/fcitx.sh
+echo 'export GTK_IM_MODULE=fcitx' | sudo tee -a /etc/profile.d/fcitx.sh
+echo 'export QT_IM_MODULE=fcitx' | sudo tee -a /etc/profile.d/fcitx.sh
+sudo chmod 777 /etc/profile.d/fcitx.sh
+
+im-config
+
+# gnome-tweaks > Startup Application > Add Fcitx5
 
 ## desktop tool
 sudo apt update && sudo apt install --yes \
@@ -124,10 +147,7 @@ install_FreeFileSync() {
 }
 install_FreeFileSync "13.2"
 
-# https://github.com/teejee2008/timeshift#ubuntu-based-distributions
-sudo add-apt-repository -y ppa:teejee2008/timeshift
-sudo apt-get update
-sudo apt-get install -y timeshift
+sudo apt update && sudo apt install -y backintime-qt
 
 ## Nerd Font
 # https://github.com/ryanoasis/nerd-fonts/
@@ -148,12 +168,6 @@ echo -e "\n# Starship prompt\neval \"\$(starship init bash)\"" >>~/.bashrc
 
 starship preset plain-text-symbols | sudo tee /root/.config/starship.toml >/dev/null
 sudo sh -c 'echo "\n# Starship prompt\neval \"\$(starship init bash)\"" >> /root/.bashrc'
-
-## git
-git config --global user.name "ksCaesar"
-git config --global user.email "x246libra@htomail.com"
-git config --global core.editor "vim"
-git config --global credential.helper store
 
 ## pyenv
 # https://github.com/pyenv/pyenv/wiki#suggested-build-environment

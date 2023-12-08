@@ -13,10 +13,14 @@ if [[ $# -eq 0 ]]; then
     exit 1
 fi
 
+original=$@
+
 cat_cmd="cat"
 read_file_cmd=""
 fzf_cmd="fzf -i +s -e --tac"
+filter_cmd=""
 files=""
+
 
 ## Parse Parameter
 while [ $# -gt 0 ]; do
@@ -26,7 +30,7 @@ while [ $# -gt 0 ]; do
         if [ -n "$1" ]; then
             filter_arg="$1"
             shift
-            fzf_cmd="fzf -i +s -e -f '$filter_arg'"
+            filter_cmd="fzf -i +s -e -f \"$filter_arg\""
         else
             echo "Error: Option -f requires a filter argument."
             exit 1
@@ -37,13 +41,12 @@ while [ $# -gt 0 ]; do
         if [ -n "$1" ]; then
             query_arg="$1"
             shift
-            fzf_cmd="fzf -i +s -e --tac -q '$query_arg'"
+            fzf_cmd="fzf -i +s -e --tac -q \"$query_arg\""
         else
             echo "Error: Option -q requires a query argument."
             exit 1
         fi
         ;;
-
     -n)
         shift
         cat_cmd="cat -n"
@@ -51,6 +54,7 @@ while [ $# -gt 0 ]; do
 
     -t | --track)
         shift
+        enabled_track="true"
         files="$@"
         read_file_cmd="$cat_cmd $files; tail -f -n 0 $files &"
         break
@@ -68,14 +72,21 @@ if [ -z "$files" ]; then
     exit 1
 fi
 
-fzf_cmd="$fzf_cmd --bind 'ctrl-r:reload($read_file_cmd)'"
-eval "$read_file_cmd" | eval "$fzf_cmd"
+if [ -z "$filter_cmd" ]; then
+    fzf_cmd="$fzf_cmd --bind 'ctrl-r:reload($read_file_cmd)'"
+    eval "$read_file_cmd" | eval "$fzf_cmd"
+    # echo -e "\n  Debug: $read_file_cmd | $fzf_cmd"
+else
+    fzf_cmd="$fzf_cmd --bind 'ctrl-r:reload($read_file_cmd | $filter_cmd)'"
+    eval "$read_file_cmd" | eval "$filter_cmd" | eval "$fzf_cmd"
+    # echo -e "\n  Debug: $read_file_cmd | $filter_cmd | $fzf_cmd"
+fi 
 
 # bug fix: 
 # 無法精準關閉執行指令當下的 tail process
-# 多人一起查詢同一個檔案, 可能會有問題
-tial_pid=$(pgrep -u "$USER" -n -f "tail -f -n 0 $files")
-echo "$tial_pid"
-kill "$tial_pid"
-
-# echo -e "\n  Debug: $read_file_cmd | $fzf_cmd"
+# 同名 user 多人一起查詢, 指令相同的話會有問題
+tial_pid=$(pgrep -u "$USER" -f "tail -f -n 0 $files" | tr '\n' ' ')
+if [ -n "$tial_pid" ]; then
+    echo $tial_pid
+    kill $tial_pid
+fi

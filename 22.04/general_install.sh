@@ -46,11 +46,20 @@ pipx install git-filter-repo
 ## bat
 # https://github.com/sharkdp/bat/releases
 
+## normcap
+# https://github.com/dynobo/normcap
+
 ## desktop tool
 sudo apt update && sudo apt install --yes \
 qbittorrent \
 wireshark \
-screenkey
+screenkey \
+vlc \
+
+## deadbeef
+# https://deadbeef.sourceforge.io/
+sudo add-apt-repository  -y ppa:starws-box/deadbeef-player
+sudo apt update && sudo apt install -y deadbeef
 
 ## wireshark
 # https://itsfoss.com/install-wireshark-ubuntu/

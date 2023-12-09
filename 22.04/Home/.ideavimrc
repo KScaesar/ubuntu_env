@@ -1,0 +1,109 @@
+nmap <Space>so :source /home/caesar/.ideavimrc <CR>
+
+"http://ideavim.sourceforge.net/vim/options.html
+
+set relativenumber
+set number
+set hlsearch
+set incsearch
+set showmode
+set showcmd
+set visualbell
+set scrolloff=2
+set matchit 
+
+"set clipboard^=unnamed,unnamedplus
+
+"native keymap
+imap jj <Esc>
+
+nmap <BS> a<BS><Esc>
+vmap <BS> <Delete>
+
+nmap <leader>a <C-A>
+nmap <leader>x <C-X>
+nmap <leader>v <C-V>
+
+noremap H ^
+noremap L $
+noremap J G
+noremap K gg
+
+noremap zj J
+noremap zp mFkp`FO<Esc>jzz:delm F<CR>
+noremap <Space>vf V$%^
+
+"nmap <S-F1> mb?func<CR>vf{%y`bpo<Esc>?Test<CR>/<Space>t?<CR>[wct(
+
+"plugin
+set surround
+set highlightedyank
+set ReplaceWithRegister
+
+"jetbrain action
+
+" 1. can add/delete code
+map zmv :action Move<CR>
+imap zmv <Esc>:action Move<CR>
+
+map zrr :action RenameElement<CR>
+imap zrr <Esc>:action RenameElement<CR>
+map zrs :action ChangeSignature<CR>
+imap zrs <Esc>:action ChangeSignature<CR>
+
+nmap zd vF<Space>l"_c
+imap zd <Esc>vF<Space>l"_c
+
+map zs :action SurroundWith<CR>
+imap zs <Esc>:action SurroundWith<CR>
+
+nmap zri :action ExtractInterface<CR>
+map zrm :action ExtractMethod<CR>
+imap zrm <Esc>:action ExtractMethod<CR>
+map zrv :action IntroduceVariable<CR>
+map zrc :action IntroduceConstant<CR>
+nmap zrn :action Inline<CR>
+
+vmap zF :action IntroduceField<CR>
+vmap zP :action IntroduceParameter<CR>
+
+" 2. can't add/delete code
+nmap zur <Space>ff:action RunClass<CR>
+imap zur <Esc><Space>ff:action RunClass<CR>
+
+nmap zud <Space>ff:action DebugClass<CR>
+imap zud <Esc><Space>ff:action DebugClass<CR>
+
+nmap zuf <Space>ff:action RerunFailedTests<CR>
+imap zuf <Esc><Space>ff:action RerunFailedTests<CR>
+
+nmap <Space>gt :action GotoTest<CR>
+"imap <Space>gt <Esc>:action GotoTest<CR>
+
+nmap zif ?if<CR>/?=<CR>wvt{h
+imap zif <Esc>?if<CR>/?=<CR>wvt{h
+
+nmap <Space>ff :action RearrangeCode<CR>:action ReformatCode<CR>:action OptimizeImports $ProjectFileDir$<CR>
+nmap <Space>ci <Space>ff :action FileWatcher.runForFiles<CR> :action SaveAll<CR> :action InspectCode<CR>
+
+nmap <Space>bp :action ViewBreakpoints<CR>
+nmap <Space>fs :action FileStructurePopup<CR>
+
+nmap <Space>hw :action HideActiveWindow<CR>
+nmap <Space>ha :action HideAllWindows<CR>
+
+map <Space>tt :action $TranslateTextComponent<CR>
+nmap <Space>td :action $ShowTranslationDialogAction<CR>
+nmap <Space>ts :action $ShowInstantTranslationDialogAction<CR>
+
+nmap <Space>gw :action JumpToLastWindow<CR>
+nmap <Space>gd :action GotoTypeDeclaration<CR>
+nmap <Space>gr :action ShowUsages<CR>
+nmap <Space>gi :action GotoImplementation<CR>
+nmap <Space>gI :action GotoSuperMethod<CR>
+
+nmap <Space>mk :action MethodUp<CR>
+nmap <Space>mj :action MethodDown<CR>
+
+nmap <Space><Up> :action EditorCloneCaretAbove<CR>
+nmap <Space><Down> :action EditorCloneCaretBelow<CR>

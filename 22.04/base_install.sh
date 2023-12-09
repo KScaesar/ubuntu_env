@@ -56,6 +56,7 @@ libfuse2 \
 dconf-editor gnome-tweaks \
 mainline synaptic gdebi \
 nvme-cli usbutils smartmontools gsmartcontrol \
+pcscd pcsc-tools \
 cpu-checker \
 lm-sensors \
 acpi \
@@ -148,6 +149,11 @@ install_FreeFileSync() {
 install_FreeFileSync "13.2"
 
 sudo apt update && sudo apt install -y backintime-qt
+
+## Zeit
+# https://ostechnix.com/zeit-a-gui-front-end-to-crontab-to-schedule-jobs-in-linux/
+sudo add-apt-repository -y ppa:blaze/main
+sudo apt update && sudo apt install -y zeit
 
 ## Nerd Font
 # https://github.com/ryanoasis/nerd-fonts/

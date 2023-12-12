@@ -4,10 +4,10 @@
 
 ## prepare
 mkdir -p \
-~/.local/bin \
-~/.config \
-~/.themes \
-~/App
+  ~/.local/bin \
+  ~/.config \
+  ~/.themes \
+  ~/App
 
 ## password
 touch ~/my_password
@@ -17,7 +17,7 @@ source ~/my_password
 echo "$Sudo_Password" | sudo -S date &>/dev/null
 EOF
 chmod 755 ~/.local/bin/pw
-echo 'pw' >> ~/.bashrc
+echo 'pw' >>~/.bashrc
 
 ## remove snap
 # https://sysin.org/blog/ubuntu-remove-snap/
@@ -26,7 +26,7 @@ for p in $(snap list | awk '{print $1}'); do
   sudo snap remove $p
 done
 
-sudo sh -c "cat > /etc/apt/preferences.d/no-snapd.pref" << EOL
+sudo sh -c "cat > /etc/apt/preferences.d/no-snapd.pref" <<EOL
 Package: snapd
 Pin: release a=*
 Pin-Priority: -10
@@ -48,19 +48,19 @@ sudo add-apt-repository -y universe
 sudo add-apt-repository -y ppa:cappelikan/ppa # mainline
 
 sudo apt update && sudo apt install --yes \
-build-essential git curl \
-apt-rdepends \
-mtools \
-exfatprogs \
-libfuse2 \
-dconf-editor gnome-tweaks \
-mainline synaptic gdebi \
-nvme-cli usbutils smartmontools gsmartcontrol \
-pcscd pcsc-tools \
-cpu-checker \
-lm-sensors \
-acpi \
-gparted
+  build-essential git curl \
+  apt-rdepends \
+  mtools \
+  exfatprogs \
+  libfuse2 \
+  dconf-editor gnome-tweaks \
+  mainline synaptic gdebi \
+  nvme-cli usbutils smartmontools gsmartcontrol \
+  pcscd pcsc-tools \
+  cpu-checker \
+  lm-sensors \
+  acpi \
+  gparted
 
 ## git
 git config --global user.name "ksCaesar"
@@ -73,14 +73,13 @@ git config --global credential.helper store
 git clone https://github.com/openvanilla/fcitx5-mcbopomofo.git ~/App
 
 sudo apt install -y \
-fcitx5 libfcitx5core-dev libfcitx5config-dev libfcitx5utils-dev \
-cmake extra-cmake-modules gettext libfmt-dev
-    
+  fcitx5 libfcitx5core-dev libfcitx5config-dev libfcitx5utils-dev \
+  cmake extra-cmake-modules gettext libfmt-dev
 sudo apt install -y \
-fcitx5-chinese-addons \
-fcitx5-table \
-fcitx5-frontend-gtk2 fcitx5-frontend-gtk3 \
-opencc
+  fcitx5-chinese-addons \
+  fcitx5-table \
+  fcitx5-frontend-gtk2 fcitx5-frontend-gtk3 \
+  opencc
 
 # https://fcitx-im.org/wiki/Setup_Fcitx_5#Environment_variables
 echo 'export XMODIFIERS=@im=fcitx' | sudo tee -a /etc/profile.d/fcitx.sh
@@ -94,16 +93,16 @@ im-config
 
 ## desktop tool
 sudo apt update && sudo apt install --yes \
-flameshot \
-kolourpaint \
-vokoscreen \
-peek
+  flameshot \
+  kolourpaint \
+  vokoscreen \
+  peek
 
 ## cli tool
 sudo apt update && sudo apt install --yes \
-tldr \
-htop \
-tree 
+  tldr \
+  htop \
+  tree
 
 tldr --update
 
@@ -111,7 +110,7 @@ tldr --update
 # https://github.com/junegunn/fzf/tree/master/shells
 curl -sSL https://github.com/junegunn/fzf/releases/download/0.44.1/fzf-0.44.1-linux_amd64.tar.gz | sudo tar --no-same-owner -xz -C /usr/bin/
 curl https://raw.githubusercontent.com/junegunn/fzf/master/bin/fzf-preview.sh -o ~/.local/bin/fzf-preview.sh && chmod 755 ~/.local/bin/fzf-preview.sh
-curl https://raw.githubusercontent.com/junegunn/fzf/master/bin/fzf-tmux -o  ~/.local/bin/fzf-tmux && chmod 755 ~/.local/bin/fzf-tmux
+curl https://raw.githubusercontent.com/junegunn/fzf/master/bin/fzf-tmux -o ~/.local/bin/fzf-tmux && chmod 755 ~/.local/bin/fzf-tmux
 sudo curl https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.bash -o /etc/bash_completion.d/fzf-key-bindings.bash
 sudo curl https://raw.githubusercontent.com/junegunn/fzf/master/shell/completion.bash -o /etc/bash_completion.d/fzf-completion.bash
 
@@ -121,10 +120,10 @@ EOF
 
 ## GNOME Extensions
 sudo apt update && sudo apt install --yes \
-gnome-shell-extension-manager \
-gnome-shell-extension-prefs \
-chrome-gnome-shell \
-gir1.2-gda-5.0 gir1.2-gsound-1.0
+  gnome-shell-extension-manager \
+  gnome-shell-extension-prefs \
+  chrome-gnome-shell \
+  gir1.2-gda-5.0 gir1.2-gsound-1.0
 
 ## touchegg
 # https://github.com/JoseExposito/touchegg
@@ -138,13 +137,13 @@ flatpak install -y flathub com.github.joseexposito.touche
 # https://freefilesync.org/download.php
 
 install_FreeFileSync() {
-    local version="$1"
-    local tar_filename="FreeFileSync_${version}_Linux.tar.gz"
-    local extracted_filename="FreeFileSync_${version}_Install.run"
+  local version="$1"
+  local tar_filename="FreeFileSync_${version}_Linux.tar.gz"
+  local extracted_filename="FreeFileSync_${version}_Install.run"
 
-    wget -P ~/Download/ "https://freefilesync.org/download/$tar_filename" 
-    tar -zxvf ~/Download/$tar_filename -C ~/Download
-    chmod +x ~/Download/$extracted_filename && ~/Download/$extracted_filename
+  wget -P ~/Download/ "https://freefilesync.org/download/$tar_filename"
+  tar -zxvf ~/Download/$tar_filename -C ~/Download
+  chmod +x ~/Download/$extracted_filename && ~/Download/$extracted_filename
 }
 install_FreeFileSync "13.2"
 
@@ -186,7 +185,7 @@ pyenv install --list | grep "  3." | tail -n 15
 Python_Version=3.12.0
 pyenv install "$Python_Version" && pyenv global "$Python_Version"
 
-cat <<EOF >>~/.bashrc
+cat <<'EOF' >>~/.bashrc
 # Add for python
 source $(pyenv root)/completions/pyenv.bash
 source <(pip completion --bash)
@@ -196,7 +195,6 @@ EOF
 # https://pypa.github.io/pipx/installation/
 pip install pipx
 pipx ensurepath
-pipx completions
 
 ## goenv
 # https://github.com/go-nv/goenv/blob/master/INSTALL.md
@@ -235,4 +233,3 @@ nvm install --lts
 
 # https://github.com/nvm-sh/nvm#set-default-node-version
 nvm alias default node
-

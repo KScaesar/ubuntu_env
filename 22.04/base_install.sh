@@ -48,6 +48,7 @@ sudo add-apt-repository -y universe
 sudo add-apt-repository -y ppa:cappelikan/ppa # mainline
 
 sudo apt update && sudo apt install --yes \
+  xclip \
   build-essential git curl \
   apt-rdepends \
   mtools \
@@ -233,3 +234,13 @@ nvm install --lts
 
 # https://github.com/nvm-sh/nvm#set-default-node-version
 nvm alias default node
+
+## sdkman
+# https://sdkman.io/install
+curl -s "https://get.sdkman.io" | bash
+source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# https://blog.miniasp.com/post/2022/09/17/Useful-tool-SDKMAN
+sdk list java
+sdk install java 11.0.21-zulu
+sdk default java 11.0.21-zulu

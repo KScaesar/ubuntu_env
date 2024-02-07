@@ -10,7 +10,7 @@ set showmode
 set showcmd
 set visualbell
 set scrolloff=2
-set matchit 
+set matchit
 
 "set clipboard^=unnamed,unnamedplus
 
@@ -26,10 +26,7 @@ nmap <leader>v <C-V>
 
 noremap H ^
 noremap L $
-noremap J G
-noremap K gg
 
-noremap zj J
 noremap zp mFkp`FO<Esc>jzz:delm F<CR>
 noremap <Space>vf V$%^
 

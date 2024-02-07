@@ -35,10 +35,7 @@ nmap <leader>v <C-V>
 
 noremap H ^
 noremap L $
-noremap J G
-noremap K gg
 
-noremap zj J
 noremap zp makp`aO<Esc>jzz
 noremap <Space>vf V$%^
 

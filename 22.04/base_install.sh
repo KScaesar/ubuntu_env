@@ -97,7 +97,8 @@ sudo apt update && sudo apt install --yes \
   flameshot \
   kolourpaint \
   vokoscreen \
-  peek
+  peek \
+  pavucontrol
 
 ## cli tool
 sudo apt update && sudo apt install --yes \

@@ -88,9 +88,15 @@ echo 'export GTK_IM_MODULE=fcitx' | sudo tee -a /etc/profile.d/fcitx.sh
 echo 'export QT_IM_MODULE=fcitx' | sudo tee -a /etc/profile.d/fcitx.sh
 sudo chmod 777 /etc/profile.d/fcitx.sh
 
+## gnome-tweaks > Startup Application > Add Fcitx5
 im-config
 
-# gnome-tweaks > Startup Application > Add Fcitx5
+## TLP
+# https://linrunner.de/tlp/installation/ubuntu.html
+# https://linrunner.de/tlp/usage/index.html
+sudo add-apt-repository -y ppa:linrunner/tlp
+sudo apt update && sudo apt install -y \
+  tlp
 
 ## desktop tool
 sudo apt update && sudo apt install --yes \

@@ -15,6 +15,7 @@ cat <<'EOF' >>~/.local/bin/pw
 #!/bin/env bash
 source ~/my_password
 echo "$Sudo_Password" | sudo -S date &>/dev/null
+unset Sudo_Password
 EOF
 chmod 755 ~/.local/bin/pw
 echo 'pw' >>~/.bashrc

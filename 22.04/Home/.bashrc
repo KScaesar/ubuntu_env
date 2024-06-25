@@ -118,6 +118,8 @@ fi
 
 pw
 
+bind 'set enable-bracketed-paste off'
+
 # Added for pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
@@ -125,9 +127,8 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 # Added for python
-source /home/caesar/.pyenv/completions/pyenv.bash
+source $(pyenv root)/completions/pyenv.bash
 source <(pip completion --bash)
-eval "$(register-python-argcomplete pipx)"
 
 # Added for goenv
 export GOENV_ROOT="$HOME/.goenv"
@@ -146,6 +147,10 @@ export NVM_DIR="$HOME/.nvm"
 
 export FZF_DEFAULT_OPTS="--multi --bind=alt-k:up,alt-j:down --bind 'home:last,end:first' --bind 'ctrl-o:execute(vim {}),ctrl-]:execute(sudo vim {})' --preview 'echo {}' --preview-window top:40%:hidden:wrap --bind 'ctrl-p:toggle-preview'"
 
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
 # Starship prompt
 eval "$(starship init bash)"
-

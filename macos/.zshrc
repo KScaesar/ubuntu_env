@@ -9,7 +9,7 @@ pw
 export GOENV_ROOT="$HOME/.goenv"
 export PATH="$GOENV_ROOT/bin:$PATH"
 eval "$(goenv init -)"
-export PATH="$GOROOT/bin:$PATH:$GOPATH/bin"
+export PATH="$GOROOT/bin:$PATH"
 source $(goenv root)/completions/goenv.zsh
 
 # pyenv

@@ -41,6 +41,7 @@ go install github.com/antonmedv/fx@latest     # Terminal JSON viewer
 go install github.com/sachaos/viddy@latest    # watch 替代工具
 go install github.com/google/pprof@latest
 go install github.com/tomnomnom/gron@latest
+go install github.com/antonmedv/walk@latest
 
 pipx install git-filter-repo
 

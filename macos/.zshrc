@@ -30,6 +30,9 @@ export FZF_DEFAULT_OPTS="--multi --bind=alt-k:up,alt-j:down --bind 'home:last,en
 
 source <(fzf --zsh)
 
+# https://github.com/antonmedv/walk
+export EDITOR=vim
+
 # starship
 eval "$(starship init zsh)"
 

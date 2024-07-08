@@ -5,25 +5,14 @@ export PATH=$HOME/.local/bin:/opt/homebrew/bin:$PATH
 
 pw
 
-# goenv
-export GOENV_ROOT="$HOME/.goenv"
-export PATH="$GOENV_ROOT/bin:$PATH"
-eval "$(goenv init -)"
-export PATH="$GOROOT/bin:$PATH"
-source $(goenv root)/completions/goenv.zsh
+if [ ! -f "$HOME/.zsh_cache" ] || [ $(find "$HOME/.zsh_cache" -mmin +1440) ]; then
+  /bin/zsh "$HOME/.zsh_init"
+fi
+source $HOME/.zsh_cache
 
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+source $(goenv root)/completions/goenv.zsh
 source $(pyenv root)/completions/pyenv.zsh
 source <(pip completion --zsh)
-
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 # fzf
 export FZF_DEFAULT_OPTS="--multi --bind=alt-k:up,alt-j:down --bind 'home:last,end:first' --bind 'ctrl-o:execute(vim {}),ctrl-]:execute(sudo vim {})' --preview 'echo {}' --preview-window top:40%:hidden:wrap --bind 'ctrl-p:toggle-preview'"
@@ -35,5 +24,3 @@ export EDITOR=vim
 
 # starship
 eval "$(starship init zsh)"
-
-

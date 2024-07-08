@@ -120,33 +120,24 @@ pw
 
 bind 'set enable-bracketed-paste off'
 
-# Added for pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
-# Added for python
-source $(pyenv root)/completions/pyenv.bash
-source <(pip completion --bash)
+# mise
+eval "$(/home/caesar/.local/bin/mise activate bash)"
 
 # Added for goenv
 export GOENV_ROOT="$HOME/.goenv"
 export PATH="$GOENV_ROOT/bin:$PATH"
-eval "$(goenv init -)"
-
-# Added for golang
 source $(goenv root)/completions/goenv.bash
+eval "$(goenv init -)"
 export PATH="$GOROOT/bin:$PATH"
 complete -C /home/caesar/.local/bin/gocomplete go
 
-# Added for nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# Added for pyenv
+eval "$(pyenv virtualenv-init -)"
+source $(pyenv root)/completions/pyenv.bash
+source <(pip completion --bash)
 
+# fzf
 export FZF_DEFAULT_OPTS="--multi --bind=alt-k:up,alt-j:down --bind 'home:last,end:first' --bind 'ctrl-o:execute(vim {}),ctrl-]:execute(sudo vim {})' --preview 'echo {}' --preview-window top:40%:hidden:wrap --bind 'ctrl-p:toggle-preview'"
-
 
 # THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
@@ -157,3 +148,5 @@ export EDITOR=vim
 
 # Starship prompt
 eval "$(starship init bash)"
+
+

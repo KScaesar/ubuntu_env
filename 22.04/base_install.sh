@@ -234,13 +234,16 @@ EOF
 go install github.com/posener/complete/gocomplete@latest
 gocomplete -install -y
 
-## nvm
-# https://github.com/nvm-sh/nvm#installing-and-updating
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
-nvm install --lts
+## mise
+# https://mise.jdx.dev/getting-started.html
+# https://usage.jdx.dev/cli/
+curl https://mise.run | sh
+echo "eval \"\$(/home/caesar/.local/bin/mise activate bash)\"" >> ~/.bashrc
+mise use -g usage
+mise completion bash | sudo tee /etc/bash_completion.d/mise.bash
 
-# https://github.com/nvm-sh/nvm#set-default-node-version
-nvm alias default node
+## node
+mise use --global node@lts
 
 ## sdkman
 # https://sdkman.io/install

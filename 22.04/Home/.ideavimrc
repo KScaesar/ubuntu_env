@@ -2,8 +2,8 @@ nmap <Space>so :source /home/caesar/.ideavimrc <CR>
 
 "http://ideavim.sourceforge.net/vim/options.html
 
-set relativenumber
-set number
+"set relativenumber
+"set number
 set hlsearch
 set incsearch
 set showmode

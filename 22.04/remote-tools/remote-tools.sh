@@ -12,9 +12,14 @@ setup_remote() {
 
     # brew install gnu-tar
     # gtar -czvf "$target.tar.gz" "./$target"
+    if [ ! -f "./$target.tar.gz" ]; then
+        echo "Error: File ./$target.tar.gz does not exist."
+        exit 1
+    fi
 
     scp "./$target.tar.gz" "$host:~/"
     ssh "$host" "tar -xzvf ~/$target.tar.gz && cd ~/$target && ./$setup_name"
+    ssh "$host" "test -f ~/$target.tar.gz && test -d ~/$target && rm -r ~/$target.tar.gz ~/$target"
 }
 
 for index in "${!hosts[@]}"; do
@@ -25,3 +30,5 @@ for index in "${!hosts[@]}"; do
     echo ""
     echo ""
 done
+
+

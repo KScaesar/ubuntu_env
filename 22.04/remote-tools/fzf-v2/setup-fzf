@@ -10,6 +10,14 @@ source <(fzf --bash)
 
 EOF
 
+cat <<'EOF' | sudo tee -a /root/.bashrc
+
+# fzf
+export FZF_DEFAULT_OPTS="--multi --bind=alt-k:up,alt-j:down --bind 'home:last,end:first' --bind 'ctrl-o:execute(vim {}),ctrl-]:execute(sudo vim {})' --preview 'echo {}' --preview-window top:40%:hidden:wrap --bind 'ctrl-p:toggle-preview'"
+source <(fzf --bash)
+
+EOF
+
 ## ~/.local/bin
 
 mkdir -p ~/.local/bin

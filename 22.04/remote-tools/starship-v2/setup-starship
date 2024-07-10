@@ -9,19 +9,22 @@ eval "$(starship init bash)"
 
 EOF
 
+cat <<'EOF' | sudo tee -a /root/.bashrc
+
+# starship
+eval "$(starship init bash)"
+
+EOF
+
 ## ~/.local/bin ~/.config
 
 mkdir -p ~/.local/bin
 mkdir -p ~/.config
-
-files=(
-  "starship"
-  "fzflog"
-)
+sudo mkdir -p /root/.config
 
 chmod 777 "starship"
 sudo cp "starship" /usr/bin
 
 cp ./starship.toml ~/.config
-
+cp ./starship.toml /root/.config
 

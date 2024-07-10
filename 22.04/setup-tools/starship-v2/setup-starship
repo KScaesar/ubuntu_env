@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+## .bashrc
+
+cat <<'EOF' >>~/.bashrc
+
+# starship
+eval "$(starship init bash)"
+
+EOF
+
+## ~/.local/bin ~/.config
+
+mkdir -p ~/.local/bin
+mkdir -p ~/.config
+
+files=(
+  "starship"
+  "fzflog"
+)
+
+chmod 777 "starship"
+sudo cp "starship" /usr/bin
+
+cp ./starship.toml ~/.config
+
+

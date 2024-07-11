@@ -26,5 +26,5 @@ chmod 777 "starship"
 sudo cp "starship" /usr/bin
 
 cp ./starship.toml ~/.config
-cp ./starship.toml /root/.config
+sudo cp ./starship.toml /root/.config
 

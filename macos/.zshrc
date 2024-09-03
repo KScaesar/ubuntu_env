@@ -1,14 +1,25 @@
-autoload -Uz compinit
-compinit
+# poetry
+fpath+=~/.zsh
+
+autoload -Uz compinit && compinit
 
 export PATH=$HOME/.local/bin:/opt/homebrew/bin:$PATH
 
 pw
 
 if [ ! -f "$HOME/.zsh_cache" ] || [ $(find "$HOME/.zsh_cache" -mmin +1440) ]; then
-  /bin/zsh "$HOME/.zsh_init"
+    /bin/zsh "$HOME/.zsh_init"
 fi
 source $HOME/.zsh_cache
+
+# pyenv
+eval "$(pyenv virtualenv-init -)"
+
+# goenv
+export GOENV_ROOT="$HOME/.goenv"
+export PATH="$GOENV_ROOT/bin:$PATH"
+eval "$(goenv init -)"
+export PATH="$GOROOT/bin:$PATH"
 
 source $(goenv root)/completions/goenv.zsh
 source $(pyenv root)/completions/pyenv.zsh
@@ -24,3 +35,10 @@ export EDITOR=vim
 
 # starship
 eval "$(starship init zsh)"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/caesar.tsai/dev/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/caesar.tsai/dev/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/caesar.tsai/dev/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/caesar.tsai/dev/google-cloud-sdk/completion.zsh.inc'; fi
+

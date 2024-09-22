@@ -116,6 +116,12 @@ if ! shopt -oq posix; then
   fi
 fi
 
+alias ctop='docker run --rm -it \
+  --name=ctop-$RANDOM \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v /etc/localtime:/etc/localtime:ro \
+  quay.io/vektorlab/ctop:latest'
+
 pw
 
 bind 'set enable-bracketed-paste off'
@@ -146,7 +152,7 @@ export SDKMAN_DIR="$HOME/.sdkman"
 # https://github.com/antonmedv/walk
 export EDITOR=vim
 
-# Starship prompt
+# Starship 
 eval "$(starship init bash)"
 
 

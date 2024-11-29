@@ -32,9 +32,12 @@ ripgrep \
 graphviz \
 jq \
 tmux \
-sysstat atop iotop iftop \
 ipcalc socat \
 fio 
+
+## o11y tool
+sudo apt update && sudo apt install --yes \
+sysstat atop iotop iftop dstat
 
 go install github.com/boyter/scc/v3@latest
 go install github.com/antonmedv/fx@latest     # Terminal JSON viewer

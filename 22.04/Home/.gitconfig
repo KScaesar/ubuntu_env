@@ -1,6 +1,6 @@
 [user]
-	name = ksCaesar
-	email = x246libra@hotmail.com
+	name = caesar.tsai
+	email = caesar.tsai@tgc-taiwan.com.tw
 
 [core]
 #	editor = code --wait
@@ -10,7 +10,6 @@
 
 [merge]
 #	tool = vscode
-
 [mergetool "vscode"]
 	cmd = code --wait $MERGED
 
@@ -23,20 +22,18 @@
 
 [credential]
 	helper = store
-
 [init]
 	defaultBranch = main
-
-[push]
-	autoSetupRemote = true
-
 [pull]
 	rebase = false
-
+[push]
+	autoSetupRemote = true
 [alias]
 	ch = checkout
 	br = branch
 	st = status
-	co = commit
+	co = commit --date=now
 	l = log --oneline --graph
 
+[url "ssh://git@gitlab.svc.litv.tv/"]
+	insteadOf = https://gitlab.svc.litv.tv/

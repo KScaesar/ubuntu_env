@@ -5,14 +5,18 @@ autoload -Uz compinit && compinit
 
 export PATH=$HOME/.local/bin:/opt/homebrew/bin:$PATH
 
+alias ctop='docker run --rm -it \
+  --name=ctop-$RANDOM \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  -v /etc/localtime:/etc/localtime:ro \
+  quay.io/vektorlab/ctop:latest'
+
 pw
 
-if [ ! -f "$HOME/.zsh_cache" ] || [ $(find "$HOME/.zsh_cache" -mmin +1440) ]; then
-    /bin/zsh "$HOME/.zsh_init"
-fi
-source $HOME/.zsh_cache
-
 # pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 # goenv

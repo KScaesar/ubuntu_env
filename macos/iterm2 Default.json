@@ -1,5 +1,9 @@
 {
-  "Non-ASCII Anti Aliased" : true,
+  "Ansi 0 Color" : {
+    "Green Component" : "0",
+    "Red Component" : "0",
+    "Blue Component" : "0"
+  },
   "Ansi 15 Color (Dark)" : {
     "Red Component" : 0.99999600648880005,
     "Color Space" : "sRGB",
@@ -61,6 +65,7 @@
     "Alpha Component" : 1,
     "Green Component" : 0.84313726425170898
   },
+  "Only The Default BG Color Uses Transparency" : false,
   "Scrollback Lines" : 1000,
   "Badge Color (Dark)" : {
     "Red Component" : 0.9787440299987793,
@@ -77,7 +82,7 @@
     "Alpha Component" : 1,
     "Green Component" : 0.098039217293262482
   },
-  "Transparency" : 0.022314937943262413,
+  "Transparency" : 0,
   "Use Bright Bold" : true,
   "Horizontal Spacing" : 1,
   "Ansi 13 Color (Light)" : {
@@ -849,17 +854,13 @@
     "Red Component" : "0",
     "Blue Component" : "0"
   },
+  "Non-ASCII Anti Aliased" : true,
+  "Close Sessions On End" : true,
   "Ansi 12 Color (Light)" : {
     "Red Component" : 0.65349078178405762,
     "Color Space" : "sRGB",
     "Blue Component" : 0.9485321044921875,
     "Alpha Component" : 1,
     "Green Component" : 0.67044717073440552
-  },
-  "Close Sessions On End" : true,
-  "Ansi 0 Color" : {
-    "Green Component" : "0",
-    "Red Component" : "0",
-    "Blue Component" : "0"
   }
 }

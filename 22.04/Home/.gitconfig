@@ -1,6 +1,6 @@
 [user]
-	name = caesar.tsai
-	email = caesar.tsai@tgc-taiwan.com.tw
+	name = ksCaesar
+	email = x246libra@hotmail.com
 
 [core]
 #	editor = code --wait
@@ -30,10 +30,26 @@
 	autoSetupRemote = true
 [alias]
 	ch = checkout
-	br = branch
+	br = branch --column=never
 	st = status
 	co = commit --date=now
 	l = log --oneline --graph
 
-[url "ssh://git@gitlab.svc.litv.tv/"]
-	insteadOf = https://gitlab.svc.litv.tv/
+# https://blog.gitbutler.com/how-git-core-devs-configure-git/
+[column]
+        ui = auto
+[branch]
+        sort = -committerdate
+[tag]
+        sort = -version:refname
+[diff]
+        algorithm = histogram
+        colorMoved = plain
+        mnemonicPrefix = true
+        renames = true
+[push]
+        default = simple
+        autoSetupRemote = true
+        followTags = true
+[fetch]
+        pruneTags = true

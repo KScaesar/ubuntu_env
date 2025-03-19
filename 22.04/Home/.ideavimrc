@@ -89,9 +89,9 @@ nmap <Space>fs :action FileStructurePopup<CR>
 nmap <Space>hw :action HideActiveWindow<CR>
 nmap <Space>ha :action HideAllWindows<CR>
 
-map <Space>tt :action $TranslateTextComponent<CR>
-nmap <Space>td :action $ShowTranslationDialogAction<CR>
-nmap <Space>ts :action $ShowInstantTranslationDialogAction<CR>
+"map <Space>tt :action $TranslateTextComponent<CR>
+"nmap <Space>td :action $ShowTranslationDialogAction<CR>
+"nmap <Space>ts :action $ShowInstantTranslationDialogAction<CR>
 
 nmap <Space>gw :action JumpToLastWindow<CR>
 nmap <Space>gd :action GotoTypeDeclaration<CR>

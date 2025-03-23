@@ -1,0 +1,60 @@
+{
+  "mcpServers": {
+    "time": {
+      "command": "uvx",
+      "args": [
+        "mcp-server-time",
+        "--local-timezone",
+        "Asia/Taipei"
+      ],
+      "disabled": false,
+      "autoApprove": []
+    },
+    "git": {
+      "command": "uvx",
+      "args": [
+        "mcp-server-git",
+        "--repository",
+        "/home/caesar/Cline/MCP/git"
+      ],
+      "disabled": false,
+      "autoApprove": []
+    },
+    "sequential-thinking": {
+      "command": "/home/caesar/.local/share/mise/installs/node/latest/bin/node",
+      "args": [
+        "/home/caesar/.local/share/mise/installs/node/latest/bin/mcp-server-sequential-thinking"
+      ],
+      "disabled": false,
+      "autoApprove": []
+    },
+    "filesystem": {
+      "command": "/home/caesar/.local/share/mise/installs/node/latest/bin/node",
+      "args": [
+        "/home/caesar/.local/share/mise/installs/node/lts/bin/mcp-server-filesystem",
+        "/home/caesar/dev"
+      ],
+      "disabled": false,
+      "autoApprove": []
+    },
+    "puppeteer": {
+      "command": "/home/caesar/.local/share/mise/installs/node/lts/bin/node",
+      "args": [
+        "/home/caesar/.local/share/mise/installs/node/lts/bin/mcp-server-puppeteer"
+      ],
+      "disabled": false,
+      "autoApprove": []
+    },
+    "github": {
+      "command": "/home/caesar/.local/share/mise/installs/node/lts/bin/node",
+      "args": [
+        "/home/caesar/.local/share/mise/installs/node/lts/bin/mcp-server-github"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": ""
+      },
+      "disabled": false,
+      "autoApprove": []
+    }
+  }
+}

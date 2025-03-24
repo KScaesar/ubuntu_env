@@ -199,10 +199,13 @@ source $(pyenv root)/completions/pyenv.bash
 source <(pip completion --bash)
 EOF
 
-## pipx
-# https://pypa.github.io/pipx/installation/
-pip install pipx
-pipx ensurepath
+## uv
+# https://docs.astral.sh/uv/getting-started/installation/
+curl -LsSf https://astral.sh/uv/install.sh | sh
+echo 'eval "$(uv generate-shell-completion bash)"' >> ~/.bashrc
+Python_Version=3.13.2
+uv python install $Python_Version
+uv python pin $Python_Version --global
 
 ## goenv
 # https://github.com/go-nv/goenv/blob/master/INSTALL.md

@@ -1,0 +1,60 @@
+{
+  "mcpServers": {
+    "time": {
+      "command": "uvx",
+      "args": [
+        "mcp-server-time",
+        "--local-timezone",
+        "Asia/Taipei"
+      ],
+      "disabled": false,
+      "autoApprove": []
+    },
+    "git": {
+      "command": "uvx",
+      "args": [
+        "mcp-server-git",
+        "--repository",
+        "/Users/caesar.tsai/Cline/MCP/git"
+      ],
+      "disabled": false,
+      "autoApprove": []
+    },
+    "sequential-thinking": {
+      "command": "/Users/caesar.tsai/.local/share/mise/installs/node/20.15.0/bin/node",
+      "args": [
+        "/Users/caesar.tsai/.local/share/mise/installs/node/20.15.0/bin/mcp-server-sequential-thinking"
+      ],
+      "disabled": false,
+      "autoApprove": []
+    },
+    "filesystem": {
+      "command": "/Users/caesar.tsai/.local/share/mise/installs/node/20.15.0/bin/node",
+      "args": [
+        "/Users/caesar.tsai/.local/share/mise/installs/node/lts/bin/mcp-server-filesystem",
+        "/Users/caesar.tsai/dev"
+      ],
+      "disabled": false,
+      "autoApprove": []
+    },
+    "puppeteer": {
+      "command": "/Users/caesar.tsai/.local/share/mise/installs/node/lts/bin/node",
+      "args": [
+        "/Users/caesar.tsai/.local/share/mise/installs/node/lts/bin/mcp-server-puppeteer"
+      ],
+      "disabled": false,
+      "autoApprove": []
+    },
+    "github": {
+      "command": "/Users/caesar.tsai/.local/share/mise/installs/node/20.15.0/bin/node",
+      "args": [
+        "/Users/caesar.tsai/.local/share/mise/installs/node/lts/bin/mcp-server-github"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": ""
+      },
+      "disabled": false,
+      "autoApprove": []
+    }
+  }
+}

@@ -46,7 +46,8 @@ go install github.com/google/pprof@latest
 go install github.com/tomnomnom/gron@latest
 go install github.com/antonmedv/walk@latest
 
-pipx install git-filter-repo
+uv tool install git-filter-repo
+uv tool install gitingest
 
 ## bat
 # https://github.com/sharkdp/bat/releases

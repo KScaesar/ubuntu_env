@@ -33,6 +33,7 @@ source <(pip completion --zsh)
 export FZF_DEFAULT_OPTS="--multi --bind=alt-k:up,alt-j:down --bind 'home:last,end:first' --bind 'ctrl-o:execute(vim {}),ctrl-]:execute(sudo vim {})' --preview 'echo {}' --preview-window top:40%:hidden:wrap --bind 'ctrl-p:toggle-preview'"
 
 source <(fzf --zsh)
+source <(atlas completion zsh)
 
 # https://github.com/antonmedv/walk
 export EDITOR=vim
@@ -46,3 +47,4 @@ if [ -f '/Users/caesar.tsai/dev/google-cloud-sdk/path.zsh.inc' ]; then . '/Users
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/caesar.tsai/dev/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/caesar.tsai/dev/google-cloud-sdk/completion.zsh.inc'; fi
 
+eval "$(uv generate-shell-completion zsh)"

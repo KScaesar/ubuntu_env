@@ -1,5 +1,25 @@
 {
   "mcpServers": {
+    "google-maps": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "-e",
+        "GOOGLE_MAPS_API_KEY",
+        "mcp/google-maps"
+      ],
+      "env": {
+        "GOOGLE_MAPS_API_KEY": ""
+      }
+    },
+    "fetch": {
+      "command": "uvx",
+      "args": [
+        "mcp-server-fetch"
+      ]
+    },
     "time": {
       "command": "uvx",
       "args": [
@@ -20,13 +40,14 @@
       "disabled": false,
       "autoApprove": []
     },
-    "sequential-thinking": {
-      "command": "/home/caesar/.local/share/mise/installs/node/latest/bin/node",
+    "sequentialthinking": {
+      "command": "docker",
       "args": [
-        "/home/caesar/.local/share/mise/installs/node/latest/bin/mcp-server-sequential-thinking"
-      ],
-      "disabled": false,
-      "autoApprove": []
+        "run",
+        "--rm",
+        "-i",
+        "mcp/sequentialthinking"
+      ]
     },
     "filesystem": {
       "command": "/home/caesar/.local/share/mise/installs/node/latest/bin/node",
@@ -37,24 +58,43 @@
       "disabled": false,
       "autoApprove": []
     },
-    "puppeteer": {
+    "playwright": {
       "command": "/home/caesar/.local/share/mise/installs/node/lts/bin/node",
       "args": [
-        "/home/caesar/.local/share/mise/installs/node/lts/bin/mcp-server-puppeteer"
+        "/home/caesar/.local/share/mise/installs/node/lts/bin/mcp-playwright",
+        "--headless"
       ],
-      "disabled": false,
-      "autoApprove": []
+      "autoApprove": [
+        "browser_navigate",
+        "browser_type"
+      ]
     },
     "github": {
-      "command": "/home/caesar/.local/share/mise/installs/node/lts/bin/node",
+      "command": "docker",
       "args": [
-        "/home/caesar/.local/share/mise/installs/node/lts/bin/mcp-server-github"
+        "run",
+        "-i",
+        "--rm",
+        "-e",
+        "GITHUB_PERSONAL_ACCESS_TOKEN",
+        "mcp/github"
       ],
       "env": {
         "GITHUB_PERSONAL_ACCESS_TOKEN": ""
-      },
-      "disabled": false,
-      "autoApprove": []
+      }
+    },
+    "basic-memory": {
+      "command": "uvx",
+      "args": [
+        "basic-memory",
+        "mcp"
+      ]
+    },
+    "ddg-search": {
+      "command": "uvx",
+      "args": [
+        "duckduckgo-mcp-server"
+      ]
     }
   }
 }

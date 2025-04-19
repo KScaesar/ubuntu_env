@@ -50,7 +50,7 @@ sudo add-apt-repository -y ppa:cappelikan/ppa # mainline
 
 sudo apt update && sudo apt install --yes \
   xclip \
-  build-essential git curl \
+  build-essential git git-flow curl \
   apt-rdepends \
   mtools \
   exfatprogs \

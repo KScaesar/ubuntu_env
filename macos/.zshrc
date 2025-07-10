@@ -1,3 +1,9 @@
+# Fix Option+Left/Right not jumping words in VSCode integrated terminal
+bindkey "^[b" backward-word
+bindkey "^[f" forward-word
+
+alias ll='ls -alhF'
+
 # poetry
 fpath+=~/.zsh
 
@@ -16,8 +22,8 @@ pw
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+eval "$(pyenv init - zsh)"
+#eval "$(pyenv virtualenv-init -)"
 
 # goenv
 export GOENV_ROOT="$HOME/.goenv"
@@ -27,7 +33,6 @@ export PATH="$GOROOT/bin:$PATH"
 
 source $(goenv root)/completions/goenv.zsh
 source $(pyenv root)/completions/pyenv.zsh
-source <(pip completion --zsh)
 
 # fzf
 export FZF_DEFAULT_OPTS="--multi --bind=alt-k:up,alt-j:down --bind 'home:last,end:first' --bind 'ctrl-o:execute(vim {}),ctrl-]:execute(sudo vim {})' --preview 'echo {}' --preview-window top:40%:hidden:wrap --bind 'ctrl-p:toggle-preview'"

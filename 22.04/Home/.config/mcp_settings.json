@@ -28,26 +28,6 @@
         "fetch"
       ]
     },
-    "time": {
-      "command": "uvx",
-      "args": [
-        "mcp-server-time",
-        "--local-timezone",
-        "Asia/Taipei"
-      ],
-      "disabled": false,
-      "autoApprove": []
-    },
-    "git": {
-      "command": "uvx",
-      "args": [
-        "mcp-server-git",
-        "--repository",
-        "/home/caesar/Cline/MCP/git"
-      ],
-      "disabled": false,
-      "autoApprove": []
-    },
     "sequentialthinking": {
       "command": "docker",
       "args": [
@@ -58,24 +38,16 @@
       ]
     },
     "filesystem": {
-      "command": "/home/caesar/.local/share/mise/installs/node/latest/bin/node",
+      "command": "npx",
       "args": [
-        "/home/caesar/.local/share/mise/installs/node/lts/bin/mcp-server-filesystem",
-        "/home/caesar/basic-memory",
-        "/home/caesar/dev"
-      ],
-      "disabled": false,
-      "autoApprove": []
+        "-y",
+        "@modelcontextprotocol/server-filesystem"
+      ]
     },
     "playwright": {
-      "command": "/home/caesar/.local/share/mise/installs/node/lts/bin/node",
+      "command": "npx",
       "args": [
-        "/home/caesar/.local/share/mise/installs/node/lts/bin/mcp-playwright",
-        "--headless"
-      ],
-      "autoApprove": [
-        "browser_navigate",
-        "browser_type"
+        "@playwright/mcp@latest"
       ]
     },
     "github": {
@@ -99,6 +71,19 @@
         "mcp"
       ],
       "autoApprove": []
+    },
+    "context7": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp"
+      ]
+    },
+    "markitdown": {
+      "command": "uvx",
+      "args": [
+        "markitdown-mcp"
+      ]
     },
     "ddg-search": {
       "command": "uvx",

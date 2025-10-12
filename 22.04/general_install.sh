@@ -45,6 +45,7 @@ go install github.com/sachaos/viddy@latest    # watch 替代工具
 go install github.com/google/pprof@latest
 go install github.com/tomnomnom/gron@latest
 go install github.com/antonmedv/walk@latest
+go install github.com/jesseduffield/lazydocker@latest
 
 uv tool install git-filter-repo
 uv tool install gitingest

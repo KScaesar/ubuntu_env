@@ -1,6 +1,6 @@
 [user]
-	name = ksCaesar
-	email = x246libra@hotmail.com
+	name = caesar.tsai
+	email = caesar.tsai@tgc-taiwan.com.tw
 
 [core]
 #	editor = code --wait
@@ -33,7 +33,8 @@
 	br = branch --column=never
 	st = status
 	co = commit --date=now
-	l = log --oneline --graph
+	l = log --graph --abbrev-commit --date=short --pretty=format:'%C(auto)%h %Cgreen%ad%Creset %Cblue%cn%Creset %s'
+	log-list = log --graph --abbrev-commit --date=short --pretty=format:'%C(auto)%h %Cgreen%ad%Creset %s'
 
 # https://blog.gitbutler.com/how-git-core-devs-configure-git/
 [column]
@@ -53,3 +54,6 @@
         followTags = true
 [fetch]
         pruneTags = true
+
+[url "ssh://git@gitlab.svc.litv.tv/"]
+	insteadOf = https://gitlab.svc.litv.tv/

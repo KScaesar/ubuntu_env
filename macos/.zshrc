@@ -53,3 +53,15 @@ if [ -f '/Users/caesar.tsai/dev/google-cloud-sdk/path.zsh.inc' ]; then . '/Users
 if [ -f '/Users/caesar.tsai/dev/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/caesar.tsai/dev/google-cloud-sdk/completion.zsh.inc'; fi
 
 eval "$(uv generate-shell-completion zsh)"
+
+# 
+
+alias ai-commit-detail='gemini --yolo -p "/commit detail=true"'
+alias ai-commit='gemini --yolo -p "/commit"'
+
+ai-propmt() {
+  echo '
+[1] cp -r ~/vibe-coder/prompts $(pwd)/
+[2] gemini --yolo -p "/review old={xx} new=$(git rev-parse --short HEAD) detail=true"
+'
+}

@@ -105,7 +105,8 @@ sudo apt update && sudo apt install --yes \
   kolourpaint \
   vokoscreen \
   peek \
-  pavucontrol
+  pavucontrol \
+  qpdf
 
 ## cli tool
 sudo apt update && sudo apt install --yes \

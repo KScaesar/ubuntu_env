@@ -116,6 +116,10 @@ sudo apt update && sudo apt install --yes \
 
 tldr --update
 
+## witr
+# https://github.com/pranshuparmar/witr?tab=readme-ov-file#83-script-installation-recommended
+curl -fsSL https://raw.githubusercontent.com/pranshuparmar/witr/main/install.sh | bash
+
 ## fzf
 # https://github.com/junegunn/fzf/tree/master/shell
 curl https://raw.githubusercontent.com/junegunn/fzf/master/bin/fzf-preview.sh -o ~/.local/bin/fzf-preview.sh && chmod 755 ~/.local/bin/fzf-preview.sh

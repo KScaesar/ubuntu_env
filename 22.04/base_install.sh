@@ -112,7 +112,8 @@ sudo apt update && sudo apt install --yes \
 sudo apt update && sudo apt install --yes \
   tldr \
   htop \
-  tree
+  tree \
+  vim-gtk3
 
 tldr --update
 

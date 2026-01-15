@@ -57,7 +57,7 @@ if [ -f '/Users/caesar.tsai/dev/google-cloud-sdk/completion.zsh.inc' ]; then . '
 # ai 
 ai-commit() {
   local params="$*"
-  gemini -m gemini-3-flash-preview --yolo -p "/commit $params"
+  gemini --yolo -p "/commit $params"
 }
 
 ai-propmt() {

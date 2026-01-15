@@ -19,6 +19,9 @@ alias ctop='docker run --rm -it \
 
 pw
 
+# https://github.com/antonmedv/walk
+export EDITOR=vim
+
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
@@ -33,15 +36,14 @@ export PATH="$GOROOT/bin:$PATH"
 
 source $(goenv root)/completions/goenv.zsh
 source $(pyenv root)/completions/pyenv.zsh
+source <(fzf --zsh)
+source <(atlas completion zsh)
+source <(opencode completion zsh)
+source <(codex completion zsh)
+eval "$(uv generate-shell-completion zsh)"
 
 # fzf
 export FZF_DEFAULT_OPTS="--multi --bind=alt-k:up,alt-j:down --bind 'home:last,end:first' --bind 'ctrl-o:execute(vim {}),ctrl-]:execute(sudo vim {})' --preview 'echo {}' --preview-window top:40%:hidden:wrap --bind 'ctrl-p:toggle-preview'"
-
-source <(fzf --zsh)
-source <(atlas completion zsh)
-
-# https://github.com/antonmedv/walk
-export EDITOR=vim
 
 # starship
 eval "$(starship init zsh)"
@@ -52,12 +54,11 @@ if [ -f '/Users/caesar.tsai/dev/google-cloud-sdk/path.zsh.inc' ]; then . '/Users
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/caesar.tsai/dev/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/caesar.tsai/dev/google-cloud-sdk/completion.zsh.inc'; fi
 
-eval "$(uv generate-shell-completion zsh)"
-
-# 
-
-alias ai-commit-detail='gemini --yolo -p "/commit detail=true"'
-alias ai-commit='gemini --yolo -p "/commit"'
+# ai 
+ai-commit() {
+  local params="$*"
+  gemini -m gemini-3-flash-preview --yolo -p "/commit $params"
+}
 
 ai-propmt() {
   echo '
@@ -65,3 +66,6 @@ ai-propmt() {
 [2] gemini --yolo -p "/review old={xx} new=$(git rev-parse --short HEAD) detail=true"
 '
 }
+
+# Added by Antigravity
+export PATH="/Users/caesar.tsai/.antigravity/antigravity/bin:$PATH"

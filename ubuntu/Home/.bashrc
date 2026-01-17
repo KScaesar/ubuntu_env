@@ -126,21 +126,21 @@ pw
 
 bind 'set enable-bracketed-paste off'
 
-# mise
-eval "$(/home/caesar/.local/bin/mise activate bash)"
+# https://github.com/antonmedv/walk
+export EDITOR=vim
 
 # Added for goenv
 export GOENV_ROOT="$HOME/.goenv"
 export PATH="$GOENV_ROOT/bin:$PATH"
-source $(goenv root)/completions/goenv.bash
 eval "$(goenv init -)"
 export PATH="$GOROOT/bin:$PATH"
-complete -C /home/caesar/.local/bin/gocomplete go
 
 # Added for pyenv
-eval "$(pyenv virtualenv-init -)"
-source $(pyenv root)/completions/pyenv.bash
-source <(pip completion --bash)
+#eval "$(pyenv virtualenv-init -)"
+
+# mise
+# https://mise.jdx.dev/getting-started.html
+eval "$(mise activate bash)"
 
 # fzf
 export FZF_DEFAULT_OPTS="--multi --bind=alt-k:up,alt-j:down --bind 'home:last,end:first' --bind 'ctrl-o:execute(vim {}),ctrl-]:execute(sudo vim {})' --preview 'echo {}' --preview-window top:40%:hidden:wrap --bind 'ctrl-p:toggle-preview'"
@@ -149,10 +149,27 @@ export FZF_DEFAULT_OPTS="--multi --bind=alt-k:up,alt-j:down --bind 'home:last,en
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-# https://github.com/antonmedv/walk
-export EDITOR=vim
-
-# Starship 
+# starship 
 eval "$(starship init bash)"
 
+# ai 
+ai-commit() {
+  local params="$*"
+  gemini --yolo "/commit $params"
+}
+
+ai-prompt() {
+  echo '
+[1] cp -r ~/vibe-coder/prompts $(pwd)/
+[2] gemini --yolo "/review old={xx} new=$(git rev-parse --short HEAD) detail=true"
+'
+}
+
+# completion
+complete -C /home/caesar/.local/bin/gocomplete go
+source $(goenv root)/completions/goenv.bash
+source $(pyenv root)/completions/pyenv.bash
+source <(atlas completion bash)
+eval "$(uv generate-shell-completion bash)"
+eval "$(fzf --bash)"
 

@@ -34,14 +34,6 @@ export PATH="$GOENV_ROOT/bin:$PATH"
 eval "$(goenv init -)"
 export PATH="$GOROOT/bin:$PATH"
 
-source $(goenv root)/completions/goenv.zsh
-source $(pyenv root)/completions/pyenv.zsh
-source <(fzf --zsh)
-source <(atlas completion zsh)
-source <(opencode completion zsh)
-source <(codex completion zsh)
-eval "$(uv generate-shell-completion zsh)"
-
 # fzf
 export FZF_DEFAULT_OPTS="--multi --bind=alt-k:up,alt-j:down --bind 'home:last,end:first' --bind 'ctrl-o:execute(vim {}),ctrl-]:execute(sudo vim {})' --preview 'echo {}' --preview-window top:40%:hidden:wrap --bind 'ctrl-p:toggle-preview'"
 
@@ -57,15 +49,24 @@ if [ -f '/Users/caesar.tsai/dev/google-cloud-sdk/completion.zsh.inc' ]; then . '
 # ai 
 ai-commit() {
   local params="$*"
-  gemini --yolo -p "/commit $params"
+  gemini --yolo "/commit $params"
 }
 
-ai-propmt() {
+ai-prompt() {
   echo '
 [1] cp -r ~/vibe-coder/prompts $(pwd)/
-[2] gemini --yolo -p "/review old={xx} new=$(git rev-parse --short HEAD) detail=true"
+[2] gemini --yolo "/review old={xx} new=$(git rev-parse --short HEAD) detail=true"
 '
 }
 
 # Added by Antigravity
 export PATH="/Users/caesar.tsai/.antigravity/antigravity/bin:$PATH"
+
+# completions
+source $(goenv root)/completions/goenv.zsh
+source $(pyenv root)/completions/pyenv.zsh
+source <(atlas completion zsh)
+source <(opencode completion zsh)
+source <(codex completion zsh)
+eval "$(uv generate-shell-completion zsh)"
+eval "$(fzf --bash)"

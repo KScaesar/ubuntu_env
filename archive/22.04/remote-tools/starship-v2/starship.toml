@@ -1,0 +1,52 @@
+# https://starship.rs/config/#prompt
+
+format = "$all\n$character"
+add_newline = false
+[line_break]
+disabled = true
+
+[character]
+format = " $symbol "
+error_symbol = "[X](bold #FF0000)"
+success_symbol = "[>](bold #00EC00)"
+
+[username]
+show_always = true
+style_user = "bold fg:#32cd32"
+style_root = "bold fg:#EA0000"
+format = """
+[$user]($style) \
+"""
+
+[hostname]
+ssh_only = false
+ssh_symbol = ''
+
+[directory]
+truncation_length = 0
+truncate_to_repo = false
+style = "bold #FFFFFF"
+
+[time]
+disabled = false
+time_format = '%R'
+style = "bold fg:#BE77FF"
+format = '[\[$time\]]($style) '
+
+[os]
+disabled = true
+
+[localip]
+disabled = false
+ssh_only = false
+style = "bold yellow"
+
+[sudo]
+disabled = false
+
+[git_commit]
+commit_hash_length = 6
+only_detached = false
+
+[git_status]
+disabled = true

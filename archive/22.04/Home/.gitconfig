@@ -1,0 +1,59 @@
+[user]
+	name = caesar.tsai
+	email = caesar.tsai@tgc-taiwan.com.tw
+
+[core]
+#	editor = code --wait
+	autocrlf = input
+	ignorecase = false
+	editor = vim
+
+[merge]
+#	tool = vscode
+[mergetool "vscode"]
+	cmd = code --wait $MERGED
+
+[diff]
+	tool = vscode
+
+# git difftool -y Other Target
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE
+
+[credential]
+	helper = store
+[init]
+	defaultBranch = main
+[pull]
+	rebase = false
+[push]
+	autoSetupRemote = true
+[alias]
+	ch = checkout
+	br = branch --column=never
+	st = status
+	co = commit --date=now
+	l = log --graph --abbrev-commit --date=short --pretty=format:'%C(auto)%h %Cgreen%ad%Creset %Cblue%cn%Creset %s'
+	log-list = log --graph --abbrev-commit --date=short --pretty=format:'%C(auto)%h %Cgreen%ad%Creset %s'
+
+# https://blog.gitbutler.com/how-git-core-devs-configure-git/
+[column]
+        ui = auto
+[branch]
+        sort = -committerdate
+[tag]
+        sort = -version:refname
+[diff]
+        algorithm = histogram
+        colorMoved = plain
+        mnemonicPrefix = true
+        renames = true
+[push]
+        default = simple
+        autoSetupRemote = true
+        followTags = true
+[fetch]
+        pruneTags = true
+
+[url "ssh://git@gitlab.svc.litv.tv/"]
+	insteadOf = https://gitlab.svc.litv.tv/

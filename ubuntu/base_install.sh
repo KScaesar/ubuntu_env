@@ -62,7 +62,8 @@ sudo apt update && sudo apt install --yes \
   cpu-checker \
   lm-sensors \
   acpi \
-  gparted
+  gparted \
+  libxapp-gtk3-module
 
 ## git
 git config --global user.name "ksCaesar"

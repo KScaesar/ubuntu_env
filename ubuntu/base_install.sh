@@ -207,7 +207,7 @@ EOF
 
 ## uv
 # https://docs.astral.sh/uv/getting-started/installation/
-curl -LsSf https://astral.sh/uv/install.sh | sh
+curl -LsSf https://astral.sh/uv/install.sh | sudo UV_INSTALL_DIR="/usr/local/bin" sh
 echo 'eval "$(uv generate-shell-completion bash)"' >> ~/.bashrc
 Python_Version=3.13.2
 uv python install $Python_Version

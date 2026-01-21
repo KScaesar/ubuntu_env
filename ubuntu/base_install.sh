@@ -246,8 +246,7 @@ gocomplete -install -y
 ## mise
 # https://mise.jdx.dev/getting-started.html
 # https://usage.jdx.dev/cli/
-curl https://mise.run | sh
-echo "eval \"\$(/home/caesar/.local/bin/mise activate bash)\"" >> ~/.bashrc
+curl https://mise.run | MISE_INSTALL_PATH=/usr/local/bin/mise sh
 mise use -g usage
 mise completion bash | sudo tee /etc/bash_completion.d/mise.bash
 

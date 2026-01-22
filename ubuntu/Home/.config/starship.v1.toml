@@ -1,0 +1,185 @@
+# https://starship.rs/config/#prompt
+
+format = "$all\n$character"
+add_newline = false
+[line_break]
+disabled = true
+
+[hostname]
+ssh_only = true # remote machine set to false
+ssh_symbol = ''
+
+[character]
+format = " $symbol "
+error_symbol = "[X](bold #FF0000)"
+success_symbol = "[>](bold #00EC00)"
+
+[username]
+show_always = true
+style_user = "bold fg:#32cd32"
+style_root = "bold fg:#EA0000"
+format = """
+[$user]($style) \
+"""
+
+[directory]
+truncation_length = 0
+truncate_to_repo = false
+style = "bold #FFFFFF"
+
+[time]
+disabled = false
+time_format = '%R'
+style = "bold fg:#BE77FF"
+format = '[\[$time\]]($style) '
+
+[os]
+disabled = true
+
+[localip]
+disabled = false
+ssh_only = false
+style = "bold yellow"
+
+[sudo]
+disabled = false
+
+[git_commit]
+commit_hash_length = 6
+only_detached = false
+
+[git_status]
+disabled = true
+
+#
+
+[golang]
+symbol = " "
+
+[aws]
+symbol = "  "
+
+[buf]
+symbol = " "
+
+[c]
+symbol = " "
+
+[conda]
+symbol = " "
+
+[dart]
+symbol = " "
+
+[docker_context]
+symbol = " "
+
+[elixir]
+symbol = " "
+
+[elm]
+symbol = " "
+
+[fossil_branch]
+symbol = " "
+
+[git_branch]
+symbol = " "
+
+[guix_shell]
+symbol = " "
+
+[haskell]
+symbol = " "
+
+[haxe]
+symbol = "⌘ "
+
+[hg_branch]
+symbol = " "
+
+[java]
+symbol = " "
+
+[julia]
+symbol = " "
+
+[lua]
+symbol = " "
+
+[memory_usage]
+symbol = " "
+
+[meson]
+symbol = "喝 "
+
+[nim]
+symbol = " "
+
+[nix_shell]
+symbol = " "
+
+[nodejs]
+symbol = " "
+
+[os.symbols]
+Alpine = " "
+Amazon = " "
+Android = " "
+Arch = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Emscripten = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Garuda = "﯑ "
+Gentoo = " "
+HardenedBSD = "ﲊ "
+Illumos = " "
+Linux = " "
+Macos = " "
+Manjaro = " "
+Mariner = " "
+MidnightBSD = " "
+Mint = " "
+NetBSD = " "
+NixOS = " "
+OpenBSD = " "
+openSUSE = " "
+OracleLinux = " "
+Pop = " "
+Raspbian = " "
+Redhat = " "
+RedHatEnterprise = " "
+Redox = " "
+Solus = "ﴱ "
+SUSE = " "
+Ubuntu = " "
+Unknown = " "
+Windows = " "
+
+[package]
+symbol = " "
+
+[pijul_channel]
+symbol = "🪺 "
+
+[python]
+symbol = " "
+
+[rlang]
+symbol = "ﳒ "
+
+[ruby]
+symbol = " "
+
+[rust]
+symbol = " "
+
+[scala]
+symbol = " "
+
+[spack]
+symbol = "🅢 "

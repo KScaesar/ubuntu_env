@@ -66,9 +66,9 @@ sudo apt update && sudo apt install --yes \
   libxapp-gtk3-module
 
 ## git
+echo 'export EDITOR=vim' >> ~/.bashrc
 git config --global user.name "ksCaesar"
 git config --global user.email "x246libra@htomail.com"
-git config --global core.editor "vim"
 git config --global credential.helper store
 
 ## fcitx5
@@ -119,7 +119,7 @@ sudo apt update && sudo apt install --yes \
 tldr --update
 
 ## witr
-# https://github.com/pranshuparmar/witr?tab=readme-ov-file#83-script-installation-recommended
+# https://github.com/pranshuparmar/witr
 curl -fsSL https://raw.githubusercontent.com/pranshuparmar/witr/main/install.sh | bash
 
 ## fzf
@@ -179,6 +179,8 @@ for font in "${fonts[@]}"; do
 done
 fc-cache -f
 
+
+
 ## starship
 # https://starship.rs/guide/#%F0%9F%9A%80-installation
 curl -sS https://starship.rs/install.sh | sh -s -- --yes
@@ -189,23 +191,6 @@ echo -e "\n# Starship prompt\neval \"\$(starship init bash)\"" >>~/.bashrc
 starship preset plain-text-symbols | sudo tee /root/.config/starship.toml >/dev/null
 sudo sh -c 'echo "\n# Starship prompt\neval \"\$(starship init bash)\"" >> /root/.bashrc'
 
-## pyenv
-# https://github.com/pyenv/pyenv/wiki#suggested-build-environment
-
-# https://github.com/pyenv/pyenv#automatic-installer
-curl https://pyenv.run | bash
-
-# need logout in order to reset enviroment variable
-pyenv install --list | grep "  3." | tail -n 15
-Python_Version=3.12.0
-pyenv install "$Python_Version" && pyenv global "$Python_Version"
-
-cat <<'EOF' >>~/.bashrc
-# Add for python
-source $(pyenv root)/completions/pyenv.bash
-source <(pip completion --bash)
-EOF
-
 ## uv
 # https://docs.astral.sh/uv/getting-started/installation/
 curl -LsSf https://astral.sh/uv/install.sh | sudo UV_INSTALL_DIR="/usr/local/bin" sh
@@ -214,52 +199,21 @@ Python_Version=3.13.2
 uv python install $Python_Version
 uv python pin $Python_Version --global
 
-## goenv
-# https://github.com/go-nv/goenv/blob/master/INSTALL.md
-git clone https://github.com/go-nv/goenv.git ~/.goenv
-
-cat <<'EOF' >>~/.bashrc
-# Add for goenv
-export GOENV_ROOT="$HOME/.goenv"
-export PATH="$GOENV_ROOT/bin:$PATH"
-eval "$(goenv init -)"
-EOF
-
-# https://github.com/go-nv/goenv/blob/master/COMMANDS.md
-# need logout in order to reset enviroment variable
-goenv install --list | tail -n 15
-GO_Version=1.21.4
-goenv install "$GO_Version" && goenv global "$GO_Version"
-
-go env -w GOBIN="$HOME"/.local/bin
-go env -w GO111MODULE=on
-go env -w CGO_ENABLED=0
-
-cat <<'EOF' >>~/.bashrc
-# Add for golang
-source $(goenv root)/completions/goenv.bash
-export PATH="$GOROOT/bin:$PATH"
-EOF
-
-go install github.com/posener/complete/gocomplete@latest
-gocomplete -install -y
-
 ## mise
 # https://mise.jdx.dev/getting-started.html
-# https://usage.jdx.dev/cli/
-curl https://mise.run | MISE_INSTALL_PATH=/usr/local/bin/mise sh
-mise use -g usage
-mise completion bash | sudo tee /etc/bash_completion.d/mise.bash
+curl https://mise.run | sudo MISE_INSTALL_PATH=/usr/local/bin/mise sh
+echo 'eval "$(mise activate bash)"' >> ~/.bashrc
+echo 'eval "$(mise activate bash --shims)"' >> ~/.profile
+mise use -g usage@latest
+echo 'eval "$(mise completion bash)"' >> ~/.bashrc
 
-## node
-mise use --global node@lts
+## misc
+mise use -g node@lts
+mise use -g go@latest
 
-## sdkman
-# https://sdkman.io/install
-curl -s "https://get.sdkman.io" | bash
-source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-# https://blog.miniasp.com/post/2022/09/17/Useful-tool-SDKMAN
-sdk list java
-sdk install java 11.0.21-zulu
-sdk default java 11.0.21-zulu
+## go
+go env -w CGO_ENABLED=0
+go env -w GOBIN="$HOME"/.local/bin
+mise set --global GOBIN='{{ env.HOME }}/.local/bin'
+mise use -g go:github.com/posener/complete/gocomplete@latest
+gocomplete -install -y

@@ -1,0 +1,7 @@
+[tools]
+node = "lts"
+go = "latest"
+
+[env]
+GOBIN = "{{ env.HOME }}/.local/bin"
+

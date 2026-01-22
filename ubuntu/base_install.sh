@@ -179,18 +179,6 @@ for font in "${fonts[@]}"; do
 done
 fc-cache -f
 
-
-
-## starship
-# https://starship.rs/guide/#%F0%9F%9A%80-installation
-curl -sS https://starship.rs/install.sh | sh -s -- --yes
-
-starship preset bracketed-segments -o ~/.config/starship.toml
-echo -e "\n# Starship prompt\neval \"\$(starship init bash)\"" >>~/.bashrc
-
-starship preset plain-text-symbols | sudo tee /root/.config/starship.toml >/dev/null
-sudo sh -c 'echo "\n# Starship prompt\neval \"\$(starship init bash)\"" >> /root/.bashrc'
-
 ## uv
 # https://docs.astral.sh/uv/getting-started/installation/
 curl -LsSf https://astral.sh/uv/install.sh | sudo UV_INSTALL_DIR="/usr/local/bin" sh
@@ -217,3 +205,13 @@ go env -w GOBIN="$HOME"/.local/bin
 mise set --global GOBIN='{{ env.HOME }}/.local/bin'
 mise use -g go:github.com/posener/complete/gocomplete@latest
 gocomplete -install -y
+
+## starship
+# https://starship.rs/guide/#%F0%9F%9A%80-installation
+curl -sS https://starship.rs/install.sh | sh -s -- --yes
+
+starship preset bracketed-segments -o ~/.config/starship.toml
+echo -e "\n# Starship prompt\neval \"\$(starship init bash)\"" >>~/.bashrc
+
+starship preset plain-text-symbols | sudo tee /root/.config/starship.toml >/dev/null
+sudo sh -c 'echo "\n# Starship prompt\neval \"\$(starship init bash)\"" >> /root/.bashrc'

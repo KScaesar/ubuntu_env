@@ -55,5 +55,3 @@
 [fetch]
         pruneTags = true
 
-[url "ssh://git@gitlab.svc.litv.tv/"]
-	insteadOf = https://gitlab.svc.litv.tv/

@@ -2,18 +2,18 @@ set nocompatible
 set encoding=utf-8
 
 syntax on
-"set relativenumber
+set number
+set relativenumber
 set hlsearch
 set incsearch
 set ruler
-set number
 set cursorline
 set cindent
 set confirm
 set laststatus=2
 set showcmd
 set showmode
-set mouse=a
+"set mouse=n
 set ignorecase
 set smartcase
 
@@ -21,9 +21,7 @@ set t_Co=256
 hi CursorLine cterm=none ctermbg=DarkMagenta ctermfg=White
 hi Search cterm=reverse ctermbg=none ctermfg=none
 
-if exists('g:vscode')
-  set clipboard=unnamed
-endif
+set clipboard^=unnamed,unnamedplus
 
 "keymap
 imap jj <Esc>
@@ -40,6 +38,10 @@ noremap L $
 
 noremap zp makp`aO<Esc>jzz
 noremap <Space>vf V$%^
+
+nnoremap <leader>n :set number relativenumber<CR>
+nnoremap <leader>nn :set number norelativenumber<CR>
+nnoremap <leader>N :set nonumber norelativenumber<CR>
 
 "plugin
 call plug#begin('~/.config/nvim')

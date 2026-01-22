@@ -2,8 +2,8 @@ nmap <Space>so :source /home/caesar/.ideavimrc <CR>
 
 "http://ideavim.sourceforge.net/vim/options.html
 
-"set relativenumber
-"set number
+set number
+set relativenumber
 set hlsearch
 set incsearch
 set showmode
@@ -29,6 +29,10 @@ noremap L $
 
 noremap zp mFkp`FO<Esc>jzz:delm F<CR>
 noremap <Space>vf V$%^
+
+nnoremap <leader>n :set number relativenumber<CR>
+nnoremap <leader>nn :set number norelativenumber<CR>
+nnoremap <leader>N :set nonumber norelativenumber<CR>
 
 "nmap <S-F1> mb?func<CR>vf{%y`bpo<Esc>?Test<CR>/<Space>t?<CR>[wct(
 

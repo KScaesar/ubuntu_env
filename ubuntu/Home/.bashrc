@@ -129,25 +129,12 @@ bind 'set enable-bracketed-paste off'
 # https://github.com/antonmedv/walk
 export EDITOR=vim
 
-# Added for goenv
-export GOENV_ROOT="$HOME/.goenv"
-export PATH="$GOENV_ROOT/bin:$PATH"
-eval "$(goenv init -)"
-export PATH="$GOROOT/bin:$PATH"
-
-# Added for pyenv
-#eval "$(pyenv virtualenv-init -)"
-
 # mise
 # https://mise.jdx.dev/getting-started.html
 eval "$(mise activate bash)"
 
 # fzf
 export FZF_DEFAULT_OPTS="--multi --bind=alt-k:up,alt-j:down --bind 'home:last,end:first' --bind 'ctrl-o:execute(vim {}),ctrl-]:execute(sudo vim {})' --preview 'echo {}' --preview-window top:40%:hidden:wrap --bind 'ctrl-p:toggle-preview'"
-
-# THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # starship 
 eval "$(starship init bash)"
@@ -167,9 +154,12 @@ ai-prompt() {
 
 # completion
 complete -C /home/caesar/.local/bin/gocomplete go
-source $(goenv root)/completions/goenv.bash
-source $(pyenv root)/completions/pyenv.bash
 source <(atlas completion bash)
 eval "$(uv generate-shell-completion bash)"
 eval "$(fzf --bash)"
+eval "$(mise completion bash --include-bash-completion-lib)"
 
+# Ghostty Shell Integration
+if [ -n "$GHOSTTY_RESOURCES_DIR" ]; then
+    source "$GHOSTTY_RESOURCES_DIR/shell-integration/bash/ghostty.bash"
+fi

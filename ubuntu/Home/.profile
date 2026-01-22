@@ -27,12 +27,7 @@ if [ -n "$BASH_VERSION" ]; then
 fi
 
 # Added by Toolbox App
-export PATH="$PATH:/home/caesar/.local/share/JetBrains/Toolbox/scripts"
+export PATH="/home/caesar/.local/share/JetBrains/Toolbox/scripts:$PATH"
 
-# Added for pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
-
-
+# mise
+eval "$(mise activate bash --shims)"

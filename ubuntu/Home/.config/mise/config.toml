@@ -1,7 +1,10 @@
 [tools]
+maven = "3.9.11"
 node = "lts"
+usage = "latest"
+java = "zulu-21.40.17.0"
 go = "latest"
+k6 = "latest"
 
 [env]
 GOBIN = "{{ env.HOME }}/.local/bin"
-

@@ -22,17 +22,9 @@ pw
 # https://github.com/antonmedv/walk
 export EDITOR=vim
 
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - zsh)"
-#eval "$(pyenv virtualenv-init -)"
-
-# goenv
-export GOENV_ROOT="$HOME/.goenv"
-export PATH="$GOENV_ROOT/bin:$PATH"
-eval "$(goenv init -)"
-export PATH="$GOROOT/bin:$PATH"
+# mise
+# https://mise.jdx.dev/getting-started.html
+eval "$(mise activate zsh)"
 
 # fzf
 export FZF_DEFAULT_OPTS="--multi --bind=alt-k:up,alt-j:down --bind 'home:last,end:first' --bind 'ctrl-o:execute(vim {}),ctrl-]:execute(sudo vim {})' --preview 'echo {}' --preview-window top:40%:hidden:wrap --bind 'ctrl-p:toggle-preview'"
@@ -63,10 +55,12 @@ ai-prompt() {
 export PATH="/Users/caesar.tsai/.antigravity/antigravity/bin:$PATH"
 
 # completions
-source $(goenv root)/completions/goenv.zsh
-source $(pyenv root)/completions/pyenv.zsh
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /Users/caesar.tsai/.local/share/mise/installs/go-github-com-posener-complete-gocomplete/1.2.3/bin/gocomplete go
+
 source <(atlas completion zsh)
 source <(opencode completion zsh)
 source <(codex completion zsh)
 eval "$(uv generate-shell-completion zsh)"
-eval "$(fzf --bash)"
+eval "$(fzf --zsh)"
+eval "$(mise completion zsh)"

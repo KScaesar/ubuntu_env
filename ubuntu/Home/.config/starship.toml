@@ -10,6 +10,7 @@ $directory\
 [](fg:color_yellow bg:color_aqua)\
 $git_branch\
 $git_status\
+$git_state\
 [](fg:color_aqua bg:color_blue)\
 $c\
 $cpp\
@@ -30,6 +31,7 @@ $time\
 [ ](fg:color_bg1)\
 $cmd_duration\
 $line_break$character"""
+
 palette = "gruvbox_dark"
 
 [palettes.gruvbox_dark]
@@ -103,7 +105,11 @@ format = "[[ $symbol $branch ](fg:color_fg0 bg:color_aqua)]($style)"
 
 [git_status]
 style = "bg:color_aqua"
-format = "[[($all_status$ahead_behind )](fg:color_fg0 bg:color_aqua)]($style)"
+format = "[[$all_status$ahead_behind ](fg:color_fg0 bg:color_aqua)]($style)"
+
+[git_state]
+style = "bg:color_aqua"
+format = "[[\\($state( $progress_current of $progress_total)\\) ](fg:color_fg0 bg:color_aqua)]($style)"
 
 [nodejs]
 symbol = ""
@@ -153,7 +159,7 @@ format = "[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)"
 [python]
 symbol = ""
 style = "bg:color_blue"
-format = "[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)"
+format = "[[ $symbol( $version) \\($virtualenv\\) ](fg:color_fg0 bg:color_blue)]($style)"
 
 [docker_context]
 symbol = ""

@@ -3,14 +3,11 @@
 .idea/**
 
 *keys/**
-!keys/template-*
+!keys/example*
 
 *configs/**
-!configs/template-*
+!configs/example*
 !configs/*.go
-
-.go-version
-.python-version
 
 # go,python,jupyternotebooks,react,node,rust,windows,macos,linux
 # get by https://www.toptal.com/developers/gitignore

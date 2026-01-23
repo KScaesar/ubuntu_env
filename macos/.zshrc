@@ -41,7 +41,8 @@ if [ -f '/Users/caesar.tsai/dev/google-cloud-sdk/completion.zsh.inc' ]; then . '
 # ai 
 ai-commit() {
   local params="$*"
-  gemini --yolo "/commit $params"
+  opencode -m google/antigravity-gemini-3-flash run "use git-commit skill with $params" 2>/dev/null
+#  gemini --yolo "/commit $params"
 }
 
 ai-prompt() {

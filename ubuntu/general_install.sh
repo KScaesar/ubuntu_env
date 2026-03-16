@@ -33,7 +33,10 @@ graphviz \
 jq \
 tmux \
 ipcalc socat \
-fio 
+fio
+
+# https://github.com/tsl0922/ttyd
+sudo snap install ttyd --classic
 
 ## o11y tool
 sudo apt update && sudo apt install --yes \
